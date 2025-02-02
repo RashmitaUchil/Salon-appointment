@@ -1,0 +1,470 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\React\\Spa appointment\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Styles\\Footer.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Styles\\Footer.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Components\\Footer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Components\\Footer.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\About.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\About.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\backend\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\appsettings.Development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\ServicePage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\ServicePage.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Styles\\Home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Styles\\Home.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\Home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\Home.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Components\\Navbar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Components\\Navbar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Styles\\Navbar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Styles\\Navbar.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\App.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\Signup.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\Signup.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\Book.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\Book.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Components\\UserCard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Components\\UserCard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\Profile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\Profile.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\ShowAppointment.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\ShowAppointment.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\Login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\Login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Styles\\Profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Styles\\Profile.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Styles\\Book.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Styles\\Book.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\backend\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:backend\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Components\\Footer.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Components\\Footer.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\ShowAppointment.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\ShowAppointment.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\Pages\\Signup.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\Pages\\Signup.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\src\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\React\\Spa appointment\\client\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:client\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Book.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\Book.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\Book.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\Book.js",
+              "RelativeToolTip": "client\\src\\Pages\\Book.js",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwAUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T08:59:34.661Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Home.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\Home.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\Home.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\Home.js",
+              "RelativeToolTip": "client\\src\\Pages\\Home.js",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwHoAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T08:58:35.577Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Profile.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\Profile.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\Profile.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\Profile.js",
+              "RelativeToolTip": "client\\src\\Pages\\Profile.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T08:43:33.721Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:335392368:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1782749043:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1134461725:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Footer.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Styles\\Footer.css",
+              "RelativeDocumentMoniker": "client\\src\\Styles\\Footer.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Styles\\Footer.css",
+              "RelativeToolTip": "client\\src\\Styles\\Footer.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T15:32:40.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "About.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\About.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\About.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\About.js",
+              "RelativeToolTip": "client\\src\\Pages\\About.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T12:56:20.113Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Footer.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Components\\Footer.js",
+              "RelativeDocumentMoniker": "client\\src\\Components\\Footer.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Components\\Footer.js",
+              "RelativeToolTip": "client\\src\\Components\\Footer.js",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T09:59:45.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\backend\\appsettings.json",
+              "RelativeDocumentMoniker": "backend\\appsettings.json",
+              "ToolTip": "C:\\React\\Spa appointment\\backend\\appsettings.json",
+              "RelativeToolTip": "backend\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-02T15:28:35.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\backend\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "backend\\appsettings.Development.json",
+              "ToolTip": "C:\\React\\Spa appointment\\backend\\appsettings.Development.json",
+              "RelativeToolTip": "backend\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-02T15:28:34.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Navbar.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Styles\\Navbar.css",
+              "RelativeDocumentMoniker": "client\\src\\Styles\\Navbar.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Styles\\Navbar.css",
+              "RelativeToolTip": "client\\src\\Styles\\Navbar.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T12:52:26.266Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Signup.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\Signup.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\Signup.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\Signup.js",
+              "RelativeToolTip": "client\\src\\Pages\\Signup.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T12:26:59.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Navbar.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Components\\Navbar.js",
+              "RelativeDocumentMoniker": "client\\src\\Components\\Navbar.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Components\\Navbar.js",
+              "RelativeToolTip": "client\\src\\Components\\Navbar.js",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAACYAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T12:14:49.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UserCard.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Components\\UserCard.js",
+              "RelativeDocumentMoniker": "client\\src\\Components\\UserCard.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Components\\UserCard.js",
+              "RelativeToolTip": "client\\src\\Components\\UserCard.js",
+              "ViewState": "AgIAADUAAAAAAAAAAAAswFQAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T09:20:07.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "App.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\App.js",
+              "RelativeDocumentMoniker": "client\\src\\App.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\App.js",
+              "RelativeToolTip": "client\\src\\App.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T12:09:10.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ServicePage.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\ServicePage.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\ServicePage.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\ServicePage.js",
+              "RelativeToolTip": "client\\src\\Pages\\ServicePage.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T12:51:35.928Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ShowAppointment.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\ShowAppointment.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\ShowAppointment.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\ShowAppointment.js",
+              "RelativeToolTip": "client\\src\\Pages\\ShowAppointment.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T08:44:50.609Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.js",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\Login.js",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\Login.js",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\Login.js",
+              "RelativeToolTip": "client\\src\\Pages\\Login.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-02T12:26:50.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Profile.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Styles\\Profile.css",
+              "RelativeDocumentMoniker": "client\\src\\Styles\\Profile.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Styles\\Profile.css",
+              "RelativeToolTip": "client\\src\\Styles\\Profile.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T12:36:35.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "C:\\React\\Spa appointment\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-02T12:24:39.753Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Book.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Styles\\Book.css",
+              "RelativeDocumentMoniker": "client\\src\\Styles\\Book.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Styles\\Book.css",
+              "RelativeToolTip": "client\\src\\Styles\\Book.css",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T09:04:11.99Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Footer.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Components\\Footer.css",
+              "RelativeDocumentMoniker": "client\\src\\Components\\Footer.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Components\\Footer.css",
+              "RelativeToolTip": "client\\src\\Components\\Footer.css",
+              "ViewState": "AgIAADkAAAAAAAAAAAAgwGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T10:00:01.947Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ShowAppointment.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\ShowAppointment.css",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\ShowAppointment.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\ShowAppointment.css",
+              "RelativeToolTip": "client\\src\\Pages\\ShowAppointment.css",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAABoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T08:55:07.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Signup.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Pages\\Signup.css",
+              "RelativeDocumentMoniker": "client\\src\\Pages\\Signup.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Pages\\Signup.css",
+              "RelativeToolTip": "client\\src\\Pages\\Signup.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T08:55:18.985Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "index.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\index.css",
+              "RelativeDocumentMoniker": "client\\src\\index.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\index.css",
+              "RelativeToolTip": "client\\src\\index.css",
+              "ViewState": "AgIAABkAAAAAAAAAAAAqwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-01-31T10:48:34.231Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\package.json",
+              "RelativeDocumentMoniker": "client\\package.json",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\package.json",
+              "RelativeToolTip": "client\\package.json",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-30T09:53:04.582Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "27efb81f-c7b1-454e-a348-c22097b2541e",
+        "Display": 0,
+        "X": 505,
+        "Y": 66,
+        "Width": 902,
+        "Height": 700,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Home.css",
+              "DocumentMoniker": "C:\\React\\Spa appointment\\client\\src\\Styles\\Home.css",
+              "RelativeDocumentMoniker": "client\\src\\Styles\\Home.css",
+              "ToolTip": "C:\\React\\Spa appointment\\client\\src\\Styles\\Home.css",
+              "RelativeToolTip": "client\\src\\Styles\\Home.css",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAADwAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-02T08:58:28.824Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

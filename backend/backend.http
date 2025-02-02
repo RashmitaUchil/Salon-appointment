@@ -1,0 +1,51 @@
+@backend_HostAddress = http://localhost:5056
+
+
+###
+POST {{backend_HostAddress}}/user/login
+Content-type: application/json
+{
+    "email": "rashmi2@gmail.com",
+    "password": "rashmi2"
+}    
+
+###
+POST {{backend_HostAddress}}/user/signup
+Content-type: application/json
+{
+    "name":"rashmi2",
+    "email":"rashmi2@gmail.com",
+    "password":"rashmi2",
+    "phone":"8806572477"
+}
+
+###
+POST {{backend_HostAddress}}/appointment/
+Content-Type: application/json
+
+{
+    "userId": 8,
+    "appointmentDate": "2025-02-12",
+    "appointmentTime": "15:30:00",
+    "service": "facial",
+    "additionalNotes": "gold"
+}
+
+###
+GET {{backend_HostAddress}}/appointment/8
+
+###
+GET {{backend_HostAddress}}/appointment/user/8
+
+###
+DELETE {{backend_HostAddress}}/appointment/1
+
+###
+PUT {{backend_HostAddress}}/user
+Content-Type: application/json
+{
+    "id":6,
+    "name":"rose",
+    "email":"rose@gmail.com",
+    "phone":"8793963870"
+}
