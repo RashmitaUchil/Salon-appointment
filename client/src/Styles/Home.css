@@ -1,0 +1,170 @@
+
+.home-container {
+    text-align: center;
+    background-color: #fef2f2; 
+    padding: 20px;
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* Carousel Section */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    width: auto;
+    height: auto; 
+    gap: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: none !important; 
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: transparent !important;
+}
+
+
+.carousel-image {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+/* Services Section */
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #6a0572; 
+    margin-top: 20px;
+    margin-bottom: 40px; 
+}
+
+
+
+/* Service Cards */
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    transition: 0.3s ease-in-out; 
+}
+
+    .service-card:hover {
+        transform: translateY(-10px); 
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
+    }
+
+.service-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.container-xl {
+    background-color: #fad7e1;
+    width: 900px;
+    padding: 10px 15px;
+    height: 650px;
+    max-width: 100%;
+    padding-left: 0; 
+    padding-right: 0; 
+    border-radius: 8px;
+}
+
+/* Book Now Button */
+.book-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #ff4d6d; /* Pink */
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+    .book-btn:hover {
+        background-color: #6a0572; 
+        transform: scale(1.05); 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 24px; 
+    }
+
+    .services-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 90%; 
+        margin-bottom: 20px;
+    }
+
+    .carousel-image {
+        height: 400px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .service-img {
+        height: 200px; 
+    }
+
+    .book-btn {
+        padding: 10px 20px; 
+    }
+}
+
+/* Link Styling for Service Cards in Home Page */
+.service-card Link {
+    text-decoration: none; 
+    color: inherit; 
+    display: block; 
+}
+
+    /* Hover effect for the Link */
+    .service-card Link:hover {
+        color: #ff4d6d; 
+        transform: translateY(-5px); 
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
+    }
+
+        /* Optional: Hover effect on image inside the card */
+        .service-card Link:hover .service-img {
+            transform: scale(1.05); /* Slight zoom effect on image */
+            transition: transform 0.3s ease-in-out;
+        }
+
+    /* Optional: Add focus styles for accessibility */
+    .service-card Link:focus {
+        outline: 2px solid #6a0572; /* Purple outline on focus */
+    }
+
+
+
+

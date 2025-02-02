@@ -1,0 +1,30 @@
+/* ServicePage.css */
+.service-page-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #fad0c4; /* Soft Peach */
+    font-family: 'Poppins', sans-serif;
+}
+
+    .service-page-container h2 {
+        font-size: 36px;
+        font-weight: 700;
+        color: #6a0572; /* Purple */
+        margin-bottom: 20px;
+    }
+
+.service-detail-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.service-page-container p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}

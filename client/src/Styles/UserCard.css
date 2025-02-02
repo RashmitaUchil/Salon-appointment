@@ -1,0 +1,75 @@
+/* User Card Styling */
+.card {
+    background-color: #fef2f2; /* Soft pink background */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.card-img-top {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px auto;
+    border: 3px solid #fff; /* White border around avatar */
+    transition: transform 0.3s ease;
+}
+
+    .card-img-top:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+
+/* Card Text */
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6a0572; /* Purple color */
+    margin-bottom: 15px;
+}
+
+.card-body p {
+    color: #fef2f2;
+    font-size: 14px;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+/* Login Button */
+.btn-success {
+    background-color: #ff4d6d; /* Pink background */
+    color: white;
+}
+
+    .btn-success:hover {
+        background-color: #6a0572; /* Purple on hover */
+    }
+
+/* Logout Button */
+.btn-danger {
+    background-color: #6a0572; /* Purple background */
+    color: white;
+}
+
+    .btn-danger:hover {
+        background-color: #ff4d6d; /* Pink on hover */
+    }
+
+/* Profile Button */
+.btn-primary {
+    background-color: #ff4d6d; /* Pink */
+    color: white;
+}
+
+    .btn-primary:hover {
+        background-color: #6a0572; /* Purple on hover */
+    }

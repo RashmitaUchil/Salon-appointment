@@ -1,0 +1,50 @@
+body {
+    background-color: #fad0c4; /* Soft peach */
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optional: Improve text readability */
+* {
+    color: #6a0572; /* Purple */
+}
+
+/* Add padding to the main container */
+.container-fluid {
+    padding: 10px 20px;
+}
+
+/* Code block styling (Optional) */
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    background-color: #ffebf0; /* Light pink background */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.footer {
+    background-color: #ffccd5; /* Peach shade */
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-icons a {
+    color: #6a0572; /* Purple shade */
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+}
+
+    .social-icons a:hover {
+        color: #ff5c8a; /* Pink shade */
+    }

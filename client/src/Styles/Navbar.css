@@ -1,0 +1,47 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #6a0572; /* Bold Purple */
+    padding: 15px;
+}
+
+/* Navbar Links */
+.navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif; /* Elegant Font */
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color:darkslategrey !important; /* White text for links */
+    font-weight: 500;
+    margin-right: 20px;
+    transition: 0.3s ease;
+}
+
+    .nav-link:hover {
+        color: #fff !important; /* Pink accent on hover */
+    }
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+/* User Avatar */
+.navbar .btn img {
+    border: 3px solid #fff; /* White border around avatar */
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+    .navbar .btn img:hover {
+        transform: scale(1.1);
+    }
+
+
