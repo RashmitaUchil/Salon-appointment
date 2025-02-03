@@ -49,3 +49,12 @@ Content-Type: application/json
     "email":"rose@gmail.com",
     "phone":"8793963870"
 }
+
+###
+PUT {{backend_HostAddress}}/appointment/
+Content-Type: application/json
+{
+    "appointmentId":16,
+    "status":true
+   
+}

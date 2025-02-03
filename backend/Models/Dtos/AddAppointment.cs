@@ -17,5 +17,7 @@ namespace backend.Models.Dtos
         public required string Service { get; set; }
 
         public string? AdditionalNotes { get; set; }
+
+        public required bool Status { get; set; }
     }
 }

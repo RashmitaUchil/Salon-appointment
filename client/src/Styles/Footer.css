@@ -11,24 +11,24 @@
 
 /* Footer styles */
 .footer {
-    flex-shrink: 0;
+/*    flex-shrink: 0;*/
     background-color: #F5E2D6;
-    padding: 20px 0;
     width: 100%;
     margin-top: auto;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 300px;
+    height:50%;
     text-align: center;
 }
 
 .copyright {
-    color: #6a0572;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 15px;
+ 
+    color:#B76E79;       
+    font-Family: Poppins, sans-serif;
+    font-Weight: bold;
+    font-Size: 1.8rem
 }
 
 .social-icons {

@@ -13,7 +13,12 @@
     font-family: 'Poppins', sans-serif; /* Elegant Font */
     letter-spacing: 1px;
 }
-
+.btn-dropdown-toggle {
+    color: #4C4C4C
+}
+.btn-dropdown-toggle:hover {
+    color: #fff
+}
 .dropdown-menu {
     background-color: #F5E2D6;
 }
@@ -21,7 +26,7 @@
         background-color: burlywood
     }
 .nav-link {
-    color: darkslategrey !important; /* White text for links */
+    color: #4C4C4C ;
     font-weight: 500;
     margin-right: 20px;
     transition: 0.3s ease;

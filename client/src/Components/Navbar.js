@@ -19,26 +19,30 @@ function Navbar() {
                 }}>
                     SALON
                 </Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style={{ backgroundColor: '#F8BFD0' }}>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav"
+                    aria-expanded="false" aria-label="Toggle navigation"
+                    style={{ backgroundColor: '#F8BFD0' }}>
+
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <br/>
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav me-auto">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                         <li className="nav-item">
-                            <Link className="nav-link" aria-current="page" to="/" style={{ color: '#4C4C4C' }}>Home</Link>
+                            <Link className="nav-link"  to="/" >Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to='/about' style={{ color: '#4C4C4C' }}>About</Link>
+                            <Link className="nav-link" to='/about' >About</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to='/book' style={{ color: '#4C4C4C' }}>Book</Link>
+                            <Link className="nav-link" to='/book' >Book</Link>
                         </li>
                         <li className="nav-item">
                             <div className="dropdown">
-                                <button className="btn dropdown-toggle" style={{ color: '#4C4C4C' }} type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="btn btn-dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                                     Services
-                                </button>
+                                </Link>
                                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                     <li><Link className="dropdown-item" to='/service/haircut'>Haircut</Link></li>
                                     <li><Link className="dropdown-item" to='/service/haircolor'>Hair Color</Link></li>
@@ -52,7 +56,7 @@ function Navbar() {
 
 
                     </ul>
-                    {!userId ? <div><button
+                    {!userId ? (<div> <button
                         onClick={()=>navigate('/login')}
                         className="btn"
                         style={{
@@ -64,7 +68,7 @@ function Navbar() {
                         }}
                     >
                         Login
-                    </button></div> :
+                    </button></div> ):
                         <div className="position-relative">
                             <button
                                 className="btn p-0 border-0"

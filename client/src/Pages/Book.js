@@ -81,7 +81,7 @@ function Book() {
     return (
         
         <div className="container ">
-            <h1>Book Your Salon Appointment</h1>
+            <h2>Book Your Salon Appointment</h2>
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
             <form id="appointmentForm" onSubmit={handleSubmit}>
                 <div className="form-group">

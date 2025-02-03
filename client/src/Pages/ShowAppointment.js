@@ -59,9 +59,43 @@ function ShowApp() {
         }
     };
 
+    
     const formatTime = (timeSpan) => {
         return timeSpan.substring(0, 5);
     };
+
+    const handleUpdate = async (appointmentId) => {
+        try {
+            const response = await fetch(`http://localhost:5056/appointment/`,
+                {
+                    method: 'PUT',
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify
+                    ({
+                        appointmentId,
+                        status:true
+                    })
+
+                });
+            if (response.ok) {
+                setAppointments((prev) =>
+                    prev.map(app =>
+                        app.appointmentId === appointmentId ? { ...app, status: true } : app
+                    )
+                );
+
+                toast.success('Status updated successfully')
+            }
+            else {
+                toast.error("could not update status. try again!");
+            }
+
+        }
+        catch (error) {
+            setError(error.message);
+            toast.error(error.message);
+        }
+    }
 
     //if (!userId) {
     //    return (
@@ -108,14 +142,8 @@ function ShowApp() {
                                         <h5 className="card-title mb-0" style={{ color: '#6a0572', fontSize: '1.25rem' }}>
                                             {appointment.service}
                                         </h5>
-                                        <span
-                                            className={`status-tag 
-                                                ${appointment.status === 'Upcoming' ? 'status-upcoming' : ''} 
-                                                ${appointment.status === 'Completed' ? 'status-completed' : ''} 
-                                                //${appointment.status === 'Cancelled' ? 'status-cancelled' : ''}`
-                                            }
-                                        >
-                                            {appointment.status}
+                                        <span className={`status-tag ${appointment.status ? 'status-completed' : 'status-upcoming'}`}>
+                                            {appointment.status ? "Completed" : "Upcoming"}
                                         </span>
                                     </div>
 
@@ -133,15 +161,14 @@ function ShowApp() {
                                         )}
                                     </div>
                                 </div>
-                                {appointment.status === 'Upcoming' && (
+                                {appointment.status === false && (
                                     <div className="card-footer bg-transparent border-top-0 p-3">
-                                        <button
-                                            onClick={() => handleDelete(appointment.appointmentId)}
-                                           
-                                            
-                                        >
-                                            Delete
+                                        <button onClick={() => handleUpdate(appointment.appointmentId)}>Update Status
                                         </button>
+                                        <br/>
+                                    
+                                        <button onClick={() => handleDelete(appointment.appointmentId)}> Delete </button>
+                                       
                                     </div>
                                 )}
                             </div>

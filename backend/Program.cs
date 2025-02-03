@@ -22,7 +22,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+//builder.Services.AddHttpsRedirection(options =>
+//{
+//    options.HttpsPort = 7281; 
+//});
 
 var app = builder.Build();
 

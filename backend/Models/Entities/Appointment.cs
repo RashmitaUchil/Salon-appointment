@@ -10,6 +10,7 @@ namespace backend.Models.Entities
         [Required] public required TimeSpan AppointmentTime { get; set; }
         [Required] public required string Service { get; set; }
         public string? AdditionalNotes { get; set; }
+        [Required] public required bool Status { get; set; }
 
         public virtual User? User { get; set; }
     }

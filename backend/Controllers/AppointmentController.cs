@@ -25,7 +25,8 @@ namespace backend.Controllers
                 AppointmentDate = request.AppointmentDate,
                 AppointmentTime = request.AppointmentTime,
                 Service = request.Service,
-                AdditionalNotes = request.AdditionalNotes
+                AdditionalNotes = request.AdditionalNotes,
+                Status = request.Status
             };
 
             dbContext.Appointments.Add(app);
@@ -46,11 +47,8 @@ namespace backend.Controllers
                     a.AppointmentTime,
                     a.Service,
                     a.AdditionalNotes,
-                    Status = (a.AppointmentDate.Date < currentDateTime.Date ||
-                             (a.AppointmentDate.Date == currentDateTime.Date &&
-                              (a.AppointmentTime) < currentDateTime.TimeOfDay))
-                            ? "Completed"
-                            : "Upcoming"
+                    a.Status
+                            
                 })
                 .OrderByDescending(a => a.AppointmentDate)
                 .ThenByDescending(a => a.AppointmentTime)
@@ -77,6 +75,22 @@ namespace backend.Controllers
             dbContext.SaveChanges();
 
             return Ok(new { message = "Appointment deleted successfully" });
+        }
+
+        [HttpPut]
+        public IActionResult UpdateAppointment(UpdateAppointment update)
+        {
+            var app=dbContext.Appointments.Find(update.AppointmentId);
+            if(app ==null)
+            {
+                return NotFound("appointment not found");
+            }
+            else
+            {
+                app.Status= true;
+            }
+            dbContext.SaveChanges();
+            return Ok(app);
         }
     }
 }
