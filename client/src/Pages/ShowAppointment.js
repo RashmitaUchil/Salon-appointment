@@ -80,22 +80,25 @@ function ShowApp() {
     }
 
     return (
-        <div>
+        <>
+       
             <h1 className="text-center mb-4" style={{ color: '#800080', fontSize: '2rem', marginTop:"20px" }}>My Appointments</h1>
-        <div className="py-4 container-xl" >
+       
            
 
             {appointments.length === 0 ? (
-                <div className="py-4 container-xl">
-                    {error && <p className="text-danger text-center">{error}</p>}
-                    <button 
-                        onClick={() => navigate('/book')}
-                        className="btn btn-primary my-2" style={{ }}
-                    >
-                        Book an Appointment
-                    </button>
+                <div className="py-4 text-center" style={{ backgroundcolor: '#F5E2D6' } }>
+                    {error && <p className=" text-center">{error}</p>}
+                        <button
+                            onClick={() => navigate('/book')}
+                            className="btn my-2 custom-button" 
+                        >
+                            Book an Appointment
+                        </button>
+
                 </div>
             ) : (
+                    <div className="py-4 container-xl" >
                 <div className=" row row-cols-1 row-cols-md-2 g-4  l">
                     {appointments.map((appointment) => (
                         <div key={appointment.appointmentId} className="col">
@@ -145,9 +148,10 @@ function ShowApp() {
                         </div>
                     ))}
                 </div>
-            )}
             </div>
-        </div>
+            )}
+       
+        </>
     );
 }
 

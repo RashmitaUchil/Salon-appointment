@@ -71,7 +71,7 @@ namespace backend.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not save update");
+                throw new Exception("Could not save update:", ex);
             }
         }
 

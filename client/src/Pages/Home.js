@@ -57,7 +57,7 @@ function Home() {
             {/*--------------------------------------------------------------*/}
             {/* Services Section */}
 
-            <div className="container-xl " style={{ width: '100%'} }>
+            <div className="container-xl " style={{ width: '100%',} }>
 
                 <h2 className="section-title">Our Services</h2>
 

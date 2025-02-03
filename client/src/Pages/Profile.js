@@ -50,7 +50,7 @@ function Profile() {
     };
 
     return (
-        <div className="container mx-auto p-4 " style={{ background: 'white'}}>
+        <div className="container mx-auto p-4 " style={{ background: 'white', borderRadius:"16px" }}>
           
             <h2 className="text-2xl font-semibold mb-4 text-center">Profile</h2>
 
@@ -93,7 +93,7 @@ function Profile() {
                 </div>
                 <br/>
                 <button
-                    className={`bg-blue-500 hover:bg-[#0056b3] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`bg-teal-600 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
                     onClick={() => {
                         if (isEditing) {
                             handleSubmit();

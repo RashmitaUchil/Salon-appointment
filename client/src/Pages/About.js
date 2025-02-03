@@ -66,10 +66,10 @@ function About() {
                 </p>
                 <ul className="list-inside text-gray-700">
                     <li>
-                        <strong>[Stylist Name]</strong> - Master Stylist with over 10 years of experience in hair design and color treatments.
+                        <strong>Lisa</strong> - Master Stylist with over 10 years of experience in hair design and color treatments.
                     </li>
                     <li>
-                        <strong>[Beautician Name]</strong> - Licensed aesthetician specializing in facials, skin treatments, and waxing.
+                        <strong>Rose</strong> - Licensed aesthetician specializing in facials, skin treatments, and waxing.
                     </li>
                 </ul>
             </section>
@@ -104,7 +104,7 @@ function About() {
                     Ready for your next beauty experience? Book an appointment with us today and let us help you look and feel your absolute best.
                 </p>
                 
-                <button onClick={() => navigate('/book')}  className=" btn book-btn container  bg-pink-700 text-black px-4 py-2 text-sm rounded-full focus:outline-none hover:bg-pink-600">
+                <button onClick={() => navigate('/book')}  className=" btn book-btn container ">
                     Book Now
                     </button>
             

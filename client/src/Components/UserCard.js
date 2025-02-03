@@ -46,7 +46,7 @@ function UserCard() {
                         onClick={handleClick}
                         className="btn"
                         style={{
-                            backgroundColor: '#FF69B4',
+                            backgroundColor: '#B76E79',
                             color: 'white',
                             borderRadius: '8px',
                             padding: '8px 16px',
@@ -59,7 +59,7 @@ function UserCard() {
                         onClick={()=>navigate('/app')}
                         className="btn"
                         style={{
-                            backgroundColor: '#FF69B4',
+                            backgroundColor: '#B76E79',
                             color: 'white',
                             borderRadius: '8px',
                             padding: '8px 16px',

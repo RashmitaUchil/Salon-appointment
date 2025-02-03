@@ -1,10 +1,35 @@
 /* Button Styling */
-.btn {
+/*.btn {
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
 }
+*/
+.custom-button {
+    margin-top: 30px;
+    padding: 10px 15px;
+    background-color: #F5E2D6;
+    color: #B76E79;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    border: 2px solid #B76E79;
+    font-weight: 500;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+    .custom-button:hover {
+        background-color: #6a0572; /* Dark Purple */
+        transform: scale(1.05);
+        color: #B76E79;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
 
 .btn-primary {
     background-color: #ff4d6d; /* Pink */
@@ -29,6 +54,7 @@
     height: auto;
     max-width: 100%;
     border-radius: 10px;
+    margin-bottom:20px
 }
 
 /* Card styling */

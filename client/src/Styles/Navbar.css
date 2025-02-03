@@ -14,8 +14,14 @@
     letter-spacing: 1px;
 }
 
+.dropdown-menu {
+    background-color: #F5E2D6;
+}
+    .dropdown-item:hover {
+        background-color: burlywood
+    }
 .nav-link {
-    color:darkslategrey !important; /* White text for links */
+    color: darkslategrey !important; /* White text for links */
     font-weight: 500;
     margin-right: 20px;
     transition: 0.3s ease;

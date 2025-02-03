@@ -34,8 +34,25 @@ function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link" to='/book' style={{ color: '#4C4C4C' }}>Book</Link>
                         </li>
+                        <li className="nav-item">
+                            <div className="dropdown">
+                                <button className="btn dropdown-toggle" style={{ color: '#4C4C4C' }} type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Services
+                                </button>
+                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li><Link className="dropdown-item" to='/service/haircut'>Haircut</Link></li>
+                                    <li><Link className="dropdown-item" to='/service/haircolor'>Hair Color</Link></li>
+                                    <li><Link className="dropdown-item" to='/service/hairstyle'>Hair Styling</Link></li>
+                                    <li><Link className="dropdown-item" to='/service/manicure'>Manicure</Link></li>
+                                    <li><Link className="dropdown-item" to='/service/pedicure'>Pedicure</Link></li>
+                                    <li><Link className="dropdown-item" to='/service/makeup'>Makeup</Link></li>
+                                </ul>
+                            </div>
+                        </li>
+
+
                     </ul>
-                    {!userId ? <ul><button
+                    {!userId ? <div><button
                         onClick={()=>navigate('/login')}
                         className="btn"
                         style={{
@@ -47,7 +64,7 @@ function Navbar() {
                         }}
                     >
                         Login
-                    </button></ul> :
+                    </button></div> :
                         <div className="position-relative">
                             <button
                                 className="btn p-0 border-0"
