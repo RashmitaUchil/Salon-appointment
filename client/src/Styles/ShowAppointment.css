@@ -22,20 +22,20 @@
 
 /* Container for Appointments */
 .container-xl {
-
-    margin-top:20px;
+    background-color: #F5E2D6;
+    margin-top: 20px;
     width: 900px;
     padding: 15px 20px;
     height: auto;
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 /* Card styling */
 .card {
     border-radius: 16px;
     border: none;
-    
+    position:relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #FFF; /* White Background */
 }

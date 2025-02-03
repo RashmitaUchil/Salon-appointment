@@ -63,13 +63,13 @@ function ShowApp() {
         return timeSpan.substring(0, 5);
     };
 
-    if (!userId) {
-        return (
-            <div className="d-flex justify-content-center align-items-center min-vh-100">
-                <p className="text-muted">Please log in to view your appointments</p>
-            </div>
-        );
-    }
+    //if (!userId) {
+    //    return (
+    //        <div className="d-flex justify-content-center align-items-center min-vh-100">
+    //            <p className="text-muted">Please log in to view your appointments</p>
+    //        </div>
+    //    );
+    //}
 
     if (loading) {
         return (
@@ -80,12 +80,14 @@ function ShowApp() {
     }
 
     return (
+        <div>
+            <h1 className="text-center mb-4" style={{ color: '#800080', fontSize: '2rem', marginTop:"20px" }}>My Appointments</h1>
         <div className="py-4 container-xl" >
-            <h1 className="text-center mb-4" style={{ color: '#800080', fontSize: '2rem' }}>My Appointments</h1>
+           
 
             {appointments.length === 0 ? (
                 <div className="py-4 container-xl">
-                    {error && <p className="text-danger">{error}</p>}
+                    {error && <p className="text-danger text-center">{error}</p>}
                     <button 
                         onClick={() => navigate('/book')}
                         className="btn btn-primary my-2" style={{ }}
@@ -144,6 +146,7 @@ function ShowApp() {
                     ))}
                 </div>
             )}
+            </div>
         </div>
     );
 }

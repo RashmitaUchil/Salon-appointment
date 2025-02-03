@@ -16,6 +16,7 @@ function Home() {
         <div className="home-container">
             {/* Carousel Section */}
             <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+
                 <div className="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -31,7 +32,7 @@ function Home() {
                     </div>
                     <div className="carousel-item">
                         <img src={salon2} className="carousel-image" alt="Salon Interior 2" loading="lazy" />
-                        <div className="carousel-caption d-none d-md-block " style={{ color: 'black' }}>
+                        <div className="carousel-caption d-none d-md-block ">
                             <h3>Give yourself a makeover</h3>
                             
                         </div>
@@ -56,7 +57,7 @@ function Home() {
             {/*--------------------------------------------------------------*/}
             {/* Services Section */}
 
-            <div className="container-xl" style={{ width: '100%' } }>
+            <div className="container-xl " style={{ width: '100%'} }>
 
                 <h2 className="section-title">Our Services</h2>
 
@@ -117,7 +118,7 @@ function Home() {
                     </div>
                 </div>
 
-                <Link to="/book" className="book-btn">Book Your Professional Appointment Now!</Link>
+                <Link to="/book" className="home-book-btn">Book Your Professional Appointment Now!</Link>
             </div>
         </div>
     );

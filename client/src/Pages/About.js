@@ -1,5 +1,6 @@
 import React from 'react'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import '../Styles/About.css'
 function About() {
 
     const navigate = useNavigate();
@@ -103,7 +104,7 @@ function About() {
                     Ready for your next beauty experience? Book an appointment with us today and let us help you look and feel your absolute best.
                 </p>
                 
-                <button onClick={() => navigate('/book')} style={{ border:"2px solid #B76E79 "}} className=" container  bg-pink-700 text-black px-4 py-2 text-sm rounded-full focus:outline-none hover:bg-pink-600">
+                <button onClick={() => navigate('/book')}  className=" btn book-btn container  bg-pink-700 text-black px-4 py-2 text-sm rounded-full focus:outline-none hover:bg-pink-600">
                     Book Now
                     </button>
             
@@ -111,5 +112,6 @@ function About() {
         </div>
     )
 }
+
 
 export default About;

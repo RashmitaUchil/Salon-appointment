@@ -36,7 +36,13 @@ export default function Signup() {
             setError("Password must be at least 6 characters.");
             return;
         }
-
+        if (formData.phone) {
+            if (formData.phone.length !== 10) {
+                setError("Enter correct phone number");
+                return;
+            }
+}
+        
         setLoading(true);
         try {
             const response = await fetch("http://localhost:5056/user/signup", {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\React\\Spa appointment\\backend\\backend.csproj": {}
+    "C:\\React\\Salon appointment\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\React\\Spa appointment\\backend\\backend.csproj": {
+    "C:\\React\\Salon appointment\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\React\\Spa appointment\\backend\\backend.csproj",
+        "projectUniqueName": "C:\\React\\Salon appointment\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\React\\Spa appointment\\backend\\backend.csproj",
+        "projectPath": "C:\\React\\Salon appointment\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\2020676\\.nuget\\packages\\",
-        "outputPath": "C:\\React\\Spa appointment\\backend\\obj\\",
+        "outputPath": "C:\\React\\Salon appointment\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

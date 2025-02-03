@@ -45,7 +45,7 @@ function ServicePage() {
             <h2>{name.charAt(0).toUpperCase() + name.slice(1)} Service</h2>
             <img src={service.image} alt={name} className="service-detail-img" />
             <p>{service.description}</p>
-            <Link to="/book" className="book-btn">Book Your {name} Appointment Now!</Link>
+            <Link to="/book" className="home-book-btn">Book Your {name} Appointment Now!</Link>
         </div>
     );
 }

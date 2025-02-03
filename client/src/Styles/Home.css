@@ -1,9 +1,9 @@
 
 .home-container {
     text-align: center;
-    background-color: #fef2f2; 
+    background-color: floralwhite;
     padding: 20px;
-    font-family: 'Poppins', sans-serif; 
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Carousel Section */
@@ -21,7 +21,9 @@
 .carousel-control-next-icon {
     filter: none !important; 
 }
-
+.carousel-caption{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
     background-color: transparent !important;
@@ -59,11 +61,12 @@
 
 .service-card {
     background: white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    width: 350px;
     text-align: center;
+    margin-left:100px;
     transition: 0.3s ease-in-out; 
 }
 
@@ -80,30 +83,31 @@
 }
 
 .container-xl {
-    background-color: #fad7e1;
+    background-color: #fef2f2;
     width: 900px;
     padding: 10px 15px;
     height: 650px;
     max-width: 100%;
-    padding-left: 0; 
-    padding-right: 0; 
+    padding-left: 0;
+    padding-right: 0;
     border-radius: 8px;
 }
 
 /* Book Now Button */
-.book-btn {
+.home-book-btn {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 10px 15px;
-    background-color: #ff4d6d; /* Pink */
-    color: white;
+    background-color: #F5E2D6; /* Pink */
+    color: #B76E79;
     text-decoration: none;
     border-radius: 6px;
     transition: 0.3s ease-in-out;
+    border: 2px solid #B76E79;
     font-weight: 500;
 }
 
-    .book-btn:hover {
+    .home-book-btn:hover {
         background-color: #6a0572; 
         transform: scale(1.05); 
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -140,30 +144,6 @@
     }
 }
 
-/* Link Styling for Service Cards in Home Page */
-.service-card Link {
-    text-decoration: none; 
-    color: inherit; 
-    display: block; 
-}
-
-    /* Hover effect for the Link */
-    .service-card Link:hover {
-        color: #ff4d6d; 
-        transform: translateY(-5px); 
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); 
-    }
-
-        /* Optional: Hover effect on image inside the card */
-        .service-card Link:hover .service-img {
-            transform: scale(1.05); /* Slight zoom effect on image */
-            transition: transform 0.3s ease-in-out;
-        }
-
-    /* Optional: Add focus styles for accessibility */
-    .service-card Link:focus {
-        outline: 2px solid #6a0572; /* Purple outline on focus */
-    }
 
 
 

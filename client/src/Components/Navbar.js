@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import user from '../img/user.jpg';
 import UserCard from './UserCard';
 import '../Styles/Navbar.css'
-
+import { useUser } from '../Context/UserContext'
+import { useNavigate } from 'react-router-dom';
 function Navbar() {
+
+    const { userId } = useUser();
+    const navigate = useNavigate();
     return (
         <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#F5E2D6' }}>
             <div className="container-fluid">
@@ -31,39 +35,52 @@ function Navbar() {
                             <Link className="nav-link" to='/book' style={{ color: '#4C4C4C' }}>Book</Link>
                         </li>
                     </ul>
-                    <div className="position-relative">
-                        <button
-                            className="btn p-0 border-0"
-                            type="button"
-                            data-bs-toggle="dropdown"
-                            aria-expanded="false"
-                            style={{ background: 'none' }}
-                        >
-                            <img
-                                src={user}
-                                style={{
-                                    width: '50px',
-                                    height: '50px',
-                                    borderRadius: '50%',
-                                    cursor: 'pointer',
-                                    border: '2px solid #B76E79',
-                                    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'
-                                }}
-                                alt="User"
-                            />
-                        </button>
-                        <div className="dropdown-menu dropdown-menu-end" style={{
-                            minWidth: '250px',
-                            padding: '1rem',
-                            border: 'none',
-                            borderRadius: '12px',
-                            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                            marginTop: '0.5rem',
-                            backgroundColor: '#fff'
-                        }}>
-                            <UserCard />
-                        </div>
-                    </div>
+                    {!userId ? <ul><button
+                        onClick={()=>navigate('/login')}
+                        className="btn"
+                        style={{
+                            backgroundColor: '#800080',
+                            color: 'white',
+                            borderRadius: '8px',
+                            padding: '8px 16px',
+                            width: '100%'
+                        }}
+                    >
+                        Login
+                    </button></ul> :
+                        <div className="position-relative">
+                            <button
+                                className="btn p-0 border-0"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                style={{ background: 'none' }}
+                            >
+                                <img
+                                    src={user}
+                                    style={{
+                                        width: '50px',
+                                        height: '50px',
+                                        borderRadius: '50%',
+                                        cursor: 'pointer',
+                                        border: '2px solid #B76E79',
+                                        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'
+                                    }}
+                                    alt="User"
+                                />
+                            </button>
+                            <div className="dropdown-menu dropdown-menu-end" style={{
+                                minWidth: '250px',
+                                padding: '1rem',
+                                border: 'none',
+                                borderRadius: '12px',
+                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                                marginTop: '0.5rem',
+                                backgroundColor: '#fff'
+                            }}>
+                                <UserCard />
+                            </div>
+                        </div>}
                 </div>
             </div>
         </nav>
