@@ -1,8 +1,4 @@
-/* Navbar Styling */
-.navbar {
-    background-color: #6a0572; /* Bold Purple */
-    padding: 15px;
-}
+
 
 /* Navbar Links */
 .navbar-brand {
@@ -12,7 +8,13 @@
         font-size: 1.8rem
 }
 .navbar-toggler {
-    background-color: #B76E79
+    background-color: #B76E79;
+    border: none;
+}
+.navbar-toggler:hover {
+    background-color: #B76E79;
+    opacity:0.8;
+    border: none;
 }
 
 .navbar-expand-lg {
@@ -67,22 +69,15 @@
         color: #fff !important; /* Pink accent on hover */
     }
 
-.navbar-toggler {
-    border: none;
-}
+
 
 .navbar-toggler-icon {
     background-color: #fff;
 }
 
 /* User Avatar */
-.navbar .btn img {
-    border: 3px solid #fff; /* White border around avatar */
-    border-radius: 50%;
-    transition: 0.3s ease;
-}
 
-    .navbar .btn img:hover {
+ .img-user:hover {
         transform: scale(1.1);
     }
 
