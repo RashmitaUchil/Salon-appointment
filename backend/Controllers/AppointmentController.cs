@@ -2,6 +2,7 @@
 using backend.Models.Dtos;
 using backend.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -13,12 +14,15 @@ namespace backend.Controllers
 
         public AppointmentController(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext;
+            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext)); ;
         }
 
         [HttpPost]
         public async Task<IActionResult> AddAppointment([FromBody] AddAppointment request)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var app = new Appointment()
             {
                 UserId = request.UserId,
@@ -29,16 +33,24 @@ namespace backend.Controllers
                 Status = request.Status
             };
 
-            dbContext.Appointments.Add(app);
-            await dbContext.SaveChangesAsync();
-            return Ok(app.AppointmentId);
+            try
+            {
+                dbContext.Appointments.Add(app);
+                await dbContext.SaveChangesAsync();
+                return Ok(new { AppointmentId = app.AppointmentId });
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, new { meassage = "An error occurred while adding the appointment. Please try again.", error = ex.Message });
+            }
         }
 
-        [HttpGet("user/{UserId}")]
-        public IActionResult GetUserAppointments(int userId)
+
+        [HttpGet]
+        public async Task<IActionResult> GetUserAppointments([FromQuery] int userId)
         {
-            var currentDateTime = DateTime.Now; // Get current date and time
-            var appointments = dbContext.Appointments
+            var appointments = await dbContext.Appointments
                 .Where(a => a.UserId == userId)
                 .Select(a => new
                 {
@@ -48,49 +60,69 @@ namespace backend.Controllers
                     a.Service,
                     a.AdditionalNotes,
                     a.Status
-                            
                 })
                 .OrderByDescending(a => a.AppointmentDate)
                 .ThenByDescending(a => a.AppointmentTime)
-                .ToList();
+                .ToListAsync(); 
 
             if (!appointments.Any())
             {
                 return NotFound(new { message = "No appointments found for this user" });
             }
+
             return Ok(appointments);
         }
 
-        [HttpDelete("{appointmentId}")]
-        public IActionResult DeleteAppointment(int appointmentId)
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAppointment([FromQuery] int appointmentId)
         {
-            var appointment = dbContext.Appointments.Find(appointmentId);
-
-            if (appointment == null)
+            try
             {
-                return NotFound(new { message = "Appointment not found" });
+                var appointment = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentId);
+
+                if (appointment == null)
+                {
+                    return NotFound(new { message = "Appointment not found" });
+                }
+
+                dbContext.Appointments.Remove(appointment);
+                await dbContext.SaveChangesAsync();
+
+                return Ok(new { message = "Appointment deleted successfully" });
             }
-
-            dbContext.Appointments.Remove(appointment);
-            dbContext.SaveChanges();
-
-            return Ok(new { message = "Appointment deleted successfully" });
+            catch (Exception ex)
+            {
+                
+                return StatusCode(500, new { message = "Internal server error", error = ex.Message });
+            }
         }
+
 
         [HttpPut]
-        public IActionResult UpdateAppointment(UpdateAppointment update)
+        public async Task<IActionResult> UpdateAppointment([FromBody] UpdateAppointment update)
         {
-            var app=dbContext.Appointments.Find(update.AppointmentId);
-            if(app ==null)
+            try
             {
-                return NotFound("appointment not found");
+                var app = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == update.AppointmentId);
+
+                if (app == null)
+                {
+                    return NotFound(new { message = "Appointment not found" });
+                }
+
+                // Updating the fields
+                app.Status = true; // Or update.Status if it comes from request body
+
+                await dbContext.SaveChangesAsync();
+
+                return Ok(new { message = "Appointment updated successfully", appointment = app });
             }
-            else
+            catch (Exception ex)
             {
-                app.Status= true;
+                return StatusCode(500, new { message = "Internal server error", error = ex.Message });
             }
-            dbContext.SaveChanges();
-            return Ok(app);
         }
+
     }
 }

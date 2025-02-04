@@ -3,7 +3,9 @@ using System.Text;
 using backend.Data;
 using backend.Models.Dtos;
 using backend.Models.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
@@ -15,25 +17,29 @@ namespace backend.Controllers
 
         public UserController(ApplicationDbContext dbContext)
         {
-            this.dbContext = dbContext;
+            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext)); ;
         }
 
-        [HttpPost("login")]
-        public IActionResult Login([FromBody] LoginRequest request)
+        [HttpPost]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var user = dbContext.Users.FirstOrDefault(x => x.Email == request.Email);
-            if (user == null || !VerifyPassword(request.Password, user.Password))
+            var user = await dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
+            if (user == null)
             {
-                return Unauthorized(new { message = "Invalid email or password" });
+                return Unauthorized(new { message = "User not found" });
+            }
+            else if(!VerifyPassword(request.Password, user.Password))
+            {
+                return BadRequest(new { message = "incorrect password" });
             }
 
             return Ok(user);
         }
 
         [HttpPost("signup")]
-        public IActionResult AddUser([FromBody] AddUser newuser)
+        public async Task<IActionResult> AddUser([FromBody] AddUser newuser)
         {
-            if (dbContext.Users.Any(x => x.Email == newuser.Email))
+            if (await dbContext.Users.AnyAsync(x => x.Email == newuser.Email))
             {
                 return BadRequest(new { message = "Email is already registered" });
             }
@@ -47,15 +53,15 @@ namespace backend.Controllers
             };
 
             dbContext.Users.Add(user);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             return Ok(new { message = "User created successfully" });
         }
 
         [HttpPut]
-        public IActionResult UpdateUser(UpdateUser updateUser)
+        public async Task<IActionResult> UpdateUser(UpdateUser updateUser)
         {
-            var user = dbContext.Users.FirstOrDefault(u => u.Id == updateUser.Id);
+            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == updateUser.Id);
             if (user == null)
             {
                 return NotFound();
@@ -66,7 +72,7 @@ namespace backend.Controllers
 
             try
             {
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
                 return Ok();
             }
             catch (Exception ex)

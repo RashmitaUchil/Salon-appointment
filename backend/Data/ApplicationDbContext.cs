@@ -7,6 +7,10 @@ namespace backend.Data
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options), "DbContext options cannot be null.");
+            }
         }
 
         public DbSet<User> Users { get; set; }

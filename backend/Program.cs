@@ -24,7 +24,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectio
 
 //builder.Services.AddHttpsRedirection(options =>
 //{
-//    options.HttpsPort = 7281; 
+//    options.HttpsPort = 7281;
 //});
 
 var app = builder.Build();

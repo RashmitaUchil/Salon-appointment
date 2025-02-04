@@ -2,11 +2,11 @@
 
 
 ###
-POST {{backend_HostAddress}}/user/login
+POST {{backend_HostAddress}}/user/
 Content-type: application/json
 {
-    "email": "rashmi2@gmail.com",
-    "password": "rashmi2"
+    "email": "mamtha@gmail.com",
+    "password": "mamtha"
 }    
 
 ###
@@ -28,17 +28,16 @@ Content-Type: application/json
     "appointmentDate": "2025-02-12",
     "appointmentTime": "15:30:00",
     "service": "facial",
-    "additionalNotes": "gold"
+    "additionalNotes": "gold",
+    "status":false
 }
 
-###
-GET {{backend_HostAddress}}/appointment/8
 
 ###
-GET {{backend_HostAddress}}/appointment/user/8
+GET {{backend_HostAddress}}/appointment?userId=12
 
 ###
-DELETE {{backend_HostAddress}}/appointment/1
+DELETE {{backend_HostAddress}}/appointment?appointmentId=8
 
 ###
 PUT {{backend_HostAddress}}/user
