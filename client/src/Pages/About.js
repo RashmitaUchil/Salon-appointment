@@ -8,21 +8,9 @@ function About() {
         <div className=" mx-auto p-4"  >
            
             <section className="mb-8">
-                <h2 className="text-3xl font-bold text-center mb-4">Welcome to <span style={{
-                    color: '#B76E79',
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 'bold',
-                    fontSize: '1.8rem'
-                }}>SALON</span></h2>
+                <h2 className="text-3xl font-bold text-center mb-4">Welcome to <span className="salon">SALON</span></h2>
                 <p className="text-lg text-gray-700">
-                    At <span style={{
-                        color: '#B76E79',
-                        fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 'bold',
-                        fontSize: '1rem',
-                        
-
-                    }}>SALON</span>, we believe that every visit should be a rejuvenating experience. Our talented team of stylists, beauticians, and therapists are dedicated to bringing out your inner glow through personalized beauty services and high-quality treatments.
+                    At <span className="salon-small">SALON</span>, we believe that every visit should be a rejuvenating experience. Our talented team of stylists, beauticians, and therapists are dedicated to bringing out your inner glow through personalized beauty services and high-quality treatments.
                 </p>
             </section>
 
@@ -38,14 +26,7 @@ function About() {
             <section className="mb-8">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-3">Our Services</h3>
                 <p className="text-lg text-gray-700">
-                    At <span style={{
-                        color: '#B76E79',
-                        fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 'bold',
-                        fontSize: '1rem',
-
-
-                    }}>SALON</span>, we offer a wide range of services including:
+                    At <span className="salon-small">SALON</span>, we offer a wide range of services including:
                 </p>
                 <ul className="list-disc pl-6 text-gray-700">
                     <li>Haircuts and styling</li>
@@ -86,14 +67,7 @@ function About() {
             <section className="mb-8">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-3">What Our Clients Say</h3>
                 <blockquote className="italic text-gray-700 mb-4">
-                    "I always leave <span style={{
-                        color: '#B76E79',
-                        fontFamily: 'Poppins, sans-serif',
-                        fontWeight: 'bold',
-                        fontSize: '1rem',
-
-
-                    }}>SALON</span> feeling like a new person! The team is so welcoming, and the results are always amazing. I wouldn't trust anyone else with my hair." - <strong>Sarah</strong>
+                    "I always leave SALON feeling like a new person! The team is so welcoming, and the results are always amazing. I wouldn't trust anyone else with my hair." - <strong>Sarah</strong>
                 </blockquote>
             </section>
 

@@ -37,39 +37,33 @@
 }
 
 /* Button Styling */
-.btn {
-    border-radius: 6px;
-    font-weight: 500;
-    padding: 10px;
-    transition: 0.3s;
+.user-img {
+    width: 50px;
+    height:50px; 
+    border-radius: 50%;
+    border: 2px solid #B76E79
 }
 
-/* Login Button */
-.btn-success {
-    background-color: #ff4d6d; /* Pink background */
+.btn-prof {
+    background-color: #B76E79;
     color: white;
+    border-radius: 8px; 
+    padding:8px 16px;
+    width: 100%
 }
-
-    .btn-success:hover {
-        background-color: #6a0572; /* Purple on hover */
-    }
-
-/* Logout Button */
-.btn-danger {
-    background-color: #6a0572; /* Purple background */
+.btn-hist {
+    background-color: #B76E79;
     color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 100%
 }
 
-    .btn-danger:hover {
-        background-color: #ff4d6d; /* Pink on hover */
-    }
-
-/* Profile Button */
-.btn-primary {
-    background-color: #ff4d6d; /* Pink */
+.btn-out {
+    background-color: #800080;
     color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 100%;
+    margin-bottom: 8px
 }
-
-    .btn-primary:hover {
-        background-color: #6a0572; /* Purple on hover */
-    }

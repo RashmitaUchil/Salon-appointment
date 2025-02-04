@@ -9,20 +9,15 @@ function Navbar() {
     const { userId } = useUser();
     const navigate = useNavigate();
     return (
-        <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#F5E2D6' }}>
+        <nav className="navbar navbar-expand-lg" >
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/" style={{
-                    color: '#B76E79',
-                    fontFamily: 'Poppins, sans-serif',
-                    fontWeight: 'bold',
-                    fontSize: '1.8rem'
-                }}>
+                <Link className="navbar-brand" to="/" >
                     SALON
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav"
                     aria-expanded="false" aria-label="Toggle navigation"
-                    style={{ backgroundColor: '#F8BFD0' }}>
+                    >
 
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -58,14 +53,8 @@ function Navbar() {
                     </ul>
                     {!userId ? (<div> <button
                         onClick={()=>navigate('/login')}
-                        className="btn"
-                        style={{
-                            backgroundColor: '#800080',
-                            color: 'white',
-                            borderRadius: '8px',
-                            padding: '8px 16px',
-                            width: '100%'
-                        }}
+                        className="btn-login"
+                        
                     >
                         Login
                     </button></div> ):
@@ -75,30 +64,15 @@ function Navbar() {
                                 type="button"
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"
-                                style={{ background: 'none' }}
+                                
                             >
-                                <img
+                                <img className="img-user"
                                     src={user}
-                                    style={{
-                                        width: '50px',
-                                        height: '50px',
-                                        borderRadius: '50%',
-                                        cursor: 'pointer',
-                                        border: '2px solid #B76E79',
-                                        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'
-                                    }}
+                                    
                                     alt="User"
                                 />
                             </button>
-                            <div className="dropdown-menu dropdown-menu-end" style={{
-                                minWidth: '250px',
-                                padding: '1rem',
-                                border: 'none',
-                                borderRadius: '12px',
-                                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                                marginTop: '0.5rem',
-                                backgroundColor: '#fff'
-                            }}>
+                            <div className="dropdown-menu menu-card dropdown-menu-end">
                                 <UserCard />
                             </div>
                         </div>}

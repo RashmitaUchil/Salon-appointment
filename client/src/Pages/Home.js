@@ -41,7 +41,7 @@ function Home() {
                         <img src={salon3} className="carousel-image" alt="Salon Interior 3"  />
                         <div className="carousel-caption d-none d-md-block" >
                             <h3>Book your appointment now</h3>
-                            <Link style={{ color: 'black', textDecoration: 'none' }} to='/book'>click here to book</Link>
+                            <Link className="text-black" to='/book'>click here to book</Link>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ function Home() {
             {/*--------------------------------------------------------------*/}
             {/* Services Section */}
 
-            <div className="container-xl " style={{ width: '100%',} }>
+            <div className="container-xl con-service" >
 
                 <h2 className="section-title">Our Services</h2>
 

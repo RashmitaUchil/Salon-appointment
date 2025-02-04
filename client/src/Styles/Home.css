@@ -60,14 +60,14 @@
 }
 
 .service-card {
-    background: white;
+    background-color: #f5ece6;
     padding: 10px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 350px;
     text-align: center;
-    margin-left:100px;
-    transition: 0.3s ease-in-out; 
+    margin-left: 100px;
+    transition: 0.3s ease-in-out;
 }
 
     .service-card:hover {
@@ -82,15 +82,15 @@
     border-radius: 8px;
 }
 
-.container-xl {
-    background-color: #fef2f2;
-    width: 900px;
-    padding: 10px 15px;
-    height: 650px;
+.con-service {
+    background-color: #f5e4da;
+    margin-top: 20px;
+    width: 100%;
+    padding: 15px 20px;
+    height: auto;
     max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    border-radius: 8px;
+    border-radius: 0px;
+    margin-bottom: 20px
 }
 
 /* Book Now Button */

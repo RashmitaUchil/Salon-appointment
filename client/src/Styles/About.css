@@ -17,3 +17,19 @@
         color: #B76E79;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
+.salon {
+
+    color:#B76E79;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 2rem
+
+    }
+
+.salon-small {
+    color: #B76E79;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+    font-size: 1rem
+}

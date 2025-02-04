@@ -6,12 +6,17 @@
 
 /* Navbar Links */
 .navbar-brand {
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    text-transform: uppercase;
-    font-family: 'Poppins', sans-serif; /* Elegant Font */
-    letter-spacing: 1px;
+    color: #B76E79;
+        font-family:Poppins, sans-serif;
+        font-weight: bold;
+        font-size: 1.8rem
+}
+.navbar-toggler {
+    background-color: #B76E79
+}
+
+.navbar-expand-lg {
+    background-color: #F5E2D6
 }
 .btn-dropdown-toggle {
     color: #4C4C4C
@@ -19,12 +24,38 @@
 .btn-dropdown-toggle:hover {
     color: #fff
 }
+.btn-login {
+    background-color: #800080;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 100%
+}
 .dropdown-menu {
     background-color: #F5E2D6;
 }
     .dropdown-item:hover {
         background-color: burlywood
     }
+
+ 
+.menu-card {
+    min-width: 250px;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    background-color: #fff
+}
+.img-user {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #B76E79 ;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
+}
 .nav-link {
     color: #4C4C4C ;
     font-weight: 500;

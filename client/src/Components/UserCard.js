@@ -29,57 +29,30 @@ function UserCard() {
         <div className="text-center">
             <img
                 src={user}
-                className="mb-3"
+                className="user-img mb-3"
                 alt={userName}
-                style={{
-                    width: "50px",
-                    height: "50px",
-                    borderRadius: "50%",
-                    border: '2px solid #B76E79'
-                }}
+                
             />
-            <h5 className="mb-3" style={{ color: '#800080' }}>Hello {userName}!</h5>
+            <h5 className="mb-3 text-pink-600" >Hello {userName}!</h5>
             {userId ? (
                 <div className="d-grid gap-2">
                     
                     <button
                         onClick={handleClick}
-                        className="btn"
-                        style={{
-                            backgroundColor: '#B76E79',
-                            color: 'white',
-                            borderRadius: '8px',
-                            padding: '8px 16px',
-                            width: '100%'
-                        }}
-                    >
+                        className="btn-prof" >
                         Profile
                     </button>
                     <button
                         onClick={()=>navigate('/app')}
-                        className="btn"
-                        style={{
-                            backgroundColor: '#B76E79',
-                            color: 'white',
-                            borderRadius: '8px',
-                            padding: '8px 16px',
-                            width: '100%'
-                        }}
+                        className="btn-hist"
+                      
                     >
                         Appointment History
                     </button>
 
                     <button
                         onClick={handleAuth}
-                        className="btn"
-                        style={{
-                            backgroundColor: '#800080',
-                            color: 'white',
-                            borderRadius: '8px',
-                            padding: '8px 16px',
-                            width: '100%',
-                            marginBottom: '8px'
-                        }}
+                        className="btn-out"
                     >
                         Logout
                     </button>
@@ -88,13 +61,7 @@ function UserCard() {
                 <button
                     onClick={handleAuth}
                     className="btn"
-                    style={{
-                        backgroundColor: '#800080',
-                        color: 'white',
-                        borderRadius: '8px',
-                        padding: '8px 16px',
-                        width: '100%'
-                    }}
+                   
                 >
                     Login
                 </button>

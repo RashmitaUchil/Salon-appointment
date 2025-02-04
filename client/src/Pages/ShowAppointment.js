@@ -119,7 +119,7 @@ function ShowApp() {
            
 
             {appointments.length === 0 ? (
-                <div className="py-4 text-center" style={{ backgroundcolor: '#F5E2D6' } }>
+                <div className="py-4 text-center" >
                     {error && <p className=" text-center">{error}</p>}
                         <button
                             onClick={() => navigate('/book')}
@@ -130,34 +130,35 @@ function ShowApp() {
 
                 </div>
             ) : (<>
-
+                    <div>
+                <span>
                    
                     {/* Upcoming Appointments Section */}
                     
                     {upcomingAppointments.length > 0 && (
-                        <div className="py-4 container-xl">
-                        <div>
-                            <h2 className="h2-upcoming">Upcoming Appointments</h2>
+                                <div className="py-4 container-xl con-app">
+                     
+                            <h4 className="h4-upcoming">Upcoming Appointments</h4>
                             <div className="row row-cols-1 row-cols-md-2 g-4">
                                 {upcomingAppointments.map((appointment) => (
                                     <div key={appointment.appointmentId} className="col">
                                         <div className="card h-100">
                                             <div className="card-body">
                                                 <div className="d-flex justify-content-between align-items-center mb-3">
-                                                    <h5 className="card-title mb-0" style={{ color: "#6a0572", fontSize: "1.25rem" }}>
+                                                    <h5 className="card-title mb-0" >
                                                         {appointment.service}
                                                     </h5>
                                                     <span className="status-tag status-upcoming">Upcoming</span>
                                                 </div>
                                                 <div className="card-text">
-                                                    <p className="mb-2" style={{ color: "#800080" }}>
+                                                    <p className="mb-2" >
                                                         <strong>Date:</strong> {new Date(appointment.appointmentDate).toLocaleDateString()}
                                                     </p>
-                                                    <p className="mb-2" style={{ color: "#800080" }}>
+                                                    <p className="mb-2" >
                                                         <strong>Time:</strong> {formatTime(appointment.appointmentTime)}
                                                     </p>
                                                     {appointment.additionalNotes && (
-                                                        <p className="mb-2" style={{ color: "#800080" }}>
+                                                        <p className="mb-2">
                                                             <strong>Notes:</strong> {appointment.additionalNotes}
                                                         </p>
                                                     )}
@@ -176,34 +177,33 @@ function ShowApp() {
                                 ))}
                             </div>
                             </div>
-                        </div>
-                    )}
                     
+                    )}
                     {/* Completed Appointments Section */}
                     {completedAppointments.length > 0 && (
-                        <div className="py-4 container-xl">
-                        <div>
-                            <h2 className="h2-completed">Completed Appointments</h2>
+                                <div className="py-4 container-xl con-app">
+                      
+                            <h4 className="h4-completed">Completed Appointments</h4>
                             <div className="row row-cols-1 row-cols-md-2 g-4">
                                 {completedAppointments.map((appointment) => (
                                     <div key={appointment.appointmentId} className="col">
                                         <div className="card h-100">
                                             <div className="card-body">
                                                 <div className="d-flex justify-content-between align-items-center mb-3">
-                                                    <h5 className="card-title mb-0" style={{ color: "#6a0572", fontSize: "1.25rem" }}>
+                                                    <h5 className="card-title mb-0" >
                                                         {appointment.service}
                                                     </h5>
                                                     <span className="status-tag status-completed">Completed</span>
                                                 </div>
                                                 <div className="card-text">
-                                                    <p className="mb-2" style={{ color: "#800080" }}>
+                                                    <p className="content mb-2">
                                                         <strong>Date:</strong> {new Date(appointment.appointmentDate).toLocaleDateString()}
                                                     </p>
-                                                    <p className="mb-2" style={{ color: "#800080" }}>
+                                                    <p className="content mb-2">
                                                         <strong>Time:</strong> {formatTime(appointment.appointmentTime)}
                                                     </p>
                                                     {appointment.additionalNotes && (
-                                                        <p className="mb-2" style={{ color: "#800080" }}>
+                                                        <p className="content mb-2" >
                                                             <strong>Notes:</strong> {appointment.additionalNotes}
                                                         </p>
                                                     )}
@@ -214,10 +214,11 @@ function ShowApp() {
                                 ))}
                             </div>
                             </div>
-                        </div>
+                    
                     )}
+                </span>
 
-
+               </div>
 
 
                 </>

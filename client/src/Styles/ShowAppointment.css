@@ -33,7 +33,7 @@
 
 
 /* Container for Appointments */
-.container-xl {
+.con-app {
     background-color: #F5E2D6;
     margin-top: 20px;
     width: 900px;
@@ -179,14 +179,23 @@ h1 {
     background-color: #f44336;*/ /* Red for cancelled appointments */
 /*}*/
 
-.h2-completed {
+.h4-completed {
     color: #4CAF50; 
     text-align:center
 }
 
-.h2-upcoming {
+.h4-upcoming {
 
     color: darkred;
     text-align:center
 
+}
+
+h5 {
+    color: #6a0572; 
+    font-size: 1.25rem
+}
+
+.content {
+    color: #800080
 }
