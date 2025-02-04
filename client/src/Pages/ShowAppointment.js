@@ -67,7 +67,7 @@ function ShowApp() {
 
     const handleUpdate = async (appointmentId) => {
         try {
-            const response = await fetch(`http://localhost:5056/appointment/${appointmentId}`,
+            const response = await fetch(`http://localhost:5056/appointment/`,
                 {
                     method: 'PUT',
                     headers: { "Content-type": "application/json" },

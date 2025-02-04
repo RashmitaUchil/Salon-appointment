@@ -111,8 +111,8 @@ namespace backend.Controllers
                     return NotFound(new { message = "Appointment not found" });
                 }
 
-                // Updating the fields
-                app.Status = true; // Or update.Status if it comes from request body
+                
+                app.Status = update.Status; 
 
                 await dbContext.SaveChangesAsync();
 
