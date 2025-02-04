@@ -102,6 +102,8 @@ namespace backend.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateAppointment([FromBody] UpdateAppointment update)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             try
             {
                 var app = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == update.AppointmentId);

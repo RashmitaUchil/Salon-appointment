@@ -23,6 +23,8 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             var user = await dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
             if (user == null)
             {
@@ -39,6 +41,8 @@ namespace backend.Controllers
         [HttpPost("signup")]
         public async Task<IActionResult> AddUser([FromBody] AddUser newuser)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             if (await dbContext.Users.AnyAsync(x => x.Email == newuser.Email))
             {
                 return BadRequest(new { message = "Email is already registered" });
@@ -61,6 +65,8 @@ namespace backend.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateUser(UpdateUser updateUser)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
             var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == updateUser.Id);
             if (user == null)
             {
