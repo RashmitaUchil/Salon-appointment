@@ -31,19 +31,6 @@
     }
 
 
-.btn-primary {
-    background-color: #ff4d6d; /* Pink */
-    color: white;
-}
-
-.btn-danger {
-    background-color: #6a0572; /* Purple */
-    color: white;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
 
 /* Container for Appointments */
 .container-xl {
@@ -62,12 +49,14 @@
     border-radius: 16px;
     border: none;
     position:relative;
+    height:70%;
+    width:80%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     background-color: #FFF; /* White Background */
 }
 
 .card-body {
-    padding: 20px;
+    padding: 10px;
 }
 
 .card-title {
@@ -100,21 +89,37 @@
 }
 
     /* Delete Button Styling */
-    .card-footer .btn-danger {
-        width: 100%;
-        padding: 8px 16px;
-        background-color: #6a0572; /* Purple */
-        color: white;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 1rem;
-        transition: opacity 0.2s;
-    }
 
-        .card-footer .btn-danger:hover {
-            opacity: 0.9;
-        }
+.card-footer-btn-del {
+    width: 100%;
+    margin-top:10px;
+    background-color: indianred; 
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: opacity 0.2s;
+}
+.card-footer-btn-del:hover {
+    transform: scale(1.05);
+    background-color: indianred;
+}
+
+.card-footer-btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #6a0572; /* Purple */
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: opacity 0.2s;
+}
+
+    .card-footer-btn:hover {
+        transform: scale(1.05);
+        background-color: #6a0572;
+    }
 
 /* Loading and Empty State */
 .d-flex.justify-content-center.align-items-center.min-vh-100 {
@@ -173,3 +178,15 @@ h1 {
 /*.status-cancelled {
     background-color: #f44336;*/ /* Red for cancelled appointments */
 /*}*/
+
+.h2-completed {
+    color: #4CAF50; 
+    text-align:center
+}
+
+.h2-upcoming {
+
+    color: darkred;
+    text-align:center
+
+}

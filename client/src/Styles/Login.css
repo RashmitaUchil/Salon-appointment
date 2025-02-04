@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 60vh;
     background: #fef2f2;
 }
     /* Login card styling */
@@ -19,7 +19,7 @@
 /* Title styling */
 .login-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 24px;
     color: #2c3e50;
@@ -63,9 +63,9 @@
 .submit-btn {
     background-color: #6a1b9a;
     color: white;
-    padding: 14px;
+    padding: 5px;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;

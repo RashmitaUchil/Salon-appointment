@@ -56,7 +56,8 @@ function Book() {
                     appointmentDate: formData.date,
                     appointmentTime: formData.time,
                     service: formData.service,
-                    additionalNotes: formData.notes
+                    additionalNotes: formData.notes,
+                    status:false
                 }),
             });
 
@@ -81,7 +82,7 @@ function Book() {
     return (
         
         <div className="container ">
-            <h2>Book Your Salon Appointment</h2>
+            <h3 className="h3-head">Book Your Salon Appointment</h3>
             {error && <p className="text-red-500 text-sm text-center">{error}</p>}
             <form id="appointmentForm" onSubmit={handleSubmit}>
                 <div className="form-group">

@@ -5,3 +5,9 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+.container {
+    margin:auto;
+    background: white;
+    border-radius: 16px
+}

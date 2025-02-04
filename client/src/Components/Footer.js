@@ -6,10 +6,10 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                
-                <p className="copyright"> &copy; SALON</p>
-                <p>All rights reserved.
-                </p>
+                <div>
+                    <p className="copyright"> &copy; SALON <span> All rights reserved. </span> </p>
+                    
+                </div>
                 <div className="social-icons">
                     <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                         <FaInstagram />
@@ -21,7 +21,8 @@ const Footer = () => {
                         <FaTwitter />
                     </a>
                 </div>
-            </div>
+                </div>
+
         </footer>
     );
 };

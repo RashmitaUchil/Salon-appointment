@@ -24,21 +24,21 @@ function Home() {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={salon1} className="carousel-image" alt="Salon Interior 1" loading="lazy" />
+                        <img src={salon1} className="carousel-image" alt="Salon Interior 1"  />
                         <div className="carousel-caption d-none d-md-block">
                             <h3>Experience professional service</h3>
                             
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={salon2} className="carousel-image" alt="Salon Interior 2" loading="lazy" />
+                        <img src={salon2} className="carousel-image" alt="Salon Interior 2" />
                         <div className="carousel-caption d-none d-md-block ">
                             <h3>Give yourself a makeover</h3>
                             
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src={salon3} className="carousel-image" alt="Salon Interior 3" loading="lazy" />
+                        <img src={salon3} className="carousel-image" alt="Salon Interior 3"  />
                         <div className="carousel-caption d-none d-md-block" >
                             <h3>Book your appointment now</h3>
                             <Link style={{ color: 'black', textDecoration: 'none' }} to='/book'>click here to book</Link>

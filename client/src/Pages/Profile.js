@@ -50,7 +50,7 @@ function Profile() {
     };
 
     return (
-        <div className="container mx-auto p-4 " style={{ background: 'white', borderRadius:"16px" }}>
+        <div className="container mx-auto p-4 ">
           
             <h2 className="text-2xl font-semibold mb-4 text-center">Profile</h2>
 
@@ -58,7 +58,7 @@ function Profile() {
                 <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
                     Name:
                 </label>
-                <input style={{border: '2px solid #B76E79' }}
+                <input 
                     className="border border-[#B76E79] rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="name"
                     name="name"
