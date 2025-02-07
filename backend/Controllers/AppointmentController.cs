@@ -1,4 +1,5 @@
-﻿using backend.Data;
+﻿using AutoMapper;
+using backend.Data;
 using backend.Models.Dtos;
 using backend.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -11,46 +12,44 @@ namespace backend.Controllers
     public class AppointmentController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
+        private readonly IMapper mapper;
 
-        public AppointmentController(ApplicationDbContext dbContext)
+        public AppointmentController(ApplicationDbContext dbContext, IMapper mapper)
         {
             this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext)); ;
+            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpPost]
+        [HttpPost("book")]
         public async Task<IActionResult> AddAppointment([FromBody] AddAppointment request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var app = new Appointment()
-            {
-                UserId = request.UserId,
-                AppointmentDate = request.AppointmentDate,
-                AppointmentTime = request.AppointmentTime,
-                Service = request.Service,
-                AdditionalNotes = request.AdditionalNotes,
-                Status = request.Status
-            };
+            var app = mapper.Map<Appointment>(request);
+
 
             try
             {
                 dbContext.Appointments.Add(app);
                 await dbContext.SaveChangesAsync();
-                return Ok(new { AppointmentId = app.AppointmentId });
+                return Ok(new { message = "Appointment booked successfully" });
             }
             catch (Exception ex)
             {
 
-                return StatusCode(500, new { meassage = "An error occurred while adding the appointment. Please try again.", error = ex.Message });
+                return StatusCode(500, new { message = "An error occurred while adding the appointment. Please try again.", error = ex.Message });
             }
         }
+
 
 
         [HttpGet]
         public async Task<IActionResult> GetUserAppointments([FromQuery] int userId)
         {
-            var appointments = await dbContext.Appointments
+            try
+            {
+                var appointments = await dbContext.Appointments
                 .Where(a => a.UserId == userId)
                 .Select(a => new
                 {
@@ -63,16 +62,22 @@ namespace backend.Controllers
                 })
                 .OrderByDescending(a => a.AppointmentDate)
                 .ThenByDescending(a => a.AppointmentTime)
-                .ToListAsync(); 
+                .ToListAsync();
 
-            if (!appointments.Any())
+                if (appointments == null || appointments.Count == 0)
+                {
+                    return NotFound(new { message = "No apppointments found" });
+                }
+
+                return Ok(appointments);
+            }
+            catch (Exception ex)
             {
-                return NotFound(new { message = "No appointments found for this user" });
+                return StatusCode(500, new { message = "Failed to fetch the appointments", error = ex.Message });
             }
 
-            return Ok(appointments);
-        }
 
+        }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteAppointment([FromQuery] int appointmentId)
@@ -93,13 +98,13 @@ namespace backend.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 return StatusCode(500, new { message = "Internal server error", error = ex.Message });
             }
         }
 
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateAppointment([FromBody] UpdateAppointment update)
         {
             if (!ModelState.IsValid)
@@ -113,8 +118,8 @@ namespace backend.Controllers
                     return NotFound(new { message = "Appointment not found" });
                 }
 
-                
-                app.Status = update.Status; 
+
+                mapper.Map(update, app);
 
                 await dbContext.SaveChangesAsync();
 
@@ -125,6 +130,74 @@ namespace backend.Controllers
                 return StatusCode(500, new { message = "Internal server error", error = ex.Message });
             }
         }
+
+
+        [HttpGet("dashboard")]
+        public async Task<IActionResult> GetCompletedAppointment()
+        {
+            try
+            {
+
+                var appointmentsWithUsers = await dbContext.Appointments
+                    .Include(appointment => appointment.User)
+                    .Select(appointment => new
+                    {
+                        appointment.AppointmentId,
+                        appointment.Service,
+                        appointment.AppointmentDate,
+                        appointment.AppointmentTime,
+                        appointment.AdditionalNotes,
+                        appointment.Status,
+                        Name = appointment.User.Name,
+                        Id = appointment.User.Id
+                    })
+                    .OrderBy(a => a.AppointmentDate)
+                    .ThenBy(a => a.AppointmentTime)
+                    .ToListAsync();
+
+                if (appointmentsWithUsers == null)
+                {
+                    return NotFound(new { message = "No appointments" });
+                }
+
+                return Ok(appointmentsWithUsers);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Failed to fetch the appointments", error = ex.Message });
+            }
+        }
+
+        [HttpPut("action")]
+        public async Task<IActionResult> PutAppointmentAction([FromBody] AppointmentAction appointmentAction)
+        {
+            try
+            {
+                var app = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentAction.AppointmentId);
+
+                if (app == null)
+                {
+                    return NotFound(new { message = "Appointment not found" });
+                }
+                mapper.Map(appointmentAction, app);
+
+                await dbContext.SaveChangesAsync();
+
+                return Ok(new
+                {
+                    message = appointmentAction.Action ? "Appointment accepted!" : "Appointment rejected!",
+                    appointment = app
+                });
+
+
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Internal server error", error = ex.Message });
+            }
+        }
+
+
 
     }
 }

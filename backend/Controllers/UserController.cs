@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using AutoMapper;
 using backend.Data;
 using backend.Models.Dtos;
 using backend.Models.Entities;
@@ -14,23 +15,26 @@ namespace backend.Controllers
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
+        private readonly IMapper mapper;
 
-        public UserController(ApplicationDbContext dbContext)
+        public UserController(ApplicationDbContext dbContext, IMapper mapper)
         {
-            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext)); ;
+            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
+            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpPost]
+        [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
             var user = await dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
             if (user == null)
             {
-                return Unauthorized(new { message = "User not found" });
+                return NotFound(new { message = "User not found" });
             }
-            else if(!VerifyPassword(request.Password, user.Password))
+            else if (!VerifyPassword(request.Password, user.Password))
             {
                 return BadRequest(new { message = "incorrect password" });
             }
@@ -39,30 +43,32 @@ namespace backend.Controllers
         }
 
         [HttpPost("signup")]
-        public async Task<IActionResult> AddUser([FromBody] AddUser newuser)
+        public async Task<IActionResult> Signup([FromBody] SignupRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            if (await dbContext.Users.AnyAsync(x => x.Email == newuser.Email))
+            if (await dbContext.Users.AnyAsync(x => x.Email == request.Email))
             {
                 return BadRequest(new { message = "Email is already registered" });
             }
 
-            var user = new User()
+            var user = mapper.Map<User>(request);
+            user.Password = HashPassword(request.Password);
+
+            try
             {
-                Name = newuser.Name,
-                Email = newuser.Email,
-                Password = HashPassword(newuser.Password),
-                Phone = newuser.Phone
-            };
+                dbContext.Users.Add(user);
+                await dbContext.SaveChangesAsync();
+                return Ok(new { message = "Account created succesfully" });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Could not create an account", error = ex.Message });
+            }
 
-            dbContext.Users.Add(user);
-            await dbContext.SaveChangesAsync();
-
-            return Ok(new { message = "User created successfully" });
         }
 
-        [HttpPut]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateUser(UpdateUser updateUser)
         {
             if (!ModelState.IsValid)
@@ -72,10 +78,8 @@ namespace backend.Controllers
             {
                 return NotFound();
             }
-            user.Name = updateUser.Name;
-            user.Email = updateUser.Email;
-            user.Phone = updateUser.Phone;
 
+            mapper.Map(updateUser, user);
             try
             {
                 await dbContext.SaveChangesAsync();
@@ -83,7 +87,7 @@ namespace backend.Controllers
             }
             catch (Exception ex)
             {
-                throw new Exception("Could not save update:", ex);
+                return StatusCode(500, new { message = "Could not Save changes", error = ex.Message });
             }
         }
 

@@ -1,234 +1,233 @@
 import { useEffect, useState } from "react";
 import { useUser } from "../Context/UserContext";
-import { useNavigate } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import '../Styles/ShowAppointment.css';
+import { useNavigate } from "react-router-dom";
+import { toast as hotToast } from "react-hot-toast";
+import "../Styles/ShowAppointment.css";
+import { ToastContainer, toast as alertToast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AppointmentService from "../Services/AppointmentService";
+
+import DeleteIcon from "@mui/icons-material/Delete";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import PaginatedTable from "../Components/PaginatedTable";
+
 function ShowApp() {
-    const { userId } = useUser();
-    const [appointments, setAppointments] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
-    const navigate = useNavigate();
+  const { userId } = useUser();
+  const [appointments, setAppointments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [activeTab, setActiveTab] = useState("upcoming");
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchAppointments = async () => {
-            if (!userId) {
-                setLoading(false);
-                return;
-            }
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      if (!userId) {
+        setLoading(false);
+        return;
+      }
 
-            toast.loading('Loading appointments...');
+      hotToast.loading("Loading appointments...");
 
-            try {
-                const response = await fetch(`http://localhost:5056/appointment?userId=${userId}`);
-
-                if (!response.ok) {
-                    const data = await response.json();
-                    throw new Error(data.message || "You have no appointments");
-                }
-
-                const data = await response.json();
-                setAppointments(Array.isArray(data) ? data : []);
-            } catch (error) {
-                setError(error.message);
-            } finally {
-                toast.dismiss();
-                setLoading(false);
-            }
-        };
-
-        fetchAppointments();
-    }, [userId]);
-
-    const handleDelete = async (appointmentId) => {
-        try {
-            const response = await fetch(`http://localhost:5056/appointment?appointmentId=${appointmentId}`, {
-                method: 'DELETE',
-            });
-
-            if (response.ok) {
-                setAppointments(appointments.filter(app => app.appointmentId !== appointmentId));
-                toast.success('Appointment deleted successfully');
-            } else {
-                throw new Error('Failed to delete appointment');
-            }
-        } catch (error) {
-            setError(error.message);
-            toast.error(error.message);
-        }
+      try {
+        const response = await AppointmentService.get(`?userId=${userId}`);
+        setAppointments(Array.isArray(response) ? response : []);
+        console.log("appointments");
+        setError(null);
+      } catch (error) {
+        setError(error.message || "failed to fetch");
+        setAppointments([]);
+      } finally {
+        hotToast.dismiss();
+        setLoading(false);
+      }
     };
 
-    
-    const formatTime = (timeSpan) => {
-        if (!timeSpan) return "N/A";  
-        return timeSpan.substring(0, 5);
-    };
+    fetchAppointments();
+  }, [userId]);
 
+  const handleDelete = (appointmentId) => {
+    if (isDeleting) return;
 
-    const handleUpdate = async (appointmentId) => {
-        try {
-            const response = await fetch(`http://localhost:5056/appointment/`,
-                {
-                    method: 'PUT',
-                    headers: { "Content-type": "application/json" },
-                    body: JSON.stringify
-                    ({
-                        appointmentId,
-                        status:true
-                    })
+    setIsDeleting(true);
 
-                });
-            if (response.ok) {
-                setAppointments((prev) =>
-                    prev.map(app =>
-                        app.appointmentId === appointmentId ? { ...app, status: true } : app
-                    )
-                );
-
-                toast.success('Status updated successfully')
-            }
-            else {
-                toast.error("could not update status. try again!");
-            }
-
-        }
-        catch (error) {
-            setError(error.message);
-            toast.error(error.message);
-        }
-    }
-
-
-
-    if (loading) {
-        return (
-            <div className="d-flex justify-content-center align-items-center min-vh-100">
-                <p className="text-muted">Loading appointments...</p>
-            </div>
-        );
-    }
-
-    const completedAppointments = appointments.filter((app) => app.status === true);
-    const upcomingAppointments = appointments.filter((app) => app.status === false);
-    return (
-        <>
-       
-            <h1 className="text-center mb-4" >
-                My Appointments</h1>
-       
-           
-
-            {appointments.length === 0 ? (
-                <div className="py-4 text-center" >
-                    {error && <p className=" text-center">{error}</p>}
-                        <button
-                            onClick={() => navigate('/book')}
-                            className="btn my-2 custom-button" 
-                        >
-                            Book an Appointment
-                        </button>
-
-                </div>
-            ) : (<>
-                    <div>
-                <span>
-                   
-                    {/* Upcoming Appointments Section */}
-                    
-                    {upcomingAppointments.length > 0 && (
-                                <div className="py-4 container-xl con-app">
-                     
-                            <h4 className="h4-upcoming">Upcoming Appointments</h4>
-                            <div className="row row-cols-1 row-cols-md-2 g-4">
-                                {upcomingAppointments.map((appointment) => (
-                                    <div key={appointment.appointmentId} className="col">
-                                        <div className="card h-100">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between align-items-center mb-3">
-                                                    <h5 className="card-title mb-0" >
-                                                        {appointment.service}
-                                                    </h5>
-                                                    <span className="status-tag status-upcoming">Upcoming</span>
-                                                </div>
-                                                <div className="card-text">
-                                                    <p className="mb-2" >
-                                                        <strong>Date:</strong> {new Date(appointment.appointmentDate).toLocaleDateString()}
-                                                    </p>
-                                                    <p className="mb-2" >
-                                                        <strong>Time:</strong> {formatTime(appointment.appointmentTime)}
-                                                    </p>
-                                                    {appointment.additionalNotes && (
-                                                        <p className="mb-2">
-                                                            <strong>Notes:</strong> {appointment.additionalNotes}
-                                                        </p>
-                                                    )}
-                                                </div>
-                                            </div>
-                                            <div className="card-footer bg-transparent border-top-0 p-3">
-                                                <button className="card-footer-btn" onClick={() => handleUpdate(appointment.appointmentId)}>
-                                                    Update Status
-                                                </button>
-                                                <button className="card-footer-btn-del" onClick={() => handleDelete(appointment.appointmentId)}>
-                                                    Delete
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            </div>
-                    
-                    )}
-                    {/* Completed Appointments Section */}
-                    {completedAppointments.length > 0 && (
-                                <div className="py-4 container-xl con-app">
-                      
-                            <h4 className="h4-completed">Completed Appointments</h4>
-                            <div className="row row-cols-1 row-cols-md-2 g-4">
-                                {completedAppointments.map((appointment) => (
-                                    <div key={appointment.appointmentId} className="col">
-                                        <div className="card h-100">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between align-items-center mb-3">
-                                                    <h5 className="card-title mb-0" >
-                                                        {appointment.service}
-                                                    </h5>
-                                                    <span className="status-tag status-completed">Completed</span>
-                                                </div>
-                                                <div className="card-text">
-                                                    <p className="content mb-2">
-                                                        <strong>Date:</strong> {new Date(appointment.appointmentDate).toLocaleDateString()}
-                                                    </p>
-                                                    <p className="content mb-2">
-                                                        <strong>Time:</strong> {formatTime(appointment.appointmentTime)}
-                                                    </p>
-                                                    {appointment.additionalNotes && (
-                                                        <p className="content mb-2" >
-                                                            <strong>Notes:</strong> {appointment.additionalNotes}
-                                                        </p>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                            </div>
-                    
-                    )}
-                </span>
-
-               </div>
-
-
-                </>
-                   
-                 
-            )}
-            
-       
-        </>
+    alertToast.warn(
+      <div className="flex flex-col gap-2">
+        <p>Are you sure you want to delete this appointment?</p>
+        <div className="flex gap-2 justify-end mt-2">
+          <div className="button-container">
+            <button
+              onClick={() => {
+                deleteAppointment(appointmentId);
+                alertToast.dismiss();
+                setIsDeleting(false);
+              }}
+              className="card-footer-btn-del "
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => {
+                alertToast.dismiss();
+                setIsDeleting(false);
+              }}
+              className="card-footer-btn"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>,
+      {
+        position: "top-center",
+        autoClose: false,
+        closeButton: false,
+        closeOnClick: false,
+        draggable: false,
+        onClose: () => setIsDeleting(false), // Reset isDeleting when toast is closed
+      }
     );
+  };
+
+  const deleteAppointment = async (appointmentId) => {
+    try {
+      const response = await AppointmentService.delete(
+        `?appointmentId=${appointmentId}`
+      );
+
+      hotToast.success(response.message);
+      setAppointments((prevAppointments) =>
+        prevAppointments.filter((app) => app.appointmentId !== appointmentId)
+      );
+    } catch (error) {
+      setError(error.message);
+      hotToast.error(error.message || "failed to delete");
+    }
+  };
+
+  const handleUpdate = async (appointmentId) => {
+    if (isUpdating) return;
+
+    setIsUpdating(true);
+
+    alertToast.warn(
+      <div className="flex flex-col gap-2">
+        <p>are you sure you want to set this appointment as done</p>
+        <div className="flex gap-2 justify-end mt-2">
+          <div className="button-container">
+            <button
+              onClick={() => {
+                updateAppointment(appointmentId);
+                alertToast.dismiss();
+                setIsUpdating(false);
+              }}
+              className="card-footer-btn-del "
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => {
+                alertToast.dismiss();
+                setIsUpdating(false);
+              }}
+              className="card-footer-btn"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>,
+      {
+        position: "top-center",
+        autoClose: false,
+        closeButton: false,
+        closeOnClick: false,
+        draggable: false,
+        onClose: () => setIsUpdating(false), // Reset isDeleting when toast is closed
+      }
+    );
+  };
+  const updateAppointment = async (appointmentId) => {
+    try {
+      const response = await AppointmentService.put(`/update`, {
+        appointmentId,
+        status: true,
+      });
+      if (response) {
+        setAppointments((prev) =>
+          prev.map((app) =>
+            app.appointmentId === appointmentId ? { ...app, status: true } : app
+          )
+        );
+      }
+      hotToast.success("Status updated successfully");
+    } catch (error) {
+      setError(error.message);
+      hotToast.error(error.message);
+    }
+  };
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+  };
+
+  if (loading) {
+    return (
+      <div className="d-flex justify-content-center align-items-center min-vh-100">
+        <p className="text-muted">Loading appointments...</p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {/* ----------------------------------------- */}
+      <ToastContainer limit={1} />
+      <h1 className="text-center mb-4">My Appointments</h1>
+
+      {appointments.length === 0 ? (
+        <div className="container py-1 text-center">
+          {error && <p className="text-danger fw-bold">{error}</p>}
+          <div className="d-flex justify-content-center">
+            <button
+              onClick={() => navigate("/book")}
+              className="btn my-2 custom-button"
+            >
+              Book an Appointment
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="tabs">
+            <button
+              className={`tab ${activeTab === "upcoming" ? "tab-inactive" : "tab-active"}`}
+              onClick={() => handleTabChange("upcoming")}
+            >
+              Upcoming Appointments
+            </button>
+            <button
+              className={`tab ${activeTab === "completed" ? "tab-inactive" : "tab-active"}`}
+              onClick={() => handleTabChange("completed")}
+            >
+              Completed Appointments
+            </button>
+          </div>
+
+          <PaginatedTable
+            data={appointments}
+            rowsPerPage="4"
+            activeTab={activeTab}
+            handleUpdate={handleUpdate}
+            handleDelete={handleDelete}
+          />
+        </>
+      )}
+
+      {/* ------------------------------------- */}
+    </>
+  );
 }
 
 export default ShowApp;

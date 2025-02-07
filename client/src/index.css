@@ -4,7 +4,10 @@
     font-family: 'Dancing Script', cursive;
 }
 
-
+html, body {
+    overflow-x: hidden; /* Hides horizontal scrollbar */
+    overflow-y: auto;   /* Allows vertical scrolling */
+}
 body {
    
     margin: 0;
@@ -13,10 +16,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Optional: Improve text readability */
-* {
-    color: #6a0572; /* Purple */
-}
 
 /* Add padding to the main container */
 .container-fluid {
@@ -46,7 +45,7 @@ code {
 }
 
 .social-icons a {
-    color: #6a0572; /* Purple shade */
+    color: #B76E79; /* Purple shade */
     font-size: 24px;
     margin: 0 10px;
     transition: color 0.3s ease-in-out;
@@ -55,3 +54,15 @@ code {
     .social-icons a:hover {
         color: #ff5c8a; /* Pink shade */
     }
+    ::-webkit-scrollbar {
+        display: none;
+      }
+     
+      html {
+        scrollbar-width: none; /* Firefox */
+      }
+     
+      body {
+        -ms-overflow-style: none; /* IE & Edge */
+      }
+     

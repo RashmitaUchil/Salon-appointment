@@ -4,6 +4,10 @@
     background-color: floralwhite;
     padding: 20px;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 /* Carousel Section */
@@ -40,11 +44,12 @@
 
 /* Services Section */
 .section-title {
-    font-size: 28px;
+    font-size: 35px;
+    font-family:Cambria;
     font-weight: 700;
-    color: #6a0572; 
+    color: #795757;
     margin-top: 20px;
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
 }
 
 
@@ -68,6 +73,7 @@
     text-align: center;
     margin-left: 100px;
     transition: 0.3s ease-in-out;
+    margin: auto;
 }
 
     .service-card:hover {
@@ -75,6 +81,12 @@
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
     }
 
+    .service-card h3 {
+        color: #B76E79
+    }
+    .service-card p {
+        color: #A87676
+    }
 .service-img {
     width: 100%;
     height: 250px;
@@ -86,6 +98,7 @@
     background-color: #f5e4da;
     margin-top: 20px;
     width: 100%;
+    justify-content: center;
     padding: 15px 20px;
     height: auto;
     max-width: 100%;
@@ -97,7 +110,7 @@
 .home-book-btn {
     display: inline-block;
     margin-top: 30px;
-    padding: 10px 15px;
+    padding: 7px 10px;
     background-color: #F5E2D6; /* Pink */
     color: #B76E79;
     text-decoration: none;
@@ -106,12 +119,13 @@
     border: 2px solid #B76E79;
     font-weight: 500;
 }
-
     .home-book-btn:hover {
-        background-color: #6a0572; 
-        transform: scale(1.05); 
+        background-color: #B76E79;
+        color: white;
+        transform: scale(1.05);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+    
 
 
 @media (max-width: 768px) {

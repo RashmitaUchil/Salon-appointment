@@ -30,6 +30,9 @@ namespace backend.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppointmentId"));
 
+                    b.Property<bool?>("Action")
+                        .HasColumnType("bit");
+
                     b.Property<string>("AdditionalNotes")
                         .HasColumnType("nvarchar(max)");
 

@@ -6,23 +6,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
-    .service-page-container h2 {
-        font-size: 36px;
-        font-weight: 700;
-        color: #6a0572; /* Purple */
-        margin-bottom: 20px;
-    }
+   
 
 .service-detail-img {
     width: 100%;
     max-width: 450px;
-    height: auto;
+    height: 300px;
     border-radius: 8px;
     margin-bottom: 20px;
 }
 .service-page-container h2 {
     font-size: 30px;
-    color: #6a0572;
+    color: #A87676;
     line-height: 1.5;
     max-width: 800px;
     margin: 0 auto;
@@ -30,9 +25,28 @@
 
 
 .service-page-container p {
-    font-size: 18px;
-    color: #555;
+    font-size: 16px;
+    color: #795757;
     line-height: 1.5;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
+
+.service-book-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 7px 10px;
+    background-color: #F5E2D6; 
+    color: #B76E79;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    border: 2px solid #B76E79;
+    font-weight: 500;
+}
+    .service-book-btn:hover {
+        background-color: #B76E79;
+        color:white;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }

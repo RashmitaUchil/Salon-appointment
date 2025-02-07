@@ -1,0 +1,128 @@
+/* Dashboard.css */
+.dashboard
+{
+    background-color:  #F5E2D6;
+    padding: auto;
+    margin-bottom: 2rem;
+}
+.dashboard h1{
+    margin: 2rem;
+    font-family:Cambria;
+    font-weight: 700;
+    
+}
+/* Container */
+.container {
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+/* Heading */
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+    .table th,
+    .table td {
+        padding: 12px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #f4f4f9;
+        color: #555;
+        font-weight: 600;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table tbody tr:nth-child(even) {
+        background-color: #fafafa;
+    }
+
+    /* Table Row Hover */
+    .table tbody tr:hover {
+        background-color: #e9e9e9;
+    }
+
+/* Responsive Table */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+        .table th,
+        .table td {
+            padding: 8px;
+        }
+}
+
+
+/* Dashboard.css */
+.table-responsive {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn {
+    margin: 5px;
+}
+
+.button1 {
+    width: 100%;
+    padding: 0.6rem;
+    margin-left:2px;
+    background-color: #A87676;
+    color: #fff;
+    border: none;
+    margin-top: 0.3rem;
+    max-width:100px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem; 
+}
+
+    .button1:hover {
+        background-color: #A87676;
+        opacity: 0.9;
+    }
+
+.container buttons {
+    justify-content: center;
+    align-content: center;
+    max-width: 200px
+}
+.container {
+    margin-top: 30px;
+}
+
+.text-center {
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 35px;
+    font-family: Cambria;
+    font-weight: 700;
+    color: #795757;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}

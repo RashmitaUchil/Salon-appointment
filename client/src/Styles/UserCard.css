@@ -44,26 +44,31 @@
     border: 2px solid #B76E79
 }
 
-.btn-prof {
-    background-color: #B76E79;
+.btn-opt {
+    background-color: #E1ACAC;
     color: white;
-    border-radius: 8px; 
-    padding:8px 16px;
+    border-radius: 8px ;
+    padding: 5px 12px;
     width: 100%
 }
-.btn-hist {
-    background-color: #B76E79;
-    color: white;
-    border-radius: 8px;
-    padding: 8px 16px;
-    width: 100%
-}
+    .btn-opt:hover {
+        background-color: #E1ACAC;
+        opacity:0.9
+    }
+
 
 .btn-out {
-    background-color: #800080;
+    background-color: #A87676;
     color: white;
     border-radius: 8px;
-    padding: 8px 16px;
+    padding: 5px 12px;
     width: 100%;
-    margin-bottom: 8px
+}
+.btn-out:hover {
+    background-color: #A87676;
+    opacity: 0.9
+}
+
+.btn-out , .btn-opt{
+    border:none;
 }

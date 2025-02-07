@@ -1,107 +1,104 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
-import toast from 'react-hot-toast';
-import '../Styles/Login.css';
+import toast from "react-hot-toast";
+import "../Styles/Login.css";
+import UserService from "../Services/UserService";
 
 export default function Login() {
-    const [formData, setFormData] = useState({ email: "", password: "" });
-    const [error, setError] = useState("");
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const { userId, setUserId, userName, setUserName, setUserEmail, setUserPhone } = useUser();
+  const {
+    userId,
+    setUserId,
+    userName,
+    setUserName,
+    setUserEmail,
+    setUserPhone,
+  } = useUser();
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-        setError("");
-    };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError("");
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (!formData.email || !formData.password) {
-            toast.error("Cannot login until email and password are provided");
-            return;
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!formData.email || !formData.password) {
+      toast.error("Cannot login until email and password are provided");
+      return;
+    }
+    setLoading(true);
+    try {
+      const data = await UserService.post("/login", formData);
+      if (data) {
+        setUserId(data.id);
+        setUserName(data.name);
+        setUserEmail(data.email);
+        setUserPhone(data.phone);
 
-        setLoading(true);
-        try {
-            const response = await fetch('http://localhost:5056/user/', {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            });
+        localStorage.setItem("userId", data.id);
+        localStorage.setItem("userName", data.name);
+        localStorage.setItem("userEmail", data.email);
+        localStorage.setItem("userPhone", data.phone);
+      }
+      toast.dismiss();
+      toast.success("Logged in!");
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-            if (!response.ok) {
-                const data = await response.json();
-                throw new Error(data.message || "Login failed");
-            }
+  useEffect(() => {
+    console.log("Updated userId:", userId);
+    console.log("Updated userName:", userName);
+  }, [userId, userName]);
 
-            const data = await response.json();
-            setUserId(data.id);
-            setUserName(data.name);
-            setUserEmail(data.email);
-            setUserPhone(data.phone);
-
-            localStorage.setItem("userId", data.id);
-            localStorage.setItem("userName", data.name);
-            localStorage.setItem("userEmail", data.email);
-            localStorage.setItem("userPhone", data.phone);
-
-            toast.success("Logged in!");
-            navigate("/");
-        } catch (err) {
-            setError(err.message);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        console.log('Updated userId:', userId);
-        console.log('Updated userName:', userName);
-    }, [userId, userName]);
-
-    return (
-        <div className="login-container">
-            <div className="login-card">
-                <h2 className="login-title">Login</h2>
-                {error && <p className="error-message">{error}</p>}
-                <form onSubmit={handleSubmit} className="login-form">
-                    <div>
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="input-field"
-                            required
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            value={formData.password}
-                            onChange={handleChange}
-                            className="input-field"
-                            required
-                        />
-                    </div>
-                    <button
-                        type="submit"
-                        className="submit-btn"
-                        disabled={loading}
-                    >
-                        {loading ? "Logging in..." : "Login"}
-                    </button>
-                </form>
-                <p className="signup-link">
-                    Don't have an account? <Link to="/signup" className="link">Sign up</Link>
-                </p>
-            </div>
-        </div>
-    );
+  return (
+    <div className="login-container">
+      <div className="login-card">
+        <h2 className="login-title">Login</h2>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleSubmit} className="login-form">
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="input-field"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="input-field"
+              required
+            />
+          </div>
+          <button type="submit" className="submit-btn" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+        <p className="signup-link">
+          Don't have an account?{" "}
+          <Link to="/signup" className="link">
+            Sign up
+          </Link>
+        </p>
+      </div>
+    </div>
+  );
 }

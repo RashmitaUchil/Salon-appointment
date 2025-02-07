@@ -14,6 +14,7 @@
 /*    flex-shrink: 0;*/
     background-color: #F5E2D6;
     width: 100%;
+    padding:5px;
     margin-top: auto;
 }
 span{
@@ -21,6 +22,7 @@ span{
 }
 .footer-content {
     max-width: 300px;
+    padding:10px;
     height:50%;
     text-align: center;
 }
@@ -30,22 +32,23 @@ span{
     color:#B76E79;       
     font-Family: Poppins, sans-serif;
     font-Weight: bold;
-    font-Size: 1.8rem
+    font-Size: 1.5rem
 }
 
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 15px;
+    margin :auto;
+    gap: 10px;
+   
 }
 
     .social-icons a {
-        color: #6a0572;
+        color: #795757;
         font-size: 24px;
         transition: color 0.3s ease-in-out;
     }
 
         .social-icons a:hover {
-            color: #ff5c8a;
+            color: #B76E79;
         }

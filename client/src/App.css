@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: #6a0572; /* Purple */
+    color: #B76E79;
 }
 
 .App-logo {
@@ -23,7 +23,7 @@
 }
 
 .App-header {
-    background-color: #ff4d6d; /* Pink */
+    background-color: #B76E79; /* Pink */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 }
 
 .App-link {
-    color: #6a0572; /* Purple */
+    color: #B76E79; /* Purple */
     text-decoration: none;
     font-weight: bold;
     transition: 0.3s ease-in-out;

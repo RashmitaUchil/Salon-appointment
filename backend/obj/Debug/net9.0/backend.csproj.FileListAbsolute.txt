@@ -500,3 +500,6 @@ C:\React\Salon appointment\backend\obj\Debug\net9.0\refint\backend.dll
 C:\React\Salon appointment\backend\obj\Debug\net9.0\backend.pdb
 C:\React\Salon appointment\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\React\Salon appointment\backend\obj\Debug\net9.0\ref\backend.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\AutoMapper.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

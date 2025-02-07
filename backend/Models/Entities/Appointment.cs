@@ -11,6 +11,7 @@ namespace backend.Models.Entities
         [Required] public required string Service { get; set; }
         public string? AdditionalNotes { get; set; }
         [Required] public required bool Status { get; set; }
+        public bool? Action { get; set; }
 
         public virtual User? User { get; set; }
     }

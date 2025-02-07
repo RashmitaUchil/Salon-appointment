@@ -11,6 +11,7 @@ function UserCard() {
     const handleAuth = () => {
         if (userId) {
             localStorage.removeItem('userId');
+            localStorage.removeItem('userName');
             setUserId(null);
             setUserName("User");
             toast.success('Logged out successfully');
@@ -39,12 +40,12 @@ function UserCard() {
                     
                     <button
                         onClick={handleClick}
-                        className="btn-prof" >
+                        className="btn-opt" >
                         Profile
                     </button>
                     <button
                         onClick={()=>navigate('/app')}
-                        className="btn-hist"
+                        className="btn-opt"
                       
                     >
                         Appointment History

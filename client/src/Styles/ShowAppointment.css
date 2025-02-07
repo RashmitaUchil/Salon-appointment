@@ -1,11 +1,5 @@
-/* Button Styling */
-/*.btn {
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-*/
+
+
 .custom-button {
     margin-top: 30px;
     padding: 10px 15px;
@@ -24,78 +18,19 @@
 
 
     .custom-button:hover {
-        background-color: #6a0572; /* Dark Purple */
+        background-color: #B76E79;
+        color: white;
         transform: scale(1.05);
-        color: #B76E79;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-
-
-/* Container for Appointments */
-.con-app {
-    background-color: #F5E2D6;
-    margin-top: 20px;
-    width: 900px;
-    padding: 15px 20px;
-    height: auto;
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom:20px
-}
-
-/* Card styling */
-.card {
-    border-radius: 16px;
-    border: none;
-    position:relative;
-    height:70%;
-    width:80%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #FFF; /* White Background */
-}
-
-.card-body {
-    padding: 10px;
-}
-
-.card-title {
-    color: #6a0572; /* Purple */
-    font-size: 1.25rem;
-}
-
-.card-text {
-    color: #6a0572; /* Purple */
-}
-
-/* Appointment Status Tag */
-.card-footer .status-tag {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.875rem;
-}
-
-/* Appointment Date and Time */
-.card-text p {
-    color: #6a0572; /* Purple */
-}
-
-.card-footer {
-    background-color: transparent;
-    border-top: 0;
-    padding: 3px;
-}
-
-    /* Delete Button Styling */
-
 .card-footer-btn-del {
-    width: 100%;
+    width: 70%;
     margin-top:10px;
     background-color: indianred; 
     color: white;
-    border-radius: 20px;
+    border-radius: 8px;
+    padding: 5px 12px;;
     cursor: pointer;
     font-size: 0.8rem;
     transition: opacity 0.2s;
@@ -104,13 +39,19 @@
     transform: scale(1.05);
     background-color: indianred;
 }
-
+.button-container {
+    display: flex;           
+    justify-content: space-between; 
+    gap: 10px;                
+  }
+  
 .card-footer-btn {
-    width: 100%;
+    width: 70%;
     margin-top: 10px;
-    background-color: #6a0572; /* Purple */
+    padding: 5px 12px;;
+    background-color:#77DD77;
     color: white;
-    border-radius: 20px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 0.8rem;
     transition: opacity 0.2s;
@@ -118,9 +59,13 @@
 
     .card-footer-btn:hover {
         transform: scale(1.05);
-        background-color: #6a0572;
+        background-color:#77DD77;
+        opacity:0.9
     }
-
+    .card-footer-btn, .card-footer-btn-del {
+        border: none; /* Remove border */
+    }
+    
 /* Loading and Empty State */
 .d-flex.justify-content-center.align-items-center.min-vh-100 {
     text-align: center;
@@ -132,27 +77,32 @@
 
 /* Heading */
 h1 {
-    color: #6a0572; /* Purple */
+    color: #A87676; /* Purple */
     font-size: 2rem;
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
+.status-name
+{
+    color: #A87676; 
+    font-size: 1.5rem;
+    text-align: center;
+    margin:auto;
+}
+
 /* Error Message */
 .text-danger {
-    color: #ff4d6d; /* Pink */
+    color: #A87676; /* Pink */
     font-size: 1rem;
 }
 
 /* Appointment Card */
 .card-body .card-text p {
-    color: #6a0572; /* Purple */
+    color: #A87676; 
 }
 
-/* Button Hover Effects */
-.btn-primary:hover {
-    background-color: #6a0572; /* Purple */
-}
+
 /* Appointment Status Tag */
 .status-tag {
     padding: 4px 12px;
@@ -166,7 +116,7 @@ h1 {
 
 /* Upcoming Status */
 .status-upcoming {
-    background-color: #6a0572; /* Purple for upcoming appointments */
+    background-color: #A87676; /* Purple for upcoming appointments */
 }
 
 /* Completed Status */
@@ -185,17 +135,103 @@ h1 {
 }
 
 .h4-upcoming {
-
-    color: darkred;
-    text-align:center
-
+    color: #A87676;
+    text-align: center
 }
 
 h5 {
-    color: #6a0572; 
+    color: #A87676;
     font-size: 1.25rem
 }
 
 .content {
     color: #800080
 }
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-active {
+    padding: 10px 20px;
+    background-color: #B76E79;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.tab-inactive {
+    padding: 10px 20px;
+    background-color: #B76E79;
+    opacity: 0.6;  /* Reduced opacity for inactive state */
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+
+
+
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    
+    align-items: center;
+  }
+  
+  .appointment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .appointment-table th,
+  .appointment-table td {
+    width:25%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .appointment-table-up th,
+  .appointment-table-up td {
+    width:20%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  .appointment-table th {
+    background-color: #B76E79;
+    color: white;
+  }
+  
+  .appointment-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .action-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: auto;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  .action-btn-del {
+    background-color: #D9534F;
+    color: white;
+    border: none;
+    padding: auto;
+    cursor: pointer;
+  }
+  

@@ -20,24 +20,29 @@ Content-type: application/json
 }
 
 ###
-POST {{backend_HostAddress}}/appointment/
+GET {{backend_HostAddress}}/appointment?userId=8
+###
+POST {{backend_HostAddress}}/appointment/book
 Content-Type: application/json
 
 {
     "userId": 8,
-    "appointmentDate": "2025-02-12",
+    "appointmentDate": "2026-02-12",
     "appointmentTime": "15:30:00",
     "service": "facial",
     "additionalNotes": "gold",
     "status":false
 }
 
+###
+GET {{backend_HostAddress}}/appointment/upcoming
+###
+GET {{backend_HostAddress}}/appointment/completed
+###
+GET {{backend_HostAddress}}/appointment/booked?userId=8
 
 ###
-GET {{backend_HostAddress}}/appointment?userId=12
-
-###
-DELETE {{backend_HostAddress}}/appointment?appointmentId=8
+DELETE {{backend_HostAddress}}/appointment?appointmentId=25
 
 ###
 PUT {{backend_HostAddress}}/user

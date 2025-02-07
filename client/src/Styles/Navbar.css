@@ -1,11 +1,33 @@
 
-
+.navbar{
+    padding:2px
+}
 /* Navbar Links */
 .navbar-brand {
     color: #B76E79;
         font-family:Poppins, sans-serif;
         font-weight: bold;
-        font-size: 1.8rem
+        font-size: 1.6rem
+}
+    .navbar-brand:hover
+     {
+        color: #B76E79 !important;
+        text-shadow: 2px 2px 4px #B76E79;
+    }
+    .navbar-brand:visited {
+        color: #B76E79 !important;
+        font-family: Poppins, sans-serif;
+        font-weight: bold;
+        font-size: 1.6rem
+    }
+
+.navbar-nav
+{
+    display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-weight: 100;
+     
 }
 .navbar-toggler {
     background-color: #B76E79;
@@ -21,18 +43,24 @@
     background-color: #F5E2D6
 }
 .btn-dropdown-toggle {
-    color: #4C4C4C
+    color:#B5828C;
+    padding: 0.2rem;
+    
 }
-.btn-dropdown-toggle:hover {
-    color: #fff
-}
+
 .btn-login {
-    background-color: #800080;
+    background-color: #A87676;
     color: white;
     border-radius: 8px;
     padding: 8px 16px;
-    width: 100%
+    width: 100px;
+    border:none
+    
 }
+    .btn-login:hover {
+        background-color: #B5828C;
+        opacity:0.8
+    }
 .dropdown-menu {
     background-color: #F5E2D6;
 }
@@ -59,15 +87,13 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
 }
 .nav-link {
-    color: #4C4C4C ;
+    color:#B5828C ;
     font-weight: 500;
     margin-right: 20px;
     transition: 0.3s ease;
 }
 
-    .nav-link:hover {
-        color: #fff !important; /* Pink accent on hover */
-    }
+    
 
 
 

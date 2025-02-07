@@ -9,6 +9,7 @@
     /* Login card styling */
     .login-card {
     background-color: white;
+    margin-top:auto;
     padding: 32px;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -44,7 +45,7 @@
 
 /* Input field styling */
 .input-field {
-    padding: 14px;
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1rem;
@@ -61,7 +62,7 @@
 
 /* Submit button styling */
 .submit-btn {
-    background-color: #6a1b9a;
+    background-color: #A87676;
     color: white;
     padding: 5px;
     border-radius: 8px;
@@ -72,7 +73,8 @@
 }
 
     .submit-btn:hover {
-        background-color: #00796b;
+        background-color: #A87676;
+        opacity:0.9
     }
 
 /* Signup link styling */
@@ -84,7 +86,7 @@
 }
 
     .signup-link .link {
-        color: #9c27b0;
+        color: #A87676;
         text-decoration: none;
         font-weight: bold;
     }

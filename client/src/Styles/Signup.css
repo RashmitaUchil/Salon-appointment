@@ -4,12 +4,15 @@
     justify-content: center;
     align-items: center;
     height: 60vh;
-    background: #fef2f2
+    background: #fef2f2;
+    padding:10px;
+
 }
 
 /* Signup card styling */
 .signup-card {
-    margin-top:50px;
+   margin-top:90px;
+  
     background-color: white;
     padding: 20px;
     border-radius: 16px;
@@ -31,9 +34,9 @@
 .error-message {
     background-color: #f8d7da;
     color: #721c24;
-    padding: 12px;
+    padding: 5px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -41,9 +44,9 @@
 .success-message {
     background-color: #d4edda;
     color: #155724;
-    padding: 12px;
+    padding: 5px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -56,7 +59,7 @@
 
 /* Input field styling */
 .input-field {
-    padding: 10px;
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 0.7rem;
@@ -68,12 +71,12 @@
     /* Input field focus effect */
     .input-field:focus {
         border-color: #009688;
-        box-shadow: 0 0 8px rgba(0, 150, 136, 0.5);
+       
     }
 
 /* Submit button styling */
 .submit-btn {
-    background-color: #009688;
+    background-color: #A87676;
     color: white;
     padding: 5px;
     border-radius: 8px;
@@ -84,19 +87,21 @@
 }
 
     .submit-btn:hover {
-        background-color: #00796b;
+        background-color: #A87676;
+        opacity:0.9
     }
 
 /* Login link styling */
 .login-link {
     text-align: center;
-    margin-top: 16px;
+    margin-top: 10px;
     font-size: 1rem;
     color: #2c3e50;
+    margin-bottom:7px;
 }
 
     .login-link .link {
-        color: #9c27b0;
+        color: #A87676;
         text-decoration: none;
         font-weight: bold;
     }
