@@ -4,12 +4,12 @@
     justify-content: center;
     align-items: center;
     height: 60vh;
-    background: #fef2f2;
+    background: white;
 }
     /* Login card styling */
     .login-card {
-    background-color: white;
-    margin-top:auto;
+    background-color: #F5E2D6;
+    margin-top:70px;
     padding: 32px;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -28,8 +28,8 @@
 
 /* Error message styling */
 .error-message {
-    background-color: #f8d7da;
-    color: #721c24;
+    background-color: indianred;
+    color: white;
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -46,7 +46,7 @@
 /* Input field styling */
 .input-field {
     padding: 6px;
-    border: 1px solid #ccc;
+    border: 1px solid #fef2f2;
     border-radius: 8px;
     font-size: 1rem;
     width: 100%;

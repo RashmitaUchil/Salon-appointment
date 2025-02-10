@@ -503,3 +503,15 @@ C:\React\Salon appointment\backend\obj\Debug\net9.0\ref\backend.dll
 C:\React\Salon appointment\backend\bin\Debug\net9.0\AutoMapper.dll
 C:\React\Salon appointment\backend\bin\Debug\net9.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Common.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Microsoft.Extensions.Features.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\System.Net.ServerSentEvents.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\React\Salon appointment\backend\bin\Debug\net9.0\System.Threading.Channels.dll

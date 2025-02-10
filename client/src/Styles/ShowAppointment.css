@@ -24,21 +24,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-.card-footer-btn-del {
-    width: 70%;
-    margin-top:10px;
-    background-color: indianred; 
-    color: white;
-    border-radius: 8px;
-    padding: 5px 12px;;
-    cursor: pointer;
-    font-size: 0.8rem;
-    transition: opacity 0.2s;
-}
-.card-footer-btn-del:hover {
-    transform: scale(1.05);
-    background-color: indianred;
-}
+
 .button-container {
     display: flex;           
     justify-content: space-between; 
@@ -50,6 +36,17 @@
     margin-top: 10px;
     padding: 5px 12px;;
     background-color:#77DD77;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: opacity 0.2s;
+}
+.card-footer-btn-del {
+    width: 70%;
+    margin-top: 10px;
+    padding: 5px 12px;;
+    background-color:indianred;
     color: white;
     border-radius: 8px;
     cursor: pointer;
@@ -75,22 +72,6 @@
     text-align: center;
 }
 
-/* Heading */
-h1 {
-    color: #A87676; /* Purple */
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.status-name
-{
-    color: #A87676; 
-    font-size: 1.5rem;
-    text-align: center;
-    margin:auto;
-}
-
 /* Error Message */
 .text-danger {
     color: #A87676; /* Pink */
@@ -102,136 +83,15 @@ h1 {
     color: #A87676; 
 }
 
-
-/* Appointment Status Tag */
-.status-tag {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: white;
-    text-align: center;
-    display: inline-block;
+.error
+{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:#A87676;
+    font-size: 30px;
 }
 
-/* Upcoming Status */
-.status-upcoming {
-    background-color: #A87676; /* Purple for upcoming appointments */
-}
-
-/* Completed Status */
-.status-completed {
-    background-color: #4CAF50; /* Green for completed appointments */
-}
-
-/* Cancelled Status */
-/*.status-cancelled {
-    background-color: #f44336;*/ /* Red for cancelled appointments */
-/*}*/
-
-.h4-completed {
-    color: #4CAF50; 
-    text-align:center
-}
-
-.h4-upcoming {
-    color: #A87676;
-    text-align: center
-}
-
-h5 {
-    color: #A87676;
-    font-size: 1.25rem
-}
-
-.content {
-    color: #800080
-}
-
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.tab-active {
-    padding: 10px 20px;
-    background-color: #B76E79;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 0 10px;
-    font-size: 16px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.tab-inactive {
-    padding: 10px 20px;
-    background-color: #B76E79;
-    opacity: 0.6;  /* Reduced opacity for inactive state */
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 0 10px;
-    font-size: 16px;
-    border-radius: 8px;
-}
-
-
-
-
-.table-container {
-    margin-top: 20px;
-    overflow-x: auto;
-    
-    align-items: center;
+.custom-toast .Toastify__toast-icon {
+    display: none;
   }
   
-  .appointment-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  .appointment-table th,
-  .appointment-table td {
-    width:25%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .appointment-table-up th,
-  .appointment-table-up td {
-    width:20%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  .appointment-table th {
-    background-color: #B76E79;
-    color: white;
-  }
-  
-  .appointment-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .action-btn {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: auto;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  .action-btn-del {
-    background-color: #D9534F;
-    color: white;
-    border: none;
-    padding: auto;
-    cursor: pointer;
-  }
   

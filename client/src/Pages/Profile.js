@@ -57,16 +57,14 @@ function Profile() {
 
   return (
     <div className="container profile mx-auto p-4 ">
-      <h2 className="text-2xl font-semibold mb-4 text-center profile-title">
-        Profile
-      </h2>
+      <h2 className=" profile-title">Profile</h2>
 
       <div className="mb-4">
         <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
           Name:
         </label>
         <input
-          className="border border-[#B76E79] rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="input-book-prof"
           id="name"
           name="name"
           value={formData.name}
@@ -80,7 +78,7 @@ function Profile() {
           Email:
         </label>
         <input
-          className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="input-book-prof"
           id="email"
           name="email"
           value={formData.email}
@@ -94,7 +92,7 @@ function Profile() {
           Phone:
         </label>
         <input
-          className="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="input-book-prof"
           id="phone"
           name="phone"
           value={formData.phone}
@@ -112,7 +110,7 @@ function Profile() {
             setIsEditing(true);
           }
         }}
-        disabled={isLoading} // Disable button when loading
+        disabled={isLoading}
       >
         {isEditing ? (isLoading ? "Updating..." : "Update") : "Edit Profile"}
       </button>

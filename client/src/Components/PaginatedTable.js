@@ -3,6 +3,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { useLocation, useNavigate } from "react-router-dom";
+import "../Styles/PaginatedTable.css";
 
 const PaginatedTable = ({
   data,
@@ -13,14 +15,26 @@ const PaginatedTable = ({
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     setCurrentPage(1);
   }, [activeTab]);
 
-  const filteredData =
-    activeTab === "upcoming"
-      ? data.filter((app) => !app.status)
-      : data.filter((app) => app.status);
+  const filteredData = data.filter((app) => {
+    if (activeTab === "upcoming") {
+      return app.status === false && app.action === true;
+    } else if (activeTab === "completed") {
+      return app.status === true;
+    } else if (activeTab === "rejected") {
+      return app.status === false && app.action === false;
+    } else if (activeTab === "booked") {
+      return app.status === false && app.action === null;
+    } else {
+      return app.action === null && app.status === false;
+    }
+  });
 
   const totalPages = Math.ceil(filteredData.length / rowsPerPage);
   const currentData = filteredData.slice(
@@ -44,58 +58,96 @@ const PaginatedTable = ({
     <div className="table-container">
       {filteredData.length > 0 ? (
         <>
-          <p className="status-name">
-            {activeTab === "upcoming"
-              ? "Upcoming Appointments"
-              : "Completed Appointments"}
-          </p>
           <table
-            className={`appointment-table ${activeTab === "upcoming" ? "appointment-table-up" : ""}`}
+            className={`appointment-table 
+                  ${activeTab === "pending" ? "appointment-table-6" : ""} 
+                  ${activeTab === "booked" ? "appointment-table-5" : ""}
+                  ${activeTab === "upcoming" ? "appointment-table-5" : ""}
+                  ${activeTab === "upcoming" && location.pathname === "/dashboard" ? "appointment-table-5" : ""}`}
           >
             <thead>
               <tr>
+                {location.pathname === "/dashboard" && <th>Name</th>}
                 <th>Service</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Notes</th>
-                {activeTab === "upcoming" && <th>Actions</th>}
+                {(activeTab === "pending" ||
+                  (activeTab === "booked" && location.pathname === "/app") ||
+                  (activeTab === "upcoming" &&
+                    location.pathname === "/app")) && <th>Actions</th>}
               </tr>
             </thead>
             <tbody>
               {currentData.map((appointment) => (
                 <tr key={appointment.appointmentId}>
+                  {location.pathname === "/dashboard" && (
+                    <td>{appointment.name}</td>
+                  )}
                   <td>{appointment.service}</td>
                   <td>
-                    {new Date(appointment.appointmentDate).toLocaleDateString()}
+                    {new Date(appointment.appointmentDate).toLocaleDateString(
+                      "en-GB"
+                    )}
                   </td>
                   <td>{formatTime(appointment.appointmentTime)}</td>
-                  <td>{appointment.additionalNotes || "N/A"}</td>
-                  {activeTab === "upcoming" && (
+                  <td>{appointment.additionalNotes || "No Note"}</td>
+                  {activeTab === "pending" && (
                     <td>
-                      {appointment.action === "Accepted" ? (
-                        <span className="text-green-600 font-bold">
-                          Accepted
-                        </span> // Show "Accepted"
-                      ) : (
-                        <>
-                          <button
-                            className="action-btn"
-                            onClick={() =>
-                              handleUpdate(appointment.appointmentId)
-                            }
-                          >
-                            <CheckCircleIcon />
-                          </button>
-                          <button
-                            className="action-btn-del"
-                            onClick={() =>
-                              handleDelete(appointment.appointmentId)
-                            }
-                          >
-                            <DeleteIcon />
-                          </button>
-                        </>
-                      )}
+                      <button
+                        className="action-btn"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Accept Appointment"
+                        onClick={() => handleUpdate(appointment.appointmentId)}
+                      >
+                        <CheckCircleIcon />
+                      </button>
+
+                      <button
+                        className="action-btn-del"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Reject Appointment"
+                        onClick={() => handleDelete(appointment.appointmentId)}
+                      >
+                        <DeleteIcon />
+                      </button>
+                    </td>
+                  )}
+                  {activeTab === "booked" && (
+                    <td>
+                      <button
+                        className="action-btn-del"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Delete Appointment"
+                        onClick={() => handleDelete(appointment.appointmentId)}
+                      >
+                        <DeleteIcon />
+                      </button>
+                    </td>
+                  )}
+                  {activeTab === "upcoming" && location.pathname === "/app" && (
+                    <td>
+                      <button
+                        className="action-btn"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Check Appointment as Done"
+                        onClick={() => handleUpdate(appointment.appointmentId)}
+                      >
+                        <CheckCircleIcon />
+                      </button>
+                      <button
+                        className="action-btn-del"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Delete Appointment"
+                        onClick={() => handleDelete(appointment.appointmentId)}
+                      >
+                        <DeleteIcon />
+                      </button>
                     </td>
                   )}
                 </tr>
@@ -119,9 +171,35 @@ const PaginatedTable = ({
           )}
         </>
       ) : (
-        <p className="text-center">
-          No {activeTab === "upcoming" ? "upcoming" : "completed"} appointments
-        </p>
+        <>
+          <p className="text-center no-apps">
+            No{" "}
+            {activeTab === "upcoming"
+              ? "upcoming"
+              : activeTab === "completed"
+                ? "completed"
+                : "pending"}{" "}
+            appointments
+            {activeTab === "booked" ? (
+              <>
+                <p>
+                  <b>
+                    If booked previously, check upcoming or rejected
+                    appointments tab OR
+                  </b>
+                </p>
+                <button
+                  onClick={() => navigate("/book")}
+                  className="btn my-2 custom-button"
+                >
+                  Book an Appointment
+                </button>
+              </>
+            ) : (
+              ""
+            )}
+          </p>
+        </>
       )}
     </div>
   );

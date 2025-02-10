@@ -3,23 +3,23 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #fef2f2;
+    background-color:white;
 }
 
 .book {
-    width: 70%;
-    max-width: 500px;
+    width: 100%;
+    max-width: 600px;
     margin: 2rem auto; /* Increased top margin */
     height: auto;
     padding: 1.5rem; /* Increased padding */
-    background-color: white;
+    background-color: #F5E2D6;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .h4-head {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-top: 24px;
     color: #2c3e50;
@@ -30,20 +30,20 @@ body {
 }
 
 label {
-    font-size: 0.8rem; /* Slightly bigger label font size */
+    font-size: 1rem; /* Slightly bigger label font size */
     color: #A87676;
     padding:1px;
     margin-top: 1px;
 }
 
-input,
+.input-book,
 select,
 textarea {
     padding: 7px; /* Increased padding */
     font-size: 0.8rem; /* Increased font size */
     width: 100%;
     height:30px;
-    border: 1px solid #ccc;
+    border: 1px solid #fef2f2;
     border-radius: 6px;
     outline: none;
     
@@ -59,7 +59,7 @@ textarea {
 
 .button-app {
     width: 100%;
-    padding: 5px; /* Increased button padding */
+    padding: 10px; /* Increased button padding */
     background-color: #A87676;
     color: #fff;
     border: none;

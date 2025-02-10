@@ -58,7 +58,9 @@ namespace backend.Controllers
                     a.AppointmentTime,
                     a.Service,
                     a.AdditionalNotes,
-                    a.Status
+                    a.Status,
+                    a.UserId,
+                    a.Action
                 })
                 .OrderByDescending(a => a.AppointmentDate)
                 .ThenByDescending(a => a.AppointmentTime)
@@ -149,7 +151,8 @@ namespace backend.Controllers
                         appointment.AdditionalNotes,
                         appointment.Status,
                         Name = appointment.User.Name,
-                        Id = appointment.User.Id
+                        Id = appointment.User.Id,
+                        appointment.Action
                     })
                     .OrderBy(a => a.AppointmentDate)
                     .ThenBy(a => a.AppointmentTime)

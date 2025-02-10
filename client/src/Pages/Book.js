@@ -4,6 +4,8 @@ import { useUser } from "../Context/UserContext";
 import toast from "react-hot-toast";
 import "../Styles/Book.css";
 import AppointmentService from "../Services/AppointmentService";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import UserCard from "../Components/UserCard";
 
 function Book() {
   const [formData, setFormData] = useState({
@@ -18,6 +20,7 @@ function Book() {
   const [minDate, setMinDate] = useState("");
   const { userId } = useUser();
   const toastShown = useRef(false);
+  const queryClient = useQueryClient();
 
   useEffect(() => {
     setMinDate(new Date().toISOString().split("T")[0]);
@@ -37,6 +40,26 @@ function Book() {
     setError("");
   };
 
+  const bookAppointmentMutation = useMutation({
+    mutationFn: async () =>
+      await AppointmentService.post("/book", {
+        userId,
+        appointmentDate: formData.date,
+        appointmentTime: formData.time,
+        service: formData.service,
+        additionalNotes: formData.notes,
+        status: false,
+      }),
+
+    onSuccess: (response) => {
+      toast.success(response.message);
+      setTimeout(() => navigate("/"));
+    },
+    onError: (error) => {
+      toast.error(error.message || "Failed to book appointment");
+    },
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -45,40 +68,41 @@ function Book() {
       toast.error("Enter essential information about the appointment");
       return;
     }
-
-    try {
-      setLoading(true);
-      const response = await AppointmentService.post("/book", {
-        userId,
-        appointmentDate: formData.date,
-        appointmentTime: formData.time,
-        service: formData.service,
-        additionalNotes: formData.notes,
-        status: false,
-      });
-
-      toast.success(response.message || "Appointment booked successfully!!");
-      setTimeout(() => navigate("/"));
-    } catch (error) {
-      setError(error.message || "failed to book");
-    } finally {
-      setLoading(false);
-    }
+    bookAppointmentMutation.mutate();
   };
+
+  // try {
+  //   setLoading(true);
+  //   const response = await AppointmentService.post("/book", {
+  //     userId,
+  //     appointmentDate: formData.date,
+  //     appointmentTime: formData.time,
+  //     service: formData.service,
+  //     additionalNotes: formData.notes,
+  //     status: false,
+  //   });
+
+  //   toast.success(response.message || "Appointment booked successfully!!");
+  //   setTimeout(() => navigate("/"));
+  // } catch (error) {
+  //   setError(error.message || "failed to book");
+  // } finally {
+  //   setLoading(false);
+  // }
 
   if (!userId) {
     return <Navigate to="/login" />;
   }
 
   return (
-    <div className="container book">
+    <div className=" book">
       <h4 className="h4-head">Book Your Salon Appointment</h4>
       {error && <p className="text-red-500 text-sm text-center">{error}</p>}
       <form id="appointmentForm" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="date">Date:</label>
           <input
-            className="input"
+            className="input-book"
             type="date"
             id="date"
             name="date"
@@ -92,7 +116,7 @@ function Book() {
         <div className="form-group">
           <label htmlFor="time">Time:</label>
           <input
-            className="input"
+            className="input-book"
             type="time"
             id="appointmentTime"
             name="time"
@@ -115,7 +139,6 @@ function Book() {
             <option value="haircut">Haircut</option>
             <option value="coloring">Hair Coloring</option>
             <option value="styling">Hair Styling</option>
-            <option value="makeup">Manicure</option>
             <option value="manicure">Manicure</option>
             <option value="pedicure">Pedicure</option>
           </select>

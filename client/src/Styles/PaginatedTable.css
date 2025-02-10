@@ -11,7 +11,7 @@
     overflow-y: auto;}
   
   .pagination-container {
-    display: flex;
+    display: contents;
     justify-content: center;
     margin-top: 2rem;
     padding: 10px 0; 
@@ -25,23 +25,33 @@
     margin-top: 10px;
   }
   
-  .appointment-table th,
-  .appointment-table td {
-    width:25%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-  }
-  
-  .appointment-table-up th,
-  .appointment-table-up td {
+  .appointment-table-5 th,
+  .appointment-table-5 td {
     width:20%;
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
   }
+
+  .appointment-table th,
+  .appointment-table td {
+    width:20%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  
+  .appointment-table-6 th,
+  .appointment-table-6 td {
+    width:16.6%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+ 
   .appointment-table th {
-    background-color: #B76E79;
+    background-color: #A87676;
     color: white;
   }
   
@@ -66,3 +76,13 @@
     cursor: pointer;
   }
   
+  .tooltip
+  {
+    background-color: #B76E79;
+    color: antiquewhite;
+  }
+
+  .no-apps
+  {
+    margin-top: 40px;;
+  }

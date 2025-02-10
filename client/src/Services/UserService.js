@@ -21,8 +21,8 @@ class UserService {
     };
 
     try {
-      console.log("api request to:", fullurl);
       const response = await fetch(fullurl, options);
+
       if (response.status === 204) return null;
       const text = await response.text();
       const data = text ? JSON.parse(text) : null;

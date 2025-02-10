@@ -48,7 +48,8 @@ function Home() {
             <img
               src={salon1}
               className="carousel-image"
-              alt="Salon Interior 1"
+              alt="Salon 1"
+              loading="lazy"
             />
             <div className="carousel-caption d-none d-md-block">
               <h3>Experience professional service</h3>
@@ -58,7 +59,8 @@ function Home() {
             <img
               src={salon2}
               className="carousel-image"
-              alt="Salon Interior 2"
+              alt="Salon 2"
+              loading="lazy"
             />
             <div className="carousel-caption d-none d-md-block ">
               <h3>Give yourself a makeover</h3>
@@ -68,7 +70,8 @@ function Home() {
             <img
               src={salon3}
               className="carousel-image"
-              alt="Salon Interior 3"
+              alt="Salon 3"
+              loading="lazy"
             />
             <div className="carousel-caption d-none d-md-block">
               <h3>Book your appointment now</h3>

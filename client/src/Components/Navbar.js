@@ -106,8 +106,15 @@ function Navbar() {
           {!userId ? (
             <div>
               {" "}
-              <button onClick={() => navigate("/login")} className="btn-login">
-                Login
+              <button
+                onClick={() => {
+                  location.pathname === "/login"
+                    ? navigate("/signup")
+                    : navigate("/login");
+                }}
+                className="btn-login"
+              >
+                {location.pathname === "/login" ? "Signup" : "Login"}
               </button>
             </div>
           ) : (

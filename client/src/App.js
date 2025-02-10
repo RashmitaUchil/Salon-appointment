@@ -20,6 +20,9 @@ import About from "./Pages/About";
 import { ToastContainer } from "react-toastify";
 import Dashboard from "./Pages/Dashboard";
 import { useEffect } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function Layout() {
   useEffect(() => {
@@ -45,8 +48,9 @@ function Layout() {
         <Route path="/service/:name" element={<ServicePage />} />
       </Routes>
 
-      {/* Conditionally render Footer based on route */}
-      {location.pathname !== "/dashboard" && <Footer />}
+      {!["/dashboard", "/app", "/book", "/profile"].includes(
+        location.pathname
+      ) && <Footer />}
 
       <Toaster />
     </>
@@ -55,11 +59,13 @@ function Layout() {
 
 function App() {
   return (
-    <Router>
-      <UserProvider>
-        <Layout /> {/* Using Layout which contains the Router logic */}
-      </UserProvider>
-    </Router>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <UserProvider>
+          <Layout />
+        </UserProvider>
+      </Router>
+    </QueryClientProvider>
   );
 }
 

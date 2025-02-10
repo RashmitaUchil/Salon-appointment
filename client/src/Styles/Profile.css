@@ -8,7 +8,7 @@
 
 .profile {
     margin:auto;
-    background: white;
+    background: #F5E2D6;
     border-radius: 16px;
     width:30%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
 
 .profile-title {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 24px;
     color: #2c3e50;
@@ -36,4 +36,16 @@
     cursor: pointer;
     font-size: 1rem;
     transition:  0.3s ease-in-out;
+}
+.input-book-prof
+{
+    padding: 7px; 
+    font-size: 1rem; /* Increased font size */
+    width: 100%;
+    height:30px;
+    border: 1px solid #fef2f2;
+    border-radius: 6px;
+    outline: none;
+    
+    transition: 0.3s ease-in-out;
 }

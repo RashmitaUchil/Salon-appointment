@@ -1,22 +1,4 @@
-.book-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 10px 15px;
-    background-color: #F5E2D6; /* Pink */
-    color: #B76E79;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: 0.3s ease-in-out;
-    border: 2px solid #B76E79;
-    font-weight: 500;
-}
 
-    .book-btn:hover {
-        background-color: #6a0572;
-        transform: scale(1.05);
-        color: #B76E79;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
 
 .salon {
 
@@ -33,3 +15,22 @@
     font-weight: bold;
     font-size: 1rem
 }
+
+.h3-custom {
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    color: #2d3748; 
+    margin-bottom: 1rem; 
+}
+
+.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Show only 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .expanded {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
