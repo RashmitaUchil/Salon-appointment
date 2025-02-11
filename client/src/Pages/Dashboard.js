@@ -30,8 +30,8 @@ function Dashboard() {
         appointmentId,
         action: false,
       }),
-    onSuccess: (response, appointmentId) => {
-      toast.success(response.message);
+    onSuccess: (response) => {
+      toast.success(response ? response.message : "rejected");
       queryClient.invalidateQueries(["appointments"]);
     },
     onError: (error) => {
@@ -45,12 +45,12 @@ function Dashboard() {
         appointmentId,
         action: true,
       }),
-    onSuccess: (response, appointmentId) => {
-      toast.success(response.message);
+    onSuccess: (response) => {
+      toast.success(response ? response.message : "Accepted");
       queryClient.invalidateQueries(["appointments"]);
     },
     onError: (error) => {
-      toast.error(error.message || "Failed to accept appointment");
+      toast.error(error ? error.message : "Failed to accept appointment");
     },
   });
 
@@ -59,21 +59,23 @@ function Dashboard() {
       <div className="flex flex-col items-center text-center gap-2">
         <p>Are you sure you want to reject this appointment?</p>
         <div className="flex gap-2 justify-end mt-2">
-          <button
-            onClick={() => {
-              rejectAppointment.mutate(appointmentId);
-              alertToast.dismiss();
-            }}
-            className="card-footer-btn-del"
-          >
-            Yes
-          </button>
-          <button
-            onClick={() => alertToast.dismiss()}
-            className="card-footer-btn"
-          >
-            Cancel
-          </button>
+          <div class="button-container">
+            <button
+              onClick={() => {
+                rejectAppointment.mutate(appointmentId);
+                alertToast.dismiss();
+              }}
+              className="card-footer-btn"
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => alertToast.dismiss()}
+              className="card-footer-btn-del"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>,
       { position: "top-center", autoClose: false, closeButton: false }
@@ -85,21 +87,23 @@ function Dashboard() {
       <div className="flex flex-col items-center text-center gap-2">
         <p>Are you sure you want to accept this appointment?</p>
         <div className="flex gap-2 justify-end mt-2">
-          <button
-            onClick={() => {
-              acceptAppointment.mutate(appointmentId);
-              alertToast.dismiss();
-            }}
-            className="card-footer-btn-del"
-          >
-            Yes
-          </button>
-          <button
-            onClick={() => alertToast.dismiss()}
-            className="card-footer-btn"
-          >
-            Cancel
-          </button>
+          <div class="button-container">
+            <button
+              onClick={() => {
+                acceptAppointment.mutate(appointmentId);
+                alertToast.dismiss();
+              }}
+              className="card-footer-btn"
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => alertToast.dismiss()}
+              className="card-footer-btn-del"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>,
       { position: "top-center", autoClose: false, closeButton: false }

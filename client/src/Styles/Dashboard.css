@@ -22,23 +22,40 @@
 /* Heading */
 
 
-.card-footer-btn {
-    width: 70%;
+.card-footer-container {
+    display: flex; /* Arrange buttons in a row */
+    justify-content: center; /* Center buttons horizontally */
+    gap: 10px; /* Space between buttons */
     margin-top: 10px;
-    padding: 5px 12px;;
-    background-color:#77DD77;
+}
+
+.card-footer-btn, .card-footer-btn-del {
+    width: 70px; /* Adjust width to fit content */
+    padding: 5px 12px;
+    background-color: #77DD77;
     color: white;
     border-radius: 8px;
     cursor: pointer;
     font-size: 0.8rem;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, transform 0.2s;
+    border: none;
 }
 
-    .card-footer-btn:hover {
-        transform: scale(1.05);
-        background-color:#77DD77;
-        opacity:0.9
+.card-footer-btn-del {
+    background-color: #D9534F; /* Red for delete button */
+}
+
+.card-footer-btn:hover, .card-footer-btn-del:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+    .button-container {
+        display: flex; /* Arrange buttons in a row */
+        justify-content: center; /* Center buttons horizontally */
+        gap: 10px; /* Add spacing between buttons */
+        margin-top: 15px;
     }
-    .card-footer-btn, .card-footer-btn-del {
-        border: none; /* Remove border */
-    }
+    
+    
+    

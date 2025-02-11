@@ -19,9 +19,9 @@ namespace backend.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.User)  // Appointment belongs to User
-                .WithMany(u => u.Appointments) // User has multiple Appointments
-                .HasForeignKey(a => a.UserId)  // Foreign key
+                .HasOne(a => a.User)
+                .WithMany(u => u.Appointments)
+                .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

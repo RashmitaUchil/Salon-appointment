@@ -34,7 +34,9 @@ function ShowApp() {
       return await AppointmentService.delete(`?appointmentId=${appointmentId}`);
     },
     onSuccess: (response, appointmentId) => {
-      hotToast.success(response.message || "Appointment deleted successfully");
+      hotToast.success(
+        response ? response.message : "Appointment deleted successfully"
+      );
 
       queryClient.setQueryData(
         ["appointments", userId],
@@ -47,7 +49,7 @@ function ShowApp() {
       queryClient.invalidateQueries(["appointments", userId]);
     },
     onError: (error) => {
-      hotToast.error(error.message || "Failed to delete appointment");
+      hotToast.error(error ? error.message : "Failed to delete appointment");
     },
   });
 
@@ -59,7 +61,9 @@ function ShowApp() {
       });
     },
     onSuccess: (response, appointmentId) => {
-      hotToast.success(response.message || "Appointment status updated");
+      hotToast.success(
+        response ? response.message : "Appointment status updated"
+      );
 
       queryClient.setQueryData(
         ["appointments", userId],
@@ -72,7 +76,7 @@ function ShowApp() {
       queryClient.invalidateQueries(["appointments", userId]);
     },
     onError: (error) => {
-      hotToast.error(error.message || "Failed to update appointment");
+      hotToast.error(error ? error.message : "Failed to update appointment");
     },
   });
 
@@ -87,13 +91,13 @@ function ShowApp() {
                 deleteAppointmentMutation.mutate(appointmentId);
                 alertToast.dismiss();
               }}
-              className="card-footer-btn-del"
+              className="card-footer-btn"
             >
               Yes
             </button>
             <button
               onClick={() => alertToast.dismiss()}
-              className="card-footer-btn"
+              className="card-footer-btn-del"
             >
               Cancel
             </button>
@@ -122,13 +126,13 @@ function ShowApp() {
                 updateAppointmentMutation.mutate(appointmentId);
                 alertToast.dismiss();
               }}
-              className="card-footer-btn-del"
+              className="card-footer-btn"
             >
               Yes
             </button>
             <button
               onClick={() => alertToast.dismiss()}
-              className="card-footer-btn"
+              className="card-footer-btn-del"
             >
               Cancel
             </button>

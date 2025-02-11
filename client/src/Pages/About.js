@@ -13,10 +13,10 @@ function About() {
     <div className=" mx-auto p-4">
       <section className="mb-8">
         <h2 className="text-3xl font-bold text-center mb-4">
-          Welcome to <span className="salon">SALON</span>
+          Welcome to <span className="salon">ZEPHORA</span>
         </h2>
         <p className="text-lg text-gray-700 ">
-          At <span className="salon-small">SALON</span>, we believe that every
+          At <span className="salon-small">ZEPHORA</span>, we believe that every
           visit should be a rejuvenating experience. Our talented team of
           stylists, beauticians, and therapists are dedicated to bringing out
           your inner glow through personalized beauty services and high-quality
@@ -47,8 +47,8 @@ function About() {
           Our Services
         </h3>
         <p className="text-lg text-gray-700">
-          At <span className="salon-small">SALON</span>, we offer a wide range
-          of services including:
+          At <span className="salon-small"></span>, we offer a wide range of
+          services including:
         </p>
         <ul className="list-disc pl-6 text-gray-700">
           <li>Haircuts and styling</li>
@@ -103,9 +103,9 @@ function About() {
       <section className="mb-8">
         <h3 className="h3-custom">What Our Clients Say</h3>
         <blockquote className="italic text-gray-700 mb-4">
-          "I always leave SALON feeling like a new person! The team is so
-          welcoming, and the results are always amazing. I wouldn't trust anyone
-          else with my hair." - <strong>Sarah</strong>
+          "I always leave feeling like a new person! The team is so welcoming,
+          and the results are always amazing. I wouldn't trust anyone else with
+          my hair." - <strong>Sarah</strong>
         </blockquote>
       </section>
 

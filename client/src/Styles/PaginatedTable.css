@@ -28,7 +28,7 @@
   .appointment-table-5 th,
   .appointment-table-5 td {
     width:20%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
     text-align: center;
   }
@@ -36,7 +36,7 @@
   .appointment-table th,
   .appointment-table td {
     width:20%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ddd;
     text-align: center;
   }
@@ -65,7 +65,7 @@
     border: none;
     padding: auto;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 15px;
   }
   
   .action-btn-del {
