@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../Styles/Home.css";
 import hairstyle from "../img/hairstyle.jpg";
 import haircut from "../img/haircut.jpg";
@@ -13,6 +14,45 @@ import salon3 from "../img/salon3.jpg";
 
 function Home() {
   const navigate = useNavigate();
+
+  const services = [
+    {
+      name: "Haircut",
+      img: haircut,
+      link: "/service/haircut",
+      desc: "Transform your look with a stylish haircut from our professional stylists. Whether you prefer a trendy new style or a classic cut, our experts tailor each service to match your personality and hair type.",
+    },
+    {
+      name: "Makeup & Beauty",
+      img: makeup,
+      link: "/service/makeup",
+      desc: "Enhance your beauty with our professional makeup services. Whether it’s a natural glow or a glamorous evening look, we use top-quality products to make you shine.",
+    },
+    {
+      name: "Hair Styling",
+      img: hairstyle,
+      link: "/service/hairstyle",
+      desc: "Get the perfect hairstyle for any occasion with our expert hair styling services. From elegant updos to voluminous curls, we craft the look that suits your personality and event.",
+    },
+    {
+      name: "Manicure",
+      img: manicure,
+      link: "/service/manicure",
+      desc: "Give your hands  the care they deserve with our luxurious manicure services. Enjoy relaxing treatments that leave your nails perfectly shaped and polished",
+    },
+    {
+      name: "Hair Color",
+      img: haircolor,
+      link: "/service/haircolor",
+      desc: "Transform your look with professional hair coloring services. Whether you want a subtle change or a bold new shade, our experts use high-quality products to ensure vibrant, long-lasting color.",
+    },
+    {
+      name: "Pedicure",
+      img: pedicure,
+      link: "/service/pedicure",
+      desc: "Pamper your feet with our relaxing pedicure treatments. Our services ensure soft, smooth skin, healthy nails, and a perfect polish finish for a clean and stylish look.",
+    },
+  ];
   return (
     <div className="home-container">
       {/* Carousel Section */}
@@ -62,7 +102,7 @@ function Home() {
               alt="Salon 2"
               loading="lazy"
             />
-            <div className="carousel-caption d-none d-md-block ">
+            <div className="carousel-caption d-none d-md-block">
               <h3>Give yourself a makeover</h3>
             </div>
           </div>
@@ -106,93 +146,40 @@ function Home() {
           <span className="visually-hidden">Next</span>
         </button>
       </div>
-      {/*--------------------------------------------------------------*/}
-      {/* Services Section */}
 
+      {/* Services Section */}
       <div className="container-xl con-service">
         <h2 className="section-title">Our Services</h2>
 
         <div className="services-container">
-          <div className="service-card">
-            <Link to="/service/haircut">
-              <img
-                src={haircut}
-                alt="Haircut"
-                className="service-img"
-                loading="lazy"
-              />
-            </Link>
-            <h3>Haircut</h3>
-            <p>Get a stylish haircut from professional stylists.</p>
-          </div>
-
-          <div className="service-card">
-            <Link to="/service/makeup">
-              <img
-                src={makeup}
-                alt="Makeup"
-                className="service-img"
-                loading="lazy"
-              />
-            </Link>
-            <h3>Makeup & Beauty</h3>
-            <p>Enhance your beauty with our professional makeup services.</p>
-          </div>
-
-          <div className="service-card">
-            <Link to="/service/hairstyle">
-              <img
-                src={hairstyle}
-                alt="Hair Styling"
-                className="service-img"
-                loading="lazy"
-              />
-            </Link>
-            <h3>Hair Styling</h3>
-            <p>Enhance your beauty with our professional hair stylists.</p>
-          </div>
-
-          <div className="service-card">
-            <Link to="/service/manicure">
-              <img
-                src={manicure}
-                alt="Manicure"
-                className="service-img"
-                loading="lazy"
-              />
-            </Link>
-            <h3>Manicure</h3>
-            <p>Beautify your nails with our professional manicure service.</p>
-          </div>
-
-          <div className="service-card">
-            <Link to="/service/haircolor">
-              <img
-                src={haircolor}
-                alt="Hair Color"
-                className="service-img"
-                loading="lazy"
-              />
-            </Link>
-            <h3>Hair Color</h3>
-
-            <p>
-              Give your hair an amazing color with our professional services.
-            </p>
-          </div>
-
-          <div className="service-card">
-            <Link to="/service/pedicure">
-              <img
-                src={pedicure}
-                alt="Pedicure"
-                className="service-img"
-                loading="lazy"
-              />
-            </Link>
-            <h3>Pedicure</h3>
-            <p>Beautify your toes with our professional pedicure service.</p>
-          </div>
+          {services.map((service, index) => (
+            <motion.div
+              className="service-card"
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+                transition: { duration: 1 },
+              }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <Link to={service.link} key={index} className="service-link">
+                <div className="service-content">
+                  <div className="service-text">
+                    <h3>{service.name}</h3>
+                    <p>{service.desc}</p>
+                  </div>
+                  <img
+                    src={service.img}
+                    alt={service.name}
+                    className="service-img"
+                    loading="lazy"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
         <button onClick={() => navigate("/book")} className="home-book-btn">

@@ -40,7 +40,7 @@ function About() {
 
       {/* Our Services */}
       <div
-        className={`text-lg text-gray-700 ${expanded ? "expanded" : "truncated"}`}
+        className={`text-custom ${expanded ? "expanded" : "truncated"}`}
         onClick={toggleText}
       >
         <h3 className="text-2xl font-semibold text-gray-800 mb-3">

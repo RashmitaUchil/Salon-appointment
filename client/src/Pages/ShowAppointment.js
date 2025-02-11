@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useUser } from "../Context/UserContext";
-import { useNavigate } from "react-router-dom";
 import { toast as hotToast } from "react-hot-toast";
 import "../Styles/ShowAppointment.css";
 import { ToastContainer, toast as alertToast } from "react-toastify";
@@ -26,7 +25,7 @@ function ShowApp() {
     refetchOnWindowFocus: false,
     refetchInterval: () => {
       const existingData = queryClient.getQueryData(["appointments", userId]);
-      return existingData?.length > 0 ? 5000 : 2000;
+      return existingData?.length > 0 ? 3000 : 2000;
     },
   });
 

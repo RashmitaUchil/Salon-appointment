@@ -48,9 +48,7 @@ function Layout() {
         <Route path="/service/:name" element={<ServicePage />} />
       </Routes>
 
-      {!["/dashboard", "/app", "/book", "/profile"].includes(
-        location.pathname
-      ) && <Footer />}
+      {!["/dashboard", "/app"].includes(location.pathname) && <Footer />}
 
       <Toaster />
     </>

@@ -2,6 +2,10 @@
 .navbar{
     padding:2px
 }
+nav .container-fluid
+{
+    justify-items: center;
+}
 /* Navbar Links */
 .navbar-brand {
     color: #B76E79;
@@ -26,6 +30,7 @@
     display: flex;
      justify-content: space-between;
      align-items: center;
+    
      font-weight: 100;
      
 }
@@ -46,6 +51,10 @@
     color:#B5828C;
     padding: 0.2rem;
     
+}
+.navbar-collapse
+{
+    justify-items: center;
 }
 
 .btn-login {

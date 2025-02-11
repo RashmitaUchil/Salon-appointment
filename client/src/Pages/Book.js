@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
 import toast from "react-hot-toast";
 import "../Styles/Book.css";
 import AppointmentService from "../Services/AppointmentService";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import UserCard from "../Components/UserCard";
+import { useMutation } from "@tanstack/react-query";
+
 
 function Book() {
   const [formData, setFormData] = useState({
@@ -14,56 +14,65 @@ function Book() {
     service: "",
     notes: "",
   });
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+ 
+    const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [minDate, setMinDate] = useState("");
   const { userId } = useUser();
   const toastShown = useRef(false);
-  const queryClient = useQueryClient();
+ 
 
   useEffect(() => {
     setMinDate(new Date().toISOString().split("T")[0]);
   }, []);
 
-  useEffect(() => {
-    if (!userId && !toastShown.current) {
+    useEffect(() => {
+        const isLoggingOut = localStorage.getItem("isLoggingOut");
+    if (!userId && !toastShown.current && isLoggingOut!=="true") {
       toast.dismiss();
-      toast.error("You need to login first to book appointment");
-
+        toast.error("You need to login first to book appointment");
+        navigate("/login");
       toastShown.current = true;
-    }
-  }, [userId]);
+        }
+        localStorage.removeItem("isLoggingOut")
+  }, [userId,navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setError("");
+  
   };
 
-  const bookAppointmentMutation = useMutation({
-    mutationFn: async () =>
-      await AppointmentService.post("/book", {
-        userId,
-        appointmentDate: formData.date,
-        appointmentTime: formData.time,
-        service: formData.service,
-        additionalNotes: formData.notes,
-        status: false,
-      }),
+    const bookAppointmentMutation = useMutation({
+        mutationFn: async () => {
+            setLoading(true); 
+            return await AppointmentService.post("/book", {
+                userId,
+                appointmentDate: formData.date,
+                appointmentTime: formData.time,
+                service: formData.service,
+                additionalNotes: formData.notes,
+                status: false,
+            });
+        },
 
-    onSuccess: (response) => {
-      toast.success(response.message);
-      setTimeout(() => navigate("/"));
-    },
-    onError: (error) => {
-      toast.error(error.message || "Failed to book appointment");
-    },
-  });
+        onSuccess: (response) => {
+            toast.dismiss(); 
+            toast.success(response.message);
+            setTimeout(() => navigate("/"));
+            setLoading(false);
+        },
+
+        onError: (error) => {
+            toast.dismiss();
+            toast.error(error?error.message : "Failed to book appointment");
+            setLoading(false);
+        },
+    });
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setError("");
     if (!formData.date || !formData.time || !formData.service) {
       toast.error("Enter essential information about the appointment");
       return;
@@ -71,33 +80,13 @@ function Book() {
     bookAppointmentMutation.mutate();
   };
 
-  // try {
-  //   setLoading(true);
-  //   const response = await AppointmentService.post("/book", {
-  //     userId,
-  //     appointmentDate: formData.date,
-  //     appointmentTime: formData.time,
-  //     service: formData.service,
-  //     additionalNotes: formData.notes,
-  //     status: false,
-  //   });
-
-  //   toast.success(response.message || "Appointment booked successfully!!");
-  //   setTimeout(() => navigate("/"));
-  // } catch (error) {
-  //   setError(error.message || "failed to book");
-  // } finally {
-  //   setLoading(false);
-  // }
-
-  if (!userId) {
-    return <Navigate to="/login" />;
-  }
+ 
+  
 
   return (
     <div className=" book">
       <h4 className="h4-head">Book Your Salon Appointment</h4>
-      {error && <p className="text-red-500 text-sm text-center">{error}</p>}
+      
       <form id="appointmentForm" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="date">Date:</label>

@@ -10,12 +10,15 @@ function UserCard() {
 
     const handleAuth = () => {
         if (userId) {
+            localStorage.setItem("isLoggingOut", "true");
             localStorage.removeItem('userId');
             localStorage.removeItem('userName');
             setUserId(null);
             setUserName("User");
+            toast.dismiss();
             toast.success('Logged out successfully');
             navigate('/');
+      
         } else {
             navigate('/login');
         }

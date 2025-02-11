@@ -38,7 +38,7 @@
     width: 100%;
     max-height: 600px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: none;
     scroll-snap-align: start;
 }
 
@@ -58,29 +58,66 @@
 
 .services-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    background-color: white;
-    flex-wrap: wrap;
+    width: 100%;
     margin-top: 20px;
 }
-
+.service-link {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
 .service-card {
-    background-color:#F5E2D6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 350px;
-    text-align: center;
-    margin-left: 100px;
+    width: 100%;
+    max-width: 100%;
+    background-color:whitesmoke;
+    cursor: pointer;
     transition: 0.3s ease-in-out;
-    margin: auto;
+}
+.service-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+}
+.service-card:nth-child(even) .service-content {
+    flex-direction: row; /* Image on right */
+    text-align: right;
 }
 
-    .service-card:hover {
-        transform: translateY(-2px); 
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
-    }
+.service-card:nth-child(odd) .service-content {
+    flex-direction: row-reverse; /* Image on left */
+    text-align: left;
+}
+
+.service-text {
+    width: 90%;
+    padding: 20px;
+    
+}
+
+.service-text h3 {
+    color: #B76E79;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-text p {
+    color: #A87676;
+    font-size: 16px;
+}
+
+.service-card:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
+}
 
     .service-card h3 {
         color: #B76E79
@@ -88,12 +125,12 @@
     .service-card p {
         color: #A87676
     }
-.service-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-}
+    .service-img {
+        width:180px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
 
 .con-service {
     background-color: white;
@@ -140,25 +177,29 @@
     }
 
     .service-card {
-        width: 90%; 
-        margin-bottom: 20px;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
     }
 
     .carousel-image {
         height: 400px; 
     }
+    .service-img {
+        width: 100%;
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
 
 @media (max-width: 480px) {
-    .service-img {
-        height: 200px; 
-    }
+    
 
     .book-btn {
         padding: 10px 20px; 
     }
 }
-
 
 
 

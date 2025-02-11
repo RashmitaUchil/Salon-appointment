@@ -7,11 +7,11 @@ body {
 }
 
 .book {
-    width: 100%;
+    width: 90%;
     max-width: 600px;
     margin: 2rem auto; /* Increased top margin */
     height: auto;
-    padding: 1.5rem; /* Increased padding */
+    padding: 1rem; /* Increased padding */
     background-color: #F5E2D6;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -19,7 +19,7 @@ body {
 
 .h4-head {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: bold;
     margin-top: 24px;
     color: #2c3e50;
@@ -30,7 +30,7 @@ body {
 }
 
 label {
-    font-size: 1rem; /* Slightly bigger label font size */
+    font-size: 0.9rem; /* Slightly bigger label font size */
     color: #A87676;
     padding:1px;
     margin-top: 1px;
@@ -42,7 +42,7 @@ textarea {
     padding: 7px; /* Increased padding */
     font-size: 0.8rem; /* Increased font size */
     width: 100%;
-    height:30px;
+    height:28px;
     border: 1px solid #fef2f2;
     border-radius: 6px;
     outline: none;
@@ -50,7 +50,7 @@ textarea {
     transition: 0.3s ease-in-out;
 }
 
-    input:focus,
+    .input-book:focus,
     select:focus,
     textarea:focus {
         border-color: #A87676; 
@@ -59,13 +59,13 @@ textarea {
 
 .button-app {
     width: 100%;
-    padding: 10px; /* Increased button padding */
+    padding: 5px; /* Increased button padding */
     background-color: #A87676;
     color: #fff;
     border: none;
     width: 100%;
     margin-top:10px;
-    margin-bottom:20px;
+    margin-bottom:10px;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
