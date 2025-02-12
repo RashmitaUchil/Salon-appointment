@@ -51,5 +51,5 @@ class AppointmentService {
     return this.request(endpoint, "DELETE", null, headers);
   }
 }
-
-export default new AppointmentService(BASE_URL);
+const appointmentService = new AppointmentService(BASE_URL);
+export default appointmentService;

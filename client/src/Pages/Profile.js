@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useUser } from "../Context/UserContext";
 import toast from "react-hot-toast";
 import "../Styles/Profile.css";
-import UserService from "../Services/UserService";
+import userservice from "../Services/UserService";
 
 function Profile() {
   const {
@@ -30,12 +30,19 @@ function Profile() {
     if (!formData.name || !formData.email) {
       toast.error("Please fill in the name and email field.");
       return;
-    }
+      }
+      if (formData.phone) {
+          if (formData.phone.length !== 10) {
+              toast.error("Enter correct phone number");
+              return;
+          }
+      }
+      
 
     setIsLoading(true); // Start loading state
 
     try {
-      const response = await UserService.put(`/update`, {
+        const response = await userservice.put(`/update`, {
         id: userId,
         name: formData.name,
         email: formData.email,
@@ -44,11 +51,13 @@ function Profile() {
       if (response) {
         setUserName(formData.name);
         setUserEmail(formData.email);
-        setUserPhone(formData.phone);
-        toast.success("Details updated!");
+          setUserPhone(formData.phone);
+          toast.dismiss();
+        toast.success(response.message);
       }
       setIsEditing(false);
     } catch (err) {
+       toast.dismiss();
       toast.error(err.message);
     } finally {
       setIsLoading(false);

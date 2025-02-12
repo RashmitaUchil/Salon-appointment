@@ -1,6 +1,5 @@
 import "./App.css";
 import Navbar from "./Components/Navbar";
-import { UserProvider } from "./Context/UserContext";
 import {
   BrowserRouter as Router,
   Routes,
@@ -28,11 +27,10 @@ function Layout() {
   useEffect(() => {
     document.body.style.overflow = "hidden"; // This will remove both scrollbars
   }, []);
-  const location = useLocation(); // Now this is inside the Router context
-
+  const location = useLocation(); 
   return (
     <>
-      {/* Conditionally render Navbar and Footer based on route */}
+      
       {location.pathname !== "/dashboard" && <Navbar />}
 
       <ToastContainer />

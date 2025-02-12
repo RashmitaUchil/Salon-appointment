@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useUser } from "../Context/UserContext";
 import toast from "react-hot-toast";
 import "../Styles/Login.css";
-import UserService from "../Services/UserService";
+import userservice from "../Services/UserService";
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -33,13 +33,13 @@ export default function Login() {
     }
     setLoading(true);
     try {
-      const data = await UserService.post("/login", formData);
+        const data = await userservice.post("/login", formData);
       if (data) {
         setUserId(data.id);
         setUserName(data.name);
         setUserEmail(data.email);
         setUserPhone(data.phone);
-
+        localStorage.setItem("isLoggingIn", "true");
         localStorage.setItem("userId", data.id);
         localStorage.setItem("userName", data.name);
         localStorage.setItem("userEmail", data.email);

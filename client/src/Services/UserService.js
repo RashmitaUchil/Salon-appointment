@@ -22,7 +22,7 @@ class UserService {
 
     try {
       const response = await fetch(fullurl, options);
-
+      console.log("Response status:", response.status);
       if (response.status === 204) return null;
       const text = await response.text();
       const data = text ? JSON.parse(text) : null;
@@ -30,7 +30,7 @@ class UserService {
       if (response.ok) {
         return data;
       }
-      throw new Error(data.message || `Http error! Status:${response.status}`);
+      throw new Error(data?.message || `Http error! Status:${response.status}`);
     } catch (error) {
       console.error("API request failed:", error);
       throw error;
@@ -49,5 +49,5 @@ class UserService {
     return this.request(endpoint, "PUT", body, headers);
   }
 }
-
-export default new UserService(BASE_URL);
+const userservice = new UserService(BASE_URL);
+export default userservice;

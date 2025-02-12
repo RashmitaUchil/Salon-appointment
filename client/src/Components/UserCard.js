@@ -16,7 +16,8 @@ function UserCard() {
       setUserId(null);
       setUserName("User");
       toast.dismiss();
-      toast.success("Logged out successfully");
+        toast.success("Logged out successfully");
+        localStorage.removeItem("isLoggingIn");
       navigate("/");
     } else {
       navigate("/login");

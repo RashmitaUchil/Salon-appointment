@@ -83,7 +83,7 @@ namespace backend.Controllers
             try
             {
                 await dbContext.SaveChangesAsync();
-                return Ok();
+                return Ok(new { message = "Changes saved"});
             }
             catch (Exception ex)
             {

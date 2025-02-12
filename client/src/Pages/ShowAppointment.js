@@ -4,7 +4,7 @@ import { toast as hotToast } from "react-hot-toast";
 import "../Styles/ShowAppointment.css";
 import { ToastContainer, toast as alertToast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AppointmentService from "../Services/AppointmentService";
+import appointmentService from "../Services/AppointmentService";
 import { Tabs, Tab } from "@mui/material";
 import PaginatedTable from "../Components/PaginatedTable";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -18,7 +18,7 @@ function ShowApp() {
     queryKey: ["appointments", userId],
     queryFn: async () => {
       if (!userId) return [];
-      const response = await AppointmentService.get(`?userId=${userId}`);
+        const response = await appointmentService.get(`?userId=${userId}`);
       return Array.isArray(response) ? response : [];
     },
     staleTime: 1000 * 60 * 5,
@@ -31,7 +31,7 @@ function ShowApp() {
 
   const deleteAppointmentMutation = useMutation({
     mutationFn: async (appointmentId) => {
-      return await AppointmentService.delete(`?appointmentId=${appointmentId}`);
+          return await appointmentService.delete(`?appointmentId=${appointmentId}`);
     },
     onSuccess: (response, appointmentId) => {
       hotToast.success(
@@ -55,7 +55,7 @@ function ShowApp() {
 
   const updateAppointmentMutation = useMutation({
     mutationFn: async (appointmentId) => {
-      return await AppointmentService.put(`/update`, {
+          return await appointmentService.put(`/update`, {
         appointmentId,
         status: true,
       });

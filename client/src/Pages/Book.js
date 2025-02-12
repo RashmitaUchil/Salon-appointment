@@ -25,9 +25,10 @@ function Book() {
   }, []);
 
   useEffect(() => {
-    const isLoggingOut = localStorage.getItem("isLoggingOut");
+      const isLoggingOut = localStorage.getItem("isLoggingOut");
+      const isLoggingIn = localStorage.getItem("isLoggingIn");
     if (!userId && !toastShown.current) {
-      if (isLoggingOut !== "true") {
+      if (isLoggingOut !== "true" && isLoggingIn !=="true") {
         toast.dismiss();
         toast.error("You need to login first to book appointment");
         navigate("/login");

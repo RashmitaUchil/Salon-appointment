@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { ToastContainer, toast as alertToast } from "react-toastify";
 import "../Styles/Dashboard.css";
-import AppointmentService from "../Services/AppointmentService";
+import appointmentService from "../Services/AppointmentService";
 import PaginatedTable from "../Components/PaginatedTable";
 import { Tabs, Tab } from "@mui/material";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -18,7 +18,7 @@ function Dashboard() {
   } = useQuery({
     queryKey: ["appointments"],
     queryFn: async () => {
-      const response = await AppointmentService.get("/dashboard");
+        const response = await appointmentService.get("/dashboard");
       return response.filter((app) => app.action !== false);
     },
     refetchInterval: 5000,
@@ -26,7 +26,7 @@ function Dashboard() {
 
   const rejectAppointment = useMutation({
     mutationFn: async (appointmentId) =>
-      await AppointmentService.put("/action", {
+          await appointmentService.put("/action", {
         appointmentId,
         action: false,
       }),
@@ -41,7 +41,7 @@ function Dashboard() {
 
   const acceptAppointment = useMutation({
     mutationFn: async (appointmentId) =>
-      await AppointmentService.put("/action", {
+          await appointmentService.put("/action", {
         appointmentId,
         action: true,
       }),

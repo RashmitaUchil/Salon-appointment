@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "../Styles/Signup.css";
-import UserService from "../Services/UserService";
+import userservice from "../Services/UserService";
 import toast from "react-hot-toast";
 
 export default function Signup() {
@@ -51,7 +51,7 @@ export default function Signup() {
 
     setLoading(true);
     try {
-      await UserService.post("/signup", {
+        await userservice.post("/signup", {
         name: formData.name,
         email: formData.email,
         password: formData.password,
