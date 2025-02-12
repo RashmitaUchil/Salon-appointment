@@ -22,7 +22,7 @@
 .salon {
 
     color:#B76E79;
-    font-family: Poppins, sans-serif;
+    font-family: Luxurious Roman, serif;
     font-weight: bold;
     font-size: 2rem
 
@@ -30,12 +30,13 @@
 
 .salon-small {
     color: #B76E79;
-    font-family: Poppins, sans-serif;
+    font-family: Luxurious Roman, serif;
     font-weight: bold;
     font-size: 1rem
 }
 
 .h3-custom {
+    font-family: Luxurious Roman, serif;
     font-size: 1.5rem; 
     font-weight: 600; 
     color: #2d3748; 
@@ -59,3 +60,26 @@
     color: #374151; /* Gray 700 */
   }
   
+  .heading-text {
+    font-family:Luxurious Roman, serif;
+    font-size: 1.5rem; /* Equivalent to text-2xl */
+    font-weight: 600; /* Equivalent to font-semibold */
+    color: #1f2937; /* Equivalent to text-gray-800 */
+    margin-bottom: 0.75rem; /* Equivalent to mb-3 */
+}
+
+.read
+{
+    border-radius: 8px;
+    background-color:rosybrown;
+}
+.main-container
+{
+    background-color: rosybrown;
+}
+.service-con
+{
+    
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

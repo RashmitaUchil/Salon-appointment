@@ -43,8 +43,7 @@ export default function Login() {
         localStorage.setItem("userId", data.id);
         localStorage.setItem("userName", data.name);
         localStorage.setItem("userEmail", data.email);
-          localStorage.setItem("userPhone", data.phone);
-
+        localStorage.setItem("userPhone", data.phone);
       }
       toast.dismiss();
       toast.success("Logged in!");

@@ -6,7 +6,6 @@ import "../Styles/Book.css";
 import AppointmentService from "../Services/AppointmentService";
 import { useMutation } from "@tanstack/react-query";
 
-
 function Book() {
   const [formData, setFormData] = useState({
     date: "",
@@ -14,61 +13,60 @@ function Book() {
     service: "",
     notes: "",
   });
- 
-    const [loading, setLoading] = useState(false);
+
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [minDate, setMinDate] = useState("");
   const { userId } = useUser();
   const toastShown = useRef(false);
- 
 
   useEffect(() => {
     setMinDate(new Date().toISOString().split("T")[0]);
   }, []);
 
-    useEffect(() => {
-        const isLoggingOut = localStorage.getItem("isLoggingOut");
-    if (!userId && !toastShown.current && isLoggingOut!=="true") {
-      toast.dismiss();
+  useEffect(() => {
+    const isLoggingOut = localStorage.getItem("isLoggingOut");
+    if (!userId && !toastShown.current) {
+      if (isLoggingOut !== "true") {
+        toast.dismiss();
         toast.error("You need to login first to book appointment");
         navigate("/login");
-      toastShown.current = true;
-        }
-        localStorage.removeItem("isLoggingOut")
-  }, [userId,navigate]);
+        toastShown.current = true;
+      }
+      localStorage.removeItem("isLoggingOut");
+    }
+  }, [userId, navigate]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  
   };
 
-    const bookAppointmentMutation = useMutation({
-        mutationFn: async () => {
-            setLoading(true); 
-            return await AppointmentService.post("/book", {
-                userId,
-                appointmentDate: formData.date,
-                appointmentTime: formData.time,
-                service: formData.service,
-                additionalNotes: formData.notes,
-                status: false,
-            });
-        },
+  const bookAppointmentMutation = useMutation({
+    mutationFn: async () => {
+      setLoading(true);
+      return await AppointmentService.post("/book", {
+        userId,
+        appointmentDate: formData.date,
+        appointmentTime: formData.time,
+        service: formData.service,
+        additionalNotes: formData.notes,
+        status: false,
+      });
+    },
 
-        onSuccess: (response) => {
-            toast.dismiss(); 
-            toast.success(response.message);
-            setTimeout(() => navigate("/"));
-            setLoading(false);
-        },
+    onSuccess: (response) => {
+      toast.dismiss();
+      toast.success(response.message);
+      setTimeout(() => navigate("/"));
+      setLoading(false);
+    },
 
-        onError: (error) => {
-            toast.dismiss();
-            toast.error(error?error.message : "Failed to book appointment");
-            setLoading(false);
-        },
-    });
-
+    onError: (error) => {
+      toast.dismiss();
+      toast.error(error ? error.message : "Failed to book appointment");
+      setLoading(false);
+    },
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,13 +78,10 @@ function Book() {
     bookAppointmentMutation.mutate();
   };
 
- 
-  
-
   return (
     <div className=" book">
       <h4 className="h4-head">Book Your Salon Appointment</h4>
-      
+
       <form id="appointmentForm" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="date">Date:</label>

@@ -59,9 +59,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <UserProvider>
-          <Layout />
-        </UserProvider>
+        <Layout />
       </Router>
     </QueryClientProvider>
   );
