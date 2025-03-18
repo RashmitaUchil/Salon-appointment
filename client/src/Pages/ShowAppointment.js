@@ -18,7 +18,8 @@ function ShowApp() {
     queryKey: ["appointments", userId],
     queryFn: async () => {
       if (!userId) return [];
-        const response = await appointmentService.get(`?userId=${userId}`);
+      const response = await appointmentService.get(`?userId=${userId}`);
+      console.log("API Response:", response);
       return Array.isArray(response) ? response : [];
     },
     staleTime: 1000 * 60 * 5,
@@ -31,7 +32,7 @@ function ShowApp() {
 
   const deleteAppointmentMutation = useMutation({
     mutationFn: async (appointmentId) => {
-          return await appointmentService.delete(`?appointmentId=${appointmentId}`);
+      return await appointmentService.delete(`?appointmentId=${appointmentId}`);
     },
     onSuccess: (response, appointmentId) => {
       hotToast.success(
@@ -55,7 +56,7 @@ function ShowApp() {
 
   const updateAppointmentMutation = useMutation({
     mutationFn: async (appointmentId) => {
-          return await appointmentService.put(`/update`, {
+      return await appointmentService.put(`/update`, {
         appointmentId,
         status: true,
       });

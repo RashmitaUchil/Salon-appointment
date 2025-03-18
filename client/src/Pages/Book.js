@@ -17,24 +17,19 @@ function Book() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const [minDate, setMinDate] = useState("");
-  const { userId } = useUser();
+  const { userId, isLoggingOut } = useUser();
   const toastShown = useRef(false);
 
   useEffect(() => {
-    setMinDate(new Date().toISOString().split("T")[0]);
+    setMinDate(new Date());
   }, []);
 
   useEffect(() => {
-      const isLoggingOut = localStorage.getItem("isLoggingOut");
-      const isLoggingIn = localStorage.getItem("isLoggingIn");
-    if (!userId && !toastShown.current) {
-      if (isLoggingOut !== "true" && isLoggingIn !=="true") {
-        toast.dismiss();
-        toast.error("You need to login first to book appointment");
-        navigate("/login");
-        toastShown.current = true;
-      }
-      localStorage.removeItem("isLoggingOut");
+    if (!userId && !toastShown.current && !isLoggingOut) {
+      toast.dismiss();
+      toast.error("You need to login first to book appointment");
+      navigate("/login");
+      toastShown.current = true;
     }
   }, [userId, navigate]);
 

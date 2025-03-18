@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../Styles/PaginatedTable.css";
+import DataGrid, {
+  Column,
+  Pager,
+  Paging,
+  SearchPanel,
+  FilterRow,
+} from "devextreme-react/data-grid";
 
 const PaginatedTable = ({
   data,
-  rowsPerPage,
+
   activeTab,
   handleUpdate,
   handleDelete,
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
   const location = useLocation();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [activeTab]);
 
   const filteredData = data.filter((app) => {
     if (activeTab === "upcoming") {
@@ -36,139 +35,111 @@ const PaginatedTable = ({
     }
   });
 
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
-  const currentData = filteredData.slice(
-    (currentPage - 1) * rowsPerPage,
-    currentPage * rowsPerPage
-  );
-
-  const formatTime = (timeString) => {
-    const [hours, minutes] = timeString.split(":");
-    const date = new Date();
-    date.setHours(hours, minutes);
-
-    return date.toLocaleTimeString("en-US", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: true,
-    });
-  };
-
   return (
     <div className="table-container">
       {filteredData.length > 0 ? (
         <>
-          <table
-            className={`appointment-table 
-                  ${activeTab === "pending" ? "appointment-table-6" : ""} 
-                  ${activeTab === "booked" ? "appointment-table-5" : ""}
-                  ${activeTab === "upcoming" ? "appointment-table-5" : ""}
-                  ${activeTab === "upcoming" && location.pathname === "/dashboard" ? "appointment-table-5" : ""}`}
+          <DataGrid
+            className="devexpress-container"
+            dataSource={filteredData}
+            keyExpr="appointmentId"
+            showBorders={true}
+            columnAutoWidth={true}
+            rowAlternationEnabled={true}
           >
-            <thead>
-              <tr>
-                {location.pathname === "/dashboard" && <th>Name</th>}
-                <th>Service</th>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Notes</th>
-                {(activeTab === "pending" ||
-                  (activeTab === "booked" && location.pathname === "/app") ||
-                  (activeTab === "upcoming" &&
-                    location.pathname === "/app")) && <th>Actions</th>}
-              </tr>
-            </thead>
-            <tbody>
-              {currentData.map((appointment) => (
-                <tr key={appointment.appointmentId}>
-                  {location.pathname === "/dashboard" && (
-                    <td>{appointment.name}</td>
-                  )}
-                  <td>{appointment.service}</td>
-                  <td>
-                    {new Date(appointment.appointmentDate).toLocaleDateString(
-                      "en-GB"
-                    )}
-                  </td>
-                  <td>{formatTime(appointment.appointmentTime)}</td>
-                  <td>{appointment.additionalNotes || "No Note"}</td>
-                  {activeTab === "pending" && (
-                    <td>
-                      <button
-                        className="action-btn"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Accept Appointment"
-                        onClick={() => handleUpdate(appointment.appointmentId)}
-                      >
-                        <CheckCircleIcon />
-                      </button>
+            {/* Search & Filtering */}
+            <SearchPanel visible={true} highlightCaseSensitive={false} />
+            <FilterRow visible={true} />
 
+            {location.pathname === "/dashboard" && (
+              <Column dataField="name" alignment="center" caption="Name" />
+            )}
+            <Column dataField="service" alignment="center" caption="Service" />
+            <Column
+              alignment="center"
+              dataField="date"
+              caption="Date"
+              dataType="date"
+              format="dd/MM/yyyy"
+            />
+            <Column dataField="time" caption="Time" alignment="center" />
+            <Column
+              dataField="additionalNotes"
+              caption="Notes"
+              alignment="center"
+              calculateCellValue={(data) =>
+                data.additionalNotes || "No Notes Available"
+              }
+            />
+
+            {/* Actions Column */}
+            {(activeTab === "pending" ||
+              (activeTab === "booked" && location.pathname === "/app") ||
+              (activeTab === "upcoming" && location.pathname === "/app")) && (
+              <Column
+                caption="Actions"
+                alignment="center"
+                cellRender={({ data }) => (
+                  <div className="action-div">
+                    {activeTab === "pending" && (
+                      <>
+                        <button
+                          className="text-center action-btn"
+                          title="Accept Appointment"
+                          onClick={() => handleUpdate(data.appointmentId)}
+                        >
+                          <CheckCircleIcon />
+                        </button>
+                        <button
+                          className="action-btn-del"
+                          title="Reject Appointment"
+                          onClick={() => handleDelete(data.appointmentId)}
+                        >
+                          <DeleteIcon />
+                        </button>
+                      </>
+                    )}
+                    {activeTab === "booked" && (
                       <button
                         className="action-btn-del"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Reject Appointment"
-                        onClick={() => handleDelete(appointment.appointmentId)}
-                      >
-                        <DeleteIcon />
-                      </button>
-                    </td>
-                  )}
-                  {activeTab === "booked" && (
-                    <td>
-                      <button
-                        className="action-btn-del"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
                         title="Delete Appointment"
-                        onClick={() => handleDelete(appointment.appointmentId)}
+                        onClick={() => handleDelete(data.appointmentId)}
                       >
                         <DeleteIcon />
                       </button>
-                    </td>
-                  )}
-                  {activeTab === "upcoming" && location.pathname === "/app" && (
-                    <td>
-                      <button
-                        className="action-btn"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Check Appointment as Done"
-                        onClick={() => handleUpdate(appointment.appointmentId)}
-                      >
-                        <CheckCircleIcon />
-                      </button>
-                      <button
-                        className="action-btn-del"
-                        data-bs-toggle="tooltip"
-                        data-bs-placement="top"
-                        title="Delete Appointment"
-                        onClick={() => handleDelete(appointment.appointmentId)}
-                      >
-                        <DeleteIcon />
-                      </button>
-                    </td>
-                  )}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <br />
-          {/* Pagination Section */}
-          {totalPages > 1 && (
-            <div className="pagination-container">
-              <Stack spacing={2} alignItems="center" justifyContent="flex">
-                <Pagination
-                  count={totalPages}
-                  page={currentPage}
-                  onChange={(event, page) => setCurrentPage(page)}
-                  variant="outlined"
-                  shape="rounded"
-                />
-              </Stack>
-            </div>
-          )}
+                    )}
+                    {activeTab === "upcoming" &&
+                      location.pathname === "/app" && (
+                        <>
+                          <button
+                            className="action-btn"
+                            title="Check Appointment as Done"
+                            onClick={() => handleUpdate(data.appointmentId)}
+                          >
+                            <CheckCircleIcon />
+                          </button>
+                          <button
+                            className="action-btn-del"
+                            title="Delete Appointment"
+                            onClick={() => handleDelete(data.appointmentId)}
+                          >
+                            <DeleteIcon />
+                          </button>
+                        </>
+                      )}
+                  </div>
+                )}
+              />
+            )}
+
+            {/* Pagination */}
+            <Paging defaultPageSize={5} />
+            <Pager
+              visible={true}
+              showPageSizeSelector={true}
+              allowedPageSizes={[5, 10, 20]}
+            />
+          </DataGrid>
         </>
       ) : (
         <>
@@ -179,7 +150,7 @@ const PaginatedTable = ({
               : activeTab === "completed"
                 ? "completed"
                 : "pending"}{" "}
-            appointments
+            appointments.
             {activeTab === "booked" ? (
               <>
                 <p>

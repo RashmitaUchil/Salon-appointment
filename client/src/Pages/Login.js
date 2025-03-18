@@ -18,6 +18,7 @@ export default function Login() {
     setUserName,
     setUserEmail,
     setUserPhone,
+    setLoggedIn,
   } = useUser();
 
   const handleChange = (e) => {
@@ -33,13 +34,13 @@ export default function Login() {
     }
     setLoading(true);
     try {
-        const data = await userservice.post("/login", formData);
+      const data = await userservice.post("/loginreact", formData);
       if (data) {
         setUserId(data.id);
         setUserName(data.name);
         setUserEmail(data.email);
         setUserPhone(data.phone);
-        localStorage.setItem("isLoggingIn", "true");
+        console.log(userId);
         localStorage.setItem("userId", data.id);
         localStorage.setItem("userName", data.name);
         localStorage.setItem("userEmail", data.email);

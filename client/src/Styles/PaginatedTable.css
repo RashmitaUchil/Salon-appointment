@@ -3,6 +3,8 @@
     flex-direction: column;
     min-height: 400px; 
     justify-content: space-between; 
+    padding: 20px;
+
   }
   
   .table-content {
@@ -66,6 +68,7 @@
     padding: auto;
     cursor: pointer;
     margin-right: 15px;
+
   }
   
   .action-btn-del {
@@ -74,6 +77,7 @@
     border: none;
     padding: auto;
     cursor: pointer;
+
   }
   
   .tooltip
@@ -85,4 +89,29 @@
   .no-apps
   {
     margin-top: 40px;;
+  }
+/* 
+  .table-container{
+    padding-left: 4px;
+    padding-left: 4px;
+  } */
+
+  .dx-datagrid .dx-row {
+    font-size: 16px; /* Change font size */
+    color: #333; /* Text color */
+  }
+  
+  .dx-datagrid .dx-header-row {
+    background-color: #A87676; /* Header background */
+    color: white; /* Header text color */
+    font-size: 18px;
+    text-align: center;
+    justify-content: center; /* Header font size */
+  }
+  
+  .action-div
+  {
+    justify-content: center;
+    display: flex;
+    gap: 10px,
   }

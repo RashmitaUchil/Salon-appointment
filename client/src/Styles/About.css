@@ -70,8 +70,10 @@
 
 .read
 {
+    font-size: 12px;
     border-radius: 8px;
     background-color:rosybrown;
+   margin-bottom: 10px;
 }
 .main-container
 {

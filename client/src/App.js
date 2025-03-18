@@ -20,17 +20,16 @@ import { ToastContainer } from "react-toastify";
 import Dashboard from "./Pages/Dashboard";
 import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import Alldata from "./Components/Alldata";
 const queryClient = new QueryClient();
 
 function Layout() {
   useEffect(() => {
     document.body.style.overflow = "hidden"; // This will remove both scrollbars
   }, []);
-  const location = useLocation(); 
+  const location = useLocation();
   return (
     <>
-      
       {location.pathname !== "/dashboard" && <Navbar />}
 
       <ToastContainer />
@@ -43,6 +42,7 @@ function Layout() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route path="/app" element={<ShowApp />} />
+        <Route path="/alldata" element={<Alldata />} />
         <Route path="/service/:name" element={<ServicePage />} />
       </Routes>
 
