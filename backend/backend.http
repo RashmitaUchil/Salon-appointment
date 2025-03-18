@@ -2,31 +2,38 @@
 
 
 ###
-POST {{backend_HostAddress}}/user/
-Content-type: application/json
+POST {{backend_HostAddress}}/user/login
+Content-Type: application/json
+
 {
-    "email": "mamtha@gmail.com",
+    "email": "MamthaUchil@gmail.com",
     "password": "mamtha"
 }    
 
 ###
 POST {{backend_HostAddress}}/user/signup
-Content-type: application/json
+Content-Type: application/json
+
 {
-    "name":"rashmi2",
-    "email":"rashmi2@gmail.com",
-    "password":"rashmi2",
+    "name":"neha2",
+    "email":"neha2@gmail.com",
+    "password":"Neha@123",
     "phone":"8806572477"
 }
 
 ###
-GET {{backend_HostAddress}}/appointment?userId=8
+GET {{backend_HostAddress}}/appointment?userId=25
+
+
+
+###
+GET {{backend_HostAddress}}/appointment/dashboard
 ###
 POST {{backend_HostAddress}}/appointment/book
 Content-Type: application/json
 
 {
-    "userId": 8,
+    "userId": 25,
     "appointmentDate": "2026-02-12",
     "appointmentTime": "15:30:00",
     "service": "facial",
@@ -34,31 +41,28 @@ Content-Type: application/json
     "status":false
 }
 
-###
-GET {{backend_HostAddress}}/appointment/upcoming
-###
-GET {{backend_HostAddress}}/appointment/completed
-###
-GET {{backend_HostAddress}}/appointment/booked?userId=8
+
 
 ###
 DELETE {{backend_HostAddress}}/appointment?appointmentId=25
 
 ###
-PUT {{backend_HostAddress}}/user
+PUT {{backend_HostAddress}}/user/update
 Content-Type: application/json
+
 {
-    "id":6,
-    "name":"rose",
-    "email":"rose@gmail.com",
+    "id":26,
+    "name":"MamthaUchil",
+    "email":"MamthaUchil@gmail.com",
     "phone":"8793963870"
 }
 
 ###
-PUT {{backend_HostAddress}}/appointment/
+PUT {{backend_HostAddress}}/appointment/update
 Content-Type: application/json
+
 {
-    "appointmentId":26,
+    "appointmentId":100,
     "status":true
    
 }

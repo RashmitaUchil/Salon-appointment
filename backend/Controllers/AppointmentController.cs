@@ -1,8 +1,12 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
+using Azure;
 using backend.Data;
+using backend.IServices;
 using backend.Models.Dtos;
 using backend.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
@@ -11,13 +15,10 @@ namespace backend.Controllers
     [ApiController]
     public class AppointmentController : ControllerBase
     {
-        private readonly ApplicationDbContext dbContext;
-        private readonly IMapper mapper;
-
-        public AppointmentController(ApplicationDbContext dbContext, IMapper mapper)
+        private readonly IAppointmentServices appointmentServices;
+        public AppointmentController(IAppointmentServices appointmentServices)
         {
-            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext)); ;
-            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            this.appointmentServices = appointmentServices ?? throw new ArgumentNullException(nameof(appointmentServices));
         }
 
         [HttpPost("book")]
@@ -26,20 +27,8 @@ namespace backend.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var app = mapper.Map<Appointment>(request);
-
-
-            try
-            {
-                dbContext.Appointments.Add(app);
-                await dbContext.SaveChangesAsync();
-                return Ok(new { message = "Appointment booked successfully" });
-            }
-            catch (Exception ex)
-            {
-
-                return StatusCode(500, new { message = "An error occurred while adding the appointment. Please try again.", error = ex.Message });
-            }
+            var (response, statusCode) = await appointmentServices.addAppointment(request);
+            return StatusCode(statusCode, response);
         }
 
 
@@ -47,36 +36,8 @@ namespace backend.Controllers
         [HttpGet]
         public async Task<IActionResult> GetUserAppointments([FromQuery] int userId)
         {
-            try
-            {
-                var appointments = await dbContext.Appointments
-                .Where(a => a.UserId == userId)
-                .Select(a => new
-                {
-                    a.AppointmentId,
-                    a.AppointmentDate,
-                    a.AppointmentTime,
-                    a.Service,
-                    a.AdditionalNotes,
-                    a.Status,
-                    a.UserId,
-                    a.Action
-                })
-                .OrderByDescending(a => a.AppointmentDate)
-                .ThenByDescending(a => a.AppointmentTime)
-                .ToListAsync();
-
-                if (appointments == null || appointments.Count == 0)
-                {
-                    return NotFound(new { message = "No apppointments found" });
-                }
-
-                return Ok(appointments);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Failed to fetch the appointments", error = ex.Message });
-            }
+            var (response, statusCode) = await appointmentServices.getUserAppointments(userId);
+            return StatusCode(statusCode, response);
 
 
         }
@@ -84,25 +45,8 @@ namespace backend.Controllers
         [HttpDelete]
         public async Task<IActionResult> DeleteAppointment([FromQuery] int appointmentId)
         {
-            try
-            {
-                var appointment = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentId);
-
-                if (appointment == null)
-                {
-                    return NotFound(new { message = "Appointment not found" });
-                }
-
-                dbContext.Appointments.Remove(appointment);
-                await dbContext.SaveChangesAsync();
-
-                return Ok(new { message = "Appointment deleted successfully" });
-            }
-            catch (Exception ex)
-            {
-
-                return StatusCode(500, new { message = "Internal server error", error = ex.Message });
-            }
+            var (response, statusCode) = await appointmentServices.deleteAppointment(appointmentId);
+            return StatusCode(statusCode, response);
         }
 
 
@@ -111,93 +55,25 @@ namespace backend.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            try
-            {
-                var app = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == update.AppointmentId);
+            var (response, statusCode) = await appointmentServices.updateAppointment(update);
+            return StatusCode(statusCode, response);
 
-                if (app == null)
-                {
-                    return NotFound(new { message = "Appointment not found" });
-                }
-
-
-                mapper.Map(update, app);
-
-                await dbContext.SaveChangesAsync();
-
-                return Ok(new { message = "Appointment updated successfully", appointment = app });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Internal server error", error = ex.Message });
-            }
         }
 
 
         [HttpGet("dashboard")]
-        public async Task<IActionResult> GetCompletedAppointment()
+        public async Task<IActionResult> GetAllAppointments()
         {
-            try
-            {
 
-                var appointmentsWithUsers = await dbContext.Appointments
-                    .Include(appointment => appointment.User)
-                    .Select(appointment => new
-                    {
-                        appointment.AppointmentId,
-                        appointment.Service,
-                        appointment.AppointmentDate,
-                        appointment.AppointmentTime,
-                        appointment.AdditionalNotes,
-                        appointment.Status,
-                        Name = appointment.User.Name,
-                        Id = appointment.User.Id,
-                        appointment.Action
-                    })
-                    .OrderBy(a => a.AppointmentDate)
-                    .ThenBy(a => a.AppointmentTime)
-                    .ToListAsync();
-
-                if (appointmentsWithUsers == null)
-                {
-                    return NotFound(new { message = "No appointments" });
-                }
-
-                return Ok(appointmentsWithUsers);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Failed to fetch the appointments", error = ex.Message });
-            }
+            var (response, statusCode) = await appointmentServices.getAllAppointments();
+            return StatusCode(statusCode, response);
         }
 
         [HttpPut("action")]
         public async Task<IActionResult> PutAppointmentAction([FromBody] AppointmentAction appointmentAction)
         {
-            try
-            {
-                var app = await dbContext.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentAction.AppointmentId);
-
-                if (app == null)
-                {
-                    return NotFound(new { message = "Appointment not found" });
-                }
-                mapper.Map(appointmentAction, app);
-
-                await dbContext.SaveChangesAsync();
-
-                return Ok(new
-                {
-                    message = appointmentAction.Action ? "Appointment accepted!" : "Appointment rejected!",
-                    appointment = app
-                });
-
-
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Internal server error", error = ex.Message });
-            }
+            var (response, statusCode) = await appointmentServices.putAppointmentAction(appointmentAction);
+            return StatusCode(statusCode, response);
         }
 
 

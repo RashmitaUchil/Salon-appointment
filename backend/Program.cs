@@ -1,13 +1,15 @@
 using backend.Data;
 using Microsoft.EntityFrameworkCore;
 using backend.Models;
+using backend.IServices;
+using backend.Data.IRepository;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowSpecificOrigin", policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:3002")
+        policy.WithOrigins("http://localhost:3000", "http://localhost:3001", "http://localhost:3002", "http://localhost:4200")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -21,7 +23,10 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<IUserServices, UserServices>();
+builder.Services.AddScoped<IAppointmentServices, AppointmentServices>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 //builder.Services.AddHttpsRedirection(options =>
 //{
 //    options.HttpsPort = 7281;

@@ -1,11 +1,15 @@
-﻿using System.Security.Cryptography;
+﻿using System.Net;
+using System.Security.Cryptography;
 using System.Text;
 using AutoMapper;
 using backend.Data;
+using backend.Data.Migrations;
+using backend.IServices;
 using backend.Models.Dtos;
 using backend.Models.Entities;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
@@ -14,57 +18,47 @@ namespace backend.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ApplicationDbContext dbContext;
-        private readonly IMapper mapper;
+        private readonly IUserServices userServices;
 
-        public UserController(ApplicationDbContext dbContext, IMapper mapper)
+        public UserController(ApplicationDbContext dbContext, IUserServices userServices)
         {
-            this.dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
-            this.mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+
+            this.userServices = userServices ?? throw new ArgumentNullException(nameof(dbContext)); ;
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var (response, statusCode) = await userServices.Login(request);
+            return StatusCode(statusCode, response);
+        }
+
+        [HttpPost("loginreact")]
+        public async Task<IActionResult> LoginReact([FromBody] LoginRequest request)
+        {
 
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var user = await dbContext.Users.FirstOrDefaultAsync(x => x.Email == request.Email);
-            if (user == null)
-            {
-                return NotFound(new { message = "User not found" });
-            }
-            else if (!VerifyPassword(request.Password, user.Password))
-            {
-                return BadRequest(new { message = "incorrect password" });
-            }
 
-            return Ok(user);
+            var (response, statusCode) = await userServices.LoginReact(request);
+            return StatusCode(statusCode, response);
+
+
         }
+
 
         [HttpPost("signup")]
         public async Task<IActionResult> Signup([FromBody] SignupRequest request)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            if (await dbContext.Users.AnyAsync(x => x.Email == request.Email))
-            {
-                return BadRequest(new { message = "Email is already registered" });
-            }
 
-            var user = mapper.Map<User>(request);
-            user.Password = HashPassword(request.Password);
+            var (response, statusCode) = await userServices.Signup(request);
+            return StatusCode(statusCode, response);
 
-            try
-            {
-                dbContext.Users.Add(user);
-                await dbContext.SaveChangesAsync();
-                return Ok(new { message = "Account created succesfully" });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Could not create an account", error = ex.Message });
-            }
 
         }
 
@@ -73,36 +67,14 @@ namespace backend.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
-            var user = await dbContext.Users.FirstOrDefaultAsync(u => u.Id == updateUser.Id);
-            if (user == null)
-            {
-                return NotFound();
-            }
 
-            mapper.Map(updateUser, user);
-            try
-            {
-                await dbContext.SaveChangesAsync();
-                return Ok(new { message = "Changes saved"});
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, new { message = "Could not Save changes", error = ex.Message });
-            }
+            var (response, statusCode) = await userServices.UpdateUser(updateUser);
+            return StatusCode(statusCode, response);
+
         }
 
-        private string HashPassword(string password)
-        {
-            using (var sha256 = SHA256.Create())
-            {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                return Convert.ToBase64String(bytes);
-            }
-        }
 
-        private bool VerifyPassword(string enteredPassword, string storedHash)
-        {
-            return HashPassword(enteredPassword) == storedHash;
-        }
+
+
     }
 }
