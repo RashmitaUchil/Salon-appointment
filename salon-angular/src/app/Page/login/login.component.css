@@ -1,0 +1,98 @@
+/* Overall container styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    background: white;
+  }
+    /* Login card styling */
+    .login-card {
+    background-color: #F5E2D6;
+    margin-top:50px;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  /* Title styling */
+  .login-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+    color: #2c3e50;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color:indianred ;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Form styling */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  /* Input field styling */
+  .input-field {
+    padding: 6px;
+    border: 1px solid #fef2f2;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    width: 100%;
+    outline: none;
+    transition: 0.3s ease-in-out;
+  }
+  
+    /* Input field focus effect */
+    .input-field:focus {
+        border-color: #6a1b9a;
+        box-shadow: 0 0 8px rgba(106, 27, 154, 0.5);
+    }
+  
+  /* Submit button styling */
+  .submit-btn {
+    background-color: #A87676;
+      color: white;
+      padding: 5px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      border-radius: 8px;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+  }
+  
+    .submit-btn:hover {
+        background-color: #A87676;
+        opacity:0.9
+    }
+  
+  /* Signup link styling */
+  .signup-link {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 1rem;
+    color: #2c3e50;
+  }
+  
+    .signup-link .link {
+        color: #A87676;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        text-decoration: none;
+        font-weight: bold;
+    }
+  
+        .signup-link .link:hover {
+            text-decoration: underline;
+        }
+  

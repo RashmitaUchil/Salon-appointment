@@ -1,0 +1,8 @@
+<div *ngIf="service" class="service-page-container">
+    <h2>{{serviceName.charAt(0).toUpperCase() + serviceName.slice(1)}} Service</h2>
+    <img [src]="service.image" alt={{serviceName}} class="service-detail-img" />
+    <p>{{service.description}}</p>
+    <a routerLink="/book" class="service-book-btn">
+      Book Your {{serviceName}} Appointment Now!
+    </a>
+  </div>

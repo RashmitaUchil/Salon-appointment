@@ -1,0 +1,40 @@
+<div class="login-container">
+    <div class="login-card">
+      <h2 class="login-title">Login</h2>
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="login-form">
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="input-field"
+            [(ngModel)]="userObj.email"
+            (input)="onInputChange()"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            class="input-field"
+            [(ngModel)]="userObj.password"
+            (input)="onInputChange()"
+            required
+          />
+        </div>
+        <button type="submit" class="submit-btn">
+          {{ loading ? 'Logging in...' : 'Login' }}
+        </button>
+      </form>
+      <p class="signup-link">
+        Don't have an account?
+        <a routerLink="/signup" class="link"> Sign up </a>
+      </p>
+    </div>
+  </div>
+  

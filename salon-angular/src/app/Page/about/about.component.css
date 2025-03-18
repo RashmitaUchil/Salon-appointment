@@ -1,0 +1,128 @@
+.about-container {
+    width: 100%;
+    min-height: 600px; /* Adjust based on content */
+    background-image: url('/assets/img/about.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; /* Changed from absolute to keep content aligned properly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px; /* Added padding for better spacing */
+}
+
+.about-card {
+    width: 90%;
+    max-width: 1000px; /* Limits width for better readability */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: rgba(255, 254, 254, 0.85);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 15px;
+    background-color: #F5E2D6;
+    color: #B76E79;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    border: 2px solid #B76E79;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.book-btn:hover {
+    background-color: #B76E79;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.salon {
+    color: #B76E79;
+    font-family: 'Luxurious Roman', serif;
+    font-weight: bold;
+    font-size: 2rem; /* Fixed missing semicolon */
+}
+
+.salon-small {
+    color: #B76E79;
+    font-family: 'Luxurious Roman', serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.h3-custom {
+    font-family: 'Luxurious Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.heading-text {
+    font-family: 'Luxurious Roman', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+}
+
+.text-custom {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    color: #374151;
+    margin-bottom: 20px;
+}
+
+
+
+.read {
+    font-size: 12px;
+    border-radius: 8px;
+    background-color: rosybrown;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.read:hover {
+    background-color: #b76e79;
+    color: white;
+}
+
+.main-container {
+    background-color: rosybrown;
+}
+
+.service-con {
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .about-card {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .salon {
+        font-size: 1.8rem;
+    }
+
+    .salon-small {
+        font-size: 1rem;
+    }
+
+    .book-btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

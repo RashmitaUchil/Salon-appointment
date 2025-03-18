@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color:white;
+}
+
+.book {
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto; /* Increased top margin */
+    height: auto;
+    padding: 1rem; /* Increased padding */
+    background-color: #F5E2D6;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.h4-head {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #2c3e50;
+}
+.error-message {
+   
+    color:indianred ;
+    padding: 1px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem; /* Increased spacing between inputs */
+}
+
+label {
+    font-size: 0.8rem; /* Slightly bigger label font size */
+    color: #A87676;
+    padding:1px;
+    margin-top: 1px;
+}
+
+.input-book,
+select,
+textarea {
+    padding-left: 7px; /* Increased padding */
+    font-size: 0.8rem; /* Increased font size */
+    width: 100%;
+    height:30px;
+    border: 1px solid #fef2f2;
+    border-radius: 6px;
+    outline: none;
+    
+    transition: 0.3s ease-in-out;
+}
+
+    .input-book:focus,
+    select:focus,
+    textarea:focus {
+        border-color: #A87676; 
+        box-shadow: 0 0 5px rgba(168, 118, 118, 0.5);
+    }
+
+.button-app {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    padding: 5px; /* Increased button padding */
+    background-color: #A87676;
+    color: #fff;
+    border: none;
+    width: 100%;
+    margin-top:10px;
+    margin-bottom:10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition:  0.3s ease-in-out;
+}
+
+    .button-app:hover {
+        background-color: #a66e6e; /* Darker shade on hover */
+    }
+
+    .button-app:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+.text-red-500 {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    text-align: center;
+}

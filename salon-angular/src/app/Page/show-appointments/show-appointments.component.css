@@ -1,0 +1,48 @@
+
+
+
+.swal-title-small {
+    font-size: 16px !important;
+  }
+  
+  .swal-popup-small {
+    padding: 15px !important;
+  }
+  
+  .swal-confirm-small, .swal-cancel-small {
+    font-size: 14px !important;
+    padding: 6px 12px !important;
+  }
+  
+  .error-message {
+    color:#B76E79; ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 12px;
+    font-size: 2rem;
+    border-radius: 8px;
+    margin-bottom: 1px;
+    text-align: center;
+  }
+  .home-book-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 7px 10px;
+    background-color: #F5E2D6; /* Pink */
+    color: #B76E79;
+    text-decoration: none;
+    border-radius: 6px;
+    height: 20%;
+    width: 20%;
+    font-size: 60%;
+    transition: 0.3s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 2px solid #B76E79;
+    font-weight: 500;
+}
+
+.home-book-btn:hover {
+  background-color: #B76E79;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}

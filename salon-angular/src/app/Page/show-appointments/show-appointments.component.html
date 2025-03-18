@@ -1,0 +1,41 @@
+<div class="text-center" *ngIf="loading">
+  <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i> Loading...
+</div>
+<div class="error-message" *ngIf="errorMessage">
+  {{ errorMessage }}
+  <div>
+    <button
+      *ngIf="appointments.length === 0"
+      class="home-book-btn"
+      (click)="toBook()"
+    >
+      Book Appointment
+    </button>
+  </div>
+</div>
+
+<div *ngIf="appointments.length > 0">
+  <dx-tabs
+    [width]="1550"
+    class="mb-4"
+    [selectedIndex]="0"
+    (onSelectionChanged)="onTabChange($event)"
+  >
+    <dxi-item text="Booked"> </dxi-item>
+    <dxi-item text="Upcoming"> </dxi-item>
+    <dxi-item text="Rejected"> </dxi-item>
+    <dxi-item text="History"></dxi-item>
+  </dx-tabs>
+  <div *ngIf="loading; else list">
+    <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i> Loading...
+  </div>
+
+  <ng-template #list>
+    <app-paginated-table
+      [appointments]="filteredData"
+      [accept]="confirmAppointments.bind(this)"
+      [reject]="deleteAppointments.bind(this)"
+      [selectedTab]="selectedTabValue"
+    ></app-paginated-table>
+  </ng-template>
+</div>

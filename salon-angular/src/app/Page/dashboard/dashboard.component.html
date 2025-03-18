@@ -1,0 +1,28 @@
+<div>
+  <h4 class="heading">Appointments</h4>
+</div>
+<hr />
+<div class="text-center" *ngIf="loading">
+  <i class="pi pi-spin pi-spinner" style="font-size: 1rem"></i> Loading...
+</div>
+<div class="error-message" *ngIf="appointments.length === 0">
+  {{ errorMessage }}
+</div>
+<div *ngIf="appointments.length > 0">
+  <dx-tabs
+    class="mb-4"
+    [width]="1550"
+    [selectedIndex]="0"
+    (onSelectionChanged)="onTabChange($event)"
+  >
+    <dxi-item text="Booked"> </dxi-item>
+    <dxi-item text="Upcoming"> </dxi-item>
+    <dxi-item text="History"></dxi-item>
+  </dx-tabs>
+  <app-paginated-table
+    [appointments]="filteredData"
+    [accept]="acceptAppointment.bind(this)"
+    [reject]="rejectAppointment.bind(this)"
+    [selectedTab]="selectedTabValue"
+  ></app-paginated-table>
+</div>

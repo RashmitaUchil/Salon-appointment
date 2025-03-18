@@ -1,0 +1,72 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <h2 class="signup-title">Sign Up</h2>
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+    <div
+      class="error-message"
+      *ngIf="emailRef.invalid && emailRef.touched"
+      class="tooltip"
+    >
+      Invalid email format!
+    </div>
+    <form #signupForm="ngForm" (ngSubmit)="onSubmit()" class="signup-form">
+      <input
+        type="text"
+        name="name"
+        placeholder="Full Name"
+        [(ngModel)]="userObj.name"
+        class="input-field"
+        (input)="onInputChange()"
+        required
+      />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        [(ngModel)]="userObj.email"
+        class="input-field"
+        #emailRef="ngModel"
+        required
+        (input)="onInputChange()"
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        [(ngModel)]="userObj.password"
+        class="input-field"
+        (input)="onInputChange()"
+        required
+      />
+
+      <input
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        [(ngModel)]="confirmPassword"
+        (input)="onInputChange()"
+        class="input-field"
+        required
+      />
+      <input
+        type="text"
+        name="phone"
+        placeholder="Phone Number"
+        [(ngModel)]="userObj.phone"
+        (input)="onInputChange()"
+        class="input-field"
+      />
+      <button type="submit" class="submit-btn">
+        {{ loading ? "Signing up..." : "Sign Up" }}
+      </button>
+    </form>
+    <p class="login-link">
+      Already have an account?
+      <a routerLink="/login" class="link"> Log in </a>
+    </p>
+  </div>
+</div>

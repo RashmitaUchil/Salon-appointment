@@ -1,0 +1,146 @@
+
+.navbar{
+    padding:10px;
+    height: auto;
+}
+nav .container-fluid
+{
+    justify-items: center;
+}
+/* Navbar Links */
+.navbar-brand {
+    color: #B76E79;
+        font-family:Luxurious Roman, serif;
+        font-weight: bold;
+        font-size: 2rem;
+}
+    .navbar-brand:hover
+     {
+        color: #B76E79 !important;
+        text-shadow: 2px 2px 4px #B76E79;
+    }
+    .navbar-brand:visited {
+        color: #B76E79 !important;
+       
+        font-weight: bold;
+        font-size: 1.6rem
+    }
+
+.navbar-nav
+{
+    display: flex;
+     justify-content: space-between;
+     font-family:Georgia, 'Times New Roman', Times, serif;
+     align-items: center;
+    font-size: 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+     font-weight: 100;
+     
+}
+.navbar-toggler {
+    background-color: #B76E79;
+    border: none !important;
+    width: 450px;
+    height: 30px;
+}
+.navbar-toggler:hover {
+    background-color: #B76E79;
+    opacity:0.8;
+    border: none !important;
+}
+.navbar-toggler:active {
+    background-color: #B76E79;
+    opacity:0.8;
+    border: none !important;
+}
+
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    margin-bottom: 5px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+.navbar-expand-lg {
+    background-color: #F5E2D6
+}
+
+.navbar-collapse
+{
+    justify-items: center;
+}
+
+.btn-login {
+    background-color: #A87676;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    height: 45px;
+    width: 100px;
+    border:none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    
+}
+    .btn-login:hover {
+        background-color: #B5828C;
+        opacity:0.8
+    }
+.dropdown-menu {
+    background-color: #F5E2D6;
+}
+.dropdown-item
+{
+    color: black;
+}
+    .dropdown-item:hover {
+        background-color: burlywood
+    }
+
+ 
+.menu-card {
+    min-width: 250px;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    background-color: #fff
+}
+.img-user {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #B76E79 ;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1)
+}
+.nav-link {
+    color:#B5828C ;
+    font-weight: 500;
+    margin-right: 20px;
+    transition: 0.3s ease;
+   
+}
+
+    
+
+
+
+.navbar-toggler-icon {
+    background-color: #fff;
+}
+
+/* User Avatar */
+
+ .img-user:hover {
+        transform: scale(1.1);
+    }
+
+

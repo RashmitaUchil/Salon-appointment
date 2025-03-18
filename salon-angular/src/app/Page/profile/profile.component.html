@@ -1,0 +1,52 @@
+<div class="container profile mx-auto p-4">
+  <h2 class="profile-title">Profile</h2>
+  <div class="error-message" *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" htmlFor="name">
+      Name:
+    </label>
+    <input
+      class="input-book-prof"
+      id="name"
+      name="name"
+      [value]="userObj.name"
+      [disabled]="!isEditing"
+      [(ngModel)]="userObj.name"
+    />
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" htmlFor="email">
+      Email:
+    </label>
+    <input
+      class="input-book-prof"
+      id="email"
+      name="email"
+      [value]="userObj.email"
+      onChange="{handleChange}"
+      [disabled]="!isEditing"
+      [(ngModel)]="userObj.email"
+    />
+  </div>
+
+  <div class="mb-6">
+    <label class="block text-gray-700 font-bold mb-2" htmlFor="phone">
+      Phone:
+    </label>
+    <input
+      class="input-book-prof"
+      id="phone"
+      name="phone"
+      [value]="userObj.phone"
+      [disabled]="!isEditing"
+      [(ngModel)]="userObj.phone"
+    />
+  </div>
+  <br />
+  <button class="button-update" (click)="handleClick()">
+    {{ isEditing ? (isLoading ? "Updating..." : "Update") : "Edit Profile" }}
+  </button>
+</div>

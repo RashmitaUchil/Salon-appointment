@@ -1,0 +1,114 @@
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+  rel="stylesheet"
+/>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home"> Zephora </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <br />
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'home'"
+            [class.active]="router.url === '/home'"
+          >
+            HOME
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'about'"
+            [class.active]="router.url === '/about'"
+          >
+            ABOUT
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="'book'"
+            [class.active]="router.url === '/book'"
+          >
+            BOOK
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="btn btn-dropdown-toggle nav-link"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            SERVICES
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li>
+              <a class="dropdown-item" routerLink="/service/haircut">
+                Haircut
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/service/haircolor">
+                Hair Color
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/service/hairstyle">
+                Hair Styling
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/service/manicure">
+                Manicure
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/service/pedicure">
+                Pedicure
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/service/makeup"> Makeup </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div *ngIf="!userId; else userProfile">
+        <button class="btn-login" (click)="navigateToAuth()">
+          {{ router.url === "/login" ? "Signup" : "Login" }}
+        </button>
+      </div>
+      <ng-template #userProfile>
+        <div class="position-relative">
+          <button
+            class="btn p-0 border-0"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img class="img-user" src="/assets/img/user.jpg" alt="User" width="100" height="100"  />
+          </button>
+          <div class="dropdown-menu menu-card dropdown-menu-end">
+            <app-usercard></app-usercard>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</nav>

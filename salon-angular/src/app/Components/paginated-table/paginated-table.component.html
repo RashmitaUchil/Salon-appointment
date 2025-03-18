@@ -1,0 +1,89 @@
+<div class="grid-container">
+  <dx-data-grid
+    [ngClass]="'custom'"
+    id="dataGrid"
+    [dataSource]="appointments"
+    keyExpr="appointmentId"
+    [allowColumnResizing]="true"
+  >
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-search-panel [visible]="true"></dxo-search-panel>
+    <dxo-scrolling mode="standard"> </dxo-scrolling>
+    <dxi-column
+      *ngIf="router.url === '/dashboard'"
+      dataField="name"
+      alignment="center"
+      caption="Name"
+      [groupIndex]="0"
+    ></dxi-column>
+    <dxi-column
+      *ngIf="router.url === '/dashboard'"
+      dataField="email"
+      alignment="center"
+      caption="Email"
+    ></dxi-column>
+    <dxi-column
+      *ngIf="router.url === '/dashboard'"
+      dataField="phone"
+      alignment="center"
+      caption="Phone"
+    ></dxi-column>
+    <dxi-column
+      dataField="service"
+      alignment="center"
+      caption="Service"
+    ></dxi-column>
+    <dxi-column
+      dataField="date"
+      dataType="date"
+      alignment="center"
+      caption="Date"
+    ></dxi-column>
+    <dxi-column dataField="time" alignment="center" caption="Time"></dxi-column>
+    <dxi-column
+      dataField="additionalNotes"
+      alignment="center"
+      caption="Notes"
+      [calculateCellValue]="formatNotes"
+    ></dxi-column>
+
+    <dxi-column
+      *ngIf="
+        selectedTab === 'Booked' ||
+        (router.url === '/app' && selectedTab === 'Upcoming')
+      "
+      caption="Action"
+      alignment="center"
+      cellTemplate="actionTemplate"
+    >
+      <div *dxTemplate="let data of 'actionTemplate'">
+        <dx-button
+          stylingMode="contained"
+          icon="trash"
+          type="danger"
+          (onClick)="reject(data.data.appointmentId)"
+        >
+        </dx-button>
+        <dx-button
+          *ngIf="
+            (router.url === '/dashboard' && selectedTab === 'Booked') ||
+            (router.url === '/app' && selectedTab === 'Upcoming')
+          "
+          stylingMode="contained"
+          icon="todo"
+          type="success"
+          (onClick)="accept(data.data.appointmentId)"
+          class="ms-2"
+        >
+        </dx-button>
+      </div>
+    </dxi-column>
+    <dxo-editing
+      *ngIf="router.url === '/dashboard' && appointments.length > 0"
+      mode="popup"
+      [allowUpdating]="true"
+    >
+    </dxo-editing>
+    <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+  </dx-data-grid>
+</div>

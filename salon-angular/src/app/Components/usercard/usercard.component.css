@@ -1,0 +1,75 @@
+/* User Card Styling */
+.card {
+    background-color: #fef2f2; /* Soft pink background */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    width: 250px;
+    margin: 0 auto;
+}
+
+.card-img-top {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 10px auto;
+    border: 3px solid #fff; /* White border around avatar */
+    transition: transform 0.3s ease;
+}
+
+    .card-img-top:hover {
+        transform: scale(1.1); /* Slight zoom on hover */
+    }
+
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #6a0572; /* Purple color */
+    margin-bottom: 15px;
+}
+
+.card-body p {
+    color: #fef2f2;
+    font-size: 14px;
+}
+
+
+.user-img {
+    width: 50px;
+    height:50px; 
+    justify-self: center;
+    border-radius: 50%;
+    border: 2px solid #B76E79
+}
+
+.btn-opt {
+    background-color: #E1ACAC;
+    color: white;
+    border-radius: 8px ;
+    padding: 5px 12px;
+    width: 100%
+}
+    .btn-opt:hover {
+        background-color: #E1ACAC;
+        opacity:0.9
+    }
+
+
+.btn-out {
+    background-color: #A87676;
+    color: white;
+    border-radius: 8px;
+    padding: 5px 12px;
+    width: 100%;
+}
+.btn-out:hover {
+    background-color: #A87676;
+    opacity: 0.9
+}
+
+.btn-out , .btn-opt{
+    border:none;
+}

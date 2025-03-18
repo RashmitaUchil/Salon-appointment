@@ -1,0 +1,31 @@
+.dx-datagrid .dx-row {
+    font-size: 16px; 
+    color: #333; 
+  }
+
+  
+
+  ::ng-deep .dx-datagrid-rowsview .dx-row {
+    border-bottom: 1px solid #ccc; 
+}
+
+ 
+ ::ng-deep #dataGrid {
+    font-size: 14px;
+    border: 1px solid #ddd;
+    padding:5px 5px;
+    height: 387px;
+    border-radius: 8px;
+   
+  }
+  ::ng-deep .dx-row.dx-header-row {
+    background-color: #A87676; 
+    color: white;
+    font-weight: bold;
+  }
+  
+
+  .grid-container
+  {
+    padding: 0 20px;
+  }
