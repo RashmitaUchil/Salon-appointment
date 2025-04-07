@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
+    [AutoValidateAntiforgeryToken]
     [Route("[controller]")]
     [ApiController]
     public class AppointmentController : ControllerBase

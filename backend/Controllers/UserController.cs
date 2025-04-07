@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using AutoMapper;
 using backend.Data;
-using backend.Data.Migrations;
+
 using backend.IServices;
 using backend.Models.Dtos;
 using backend.Models.Entities;
@@ -14,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
+    [AutoValidateAntiforgeryToken]
     [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
