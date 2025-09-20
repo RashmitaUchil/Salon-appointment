@@ -27,7 +27,7 @@
     "@tailwindcss/postcss": "^4.0.7",
     "bootstrap": "^5.3.3",
     "devextreme": "24.2.3",
-    "devextreme-angular": "24.2.3",
+    "devextreme-angular": "24.2.9",
     "devextreme-schematics": "^1.8.0",
     "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
