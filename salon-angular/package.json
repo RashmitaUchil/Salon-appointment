@@ -26,7 +26,7 @@
     "@mui/material": "^6.4.5",
     "@tailwindcss/postcss": "^4.0.7",
     "bootstrap": "^5.3.3",
-    "devextreme": "24.2.3",
+    "devextreme": "24.2.9",
     "devextreme-angular": "24.2.3",
     "devextreme-schematics": "^1.8.0",
     "exceljs": "^4.4.0",
